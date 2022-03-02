@@ -3,98 +3,116 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <div class="card mx-4" style="background-color:#2C3333;">
-            <div class="card-body p-4" style="background-color:#2C3333;">
-              <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                <h1  style="color:#573391;">Register</h1>
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form name="form" role="form" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="!isSuccessful">
+                <h1>Register</h1>
                 <p class="text-muted">Create your account</p>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-user-circle-o fa-lg"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Firstname" autocomplete="firstname" name="firstname"  [(ngModel)]= "form.firstname"  #firstname=" ngModel" required/>
-                  </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-user-circle-o fa-lg"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Lastname" autocomplete="lastname"  name="lastname" [(ngModel)]="form.lastname" #lastname="ngModel" required/>
-                  </div>
-                <div class="input-group mb-3">
+                <div class="input-group mt-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-user-circle fa-lg"></i></span>
+                    <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" name="username" [(ngModel)]="form.username"  #username="ngModel" required minlength="3" maxlength="20"/>
-
+                  <input type="text" class="form-control" formControlName="firstname" placeholder="Firstname"
+                    autocomplete="firstname" required>
                 </div>
-                <div class="input-group mb-3">
+                <div *ngIf="form.get('firstname')!.invalid && (form.get('firstname')!.dirty || form.get('firstname')!.touched)">
+                  <small
+                    class="form-text text-danger"
+                    *ngIf="form.get('firstname')?.errors?.required"
+                  >
+                    This field is required.
+                  </small>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="lastname" placeholder="Lastname"
+                    autocomplete="lastname" required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="username" placeholder="Username"
+                    autocomplete="username" required>
+                </div>
+                <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" name="email" [(ngModel)]="form.email"  #email="ngModel" required>
+                  <input type="text" class="form-control" formControlName="email" placeholder="Email"
+                    autocomplete="email" required>
                 </div>
-                <div class="input-group mb-3">
+                <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="password" name="password" [(ngModel)]="form.password"  #password="ngModel" required>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password"
+                    autocomplete="new-password" required>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-phone icons font "></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Mobile Number" autocomplete="phonenum" name="phonenum" [(ngModel)]="form.phonenum"  #phonenum="ngModel" required>
+                <!-- <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fa fa-address-book fa-lg"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Address" autocomplete="addressline" name="addressline"  [(ngModel)]="form.addressline"  #addressline="ngModel" required>
+                  <input type="password" class="form-control" formControlName="login" placeholder="Repeat password"
+                    autocomplete="new-password" required>
+                </div> -->
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-phone icons font "></i></span>
                   </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="City" autocomplete="city" name="city" [(ngModel)]="form.city"  #city="ngModel" required>
-                  </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="State" autocomplete="state" name="state" [(ngModel)]="form.state"  #state="ngModel"  required>
-                  </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Country" autocomplete="country" name="country" [(ngModel)]="form.country"  #country="ngModel" required>
-                  </div>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"></span>
-                    </div>
-                    <input type="number" class="form-control" placeholder="Pincode" autocomplete="pincode" name="pincode" [(ngModel)]="form.pincode"  #pincode="ngModel"  required>
-                  </div>
-                          
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="icon-check icons font"></i></span>
+                  <input type="text" class="form-control" formControlName="phonenum" placeholder="Mobile Number"
+                    autocomplete="phonenum" required>
                 </div>
-                <select id="select1" name="role" class="form-control" [(ngModel)]="form.role"  #role="ngModel">
-                    <option value="0">ROLE_DOCTOR</option>
-                    <option value="1">ROLE_PATIENT</option>
-                   
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-regular fa-address-card"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="addressline" placeholder="Address"
+                    autocomplete="addressline" required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="city" placeholder="City" autocomplete="city"
+                    required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="state" placeholder="State"
+                    autocomplete="state" required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="country" placeholder="Country"
+                    autocomplete="country" required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="pincode" placeholder="Pincode"
+                    autocomplete="pincode" required>
+                </div>
+                <div class="input-group mt-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-check icons font"></i></span>
+                  </div>
+                  <select class="form-control" formControlName="role" >
+                    <option>ROLE_DOCTOR</option>
+                    <option>ROLE_PATIENT</option>
                   </select>
-                  </div>
-                <button type="button" class="btn btn-block btn-success" style="background-color:#95CD41;">Create Account</button>
-
-                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">Registration Failed! <br/>{{errorMessage}}</div>
-                <!-- <button type="button" class="btn btn-block btn-success" routerLink="/" style="background-color:#1572A1">Login</button> -->
-
+                </div>
+                <button type="submit" class="btn btn-block btn-success mt-3">Create Account</button>
               </form>
               <div class="alert alert-success" *ngIf="isSuccessful">Your registration is Successful!</div>
             </div>
-           
           </div>
         </div>
       </div>
