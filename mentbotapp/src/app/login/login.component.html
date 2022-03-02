@@ -6,6 +6,10 @@
           <div class="card-group" style="background-color:white;" >
             <div class="card p-4" style="background-color:#2C3333;">
               <div class="card-body" style="background-color:#2C3333;">
+                <h2 style="text-align:center; color:#F76E11;"><strong>Mentbot</strong></h2>
+                <!-- <p><em>Be The Change.</em></p>
+                <p><em>Share your feelings.</em></p>
+                <p><em>You are not alone.</em></p> -->
                 <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <h1 style="color:#573391;">Login</h1>
                   <p class="text-muted">Sign In to your account</p>
@@ -23,12 +27,17 @@
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <button type="button" class="btn btn-primary px-4" style="background-color:#95CD41;">Login</button>
+                      <button type="button" class="btn btn-primary px-4" style="background-color:#95CD41;width: 220%;">Login</button>
                     </div>
                    </div>
+                   <div class="row">
+                    <div class="col-6">
+                   <button type="button" class="btn btn-primary active mt-3" style="background-color:#F76E11; width: 220%;" routerLink="/register">Register Now!</button>
+                    </div>
+                  </div>
 
                    <div class="form-group">
-                       <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                       <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">
                             Login failed: {{errorMessage}}
                        </div>
                    </div>
@@ -39,17 +48,7 @@
                 </div>
               </div>
             </div>
-            <div class="card text-white py-5 d-md-down-none" style="width:44%;background-color:white;">
-              <div class="card-body text-center" style="color:#2C3333;background-color:white;">
-                <div>
-                  <h2><strong>Mentbot</strong></h2>
-                  <p><em>Be The Change.</em></p>
-                  <p><em>Share your feelings.</em></p>
-                  <p><em>You are not alone.</em></p>
-                  <button type="button" class="btn btn-primary active mt-3" style="background-color:#F76E11;" routerLink="/register">Register Now!</button>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

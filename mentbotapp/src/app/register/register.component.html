@@ -30,6 +30,14 @@
                   <input type="text" class="form-control" formControlName="lastname" placeholder="Lastname"
                     autocomplete="lastname" required>
                 </div>
+                <div *ngIf="form.get('lastname')!.invalid && (form.get('lastname')!.dirty || form.get('lastname')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('lastname')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
@@ -37,6 +45,14 @@
                   <input type="text" class="form-control" formControlName="username" placeholder="Username"
                     autocomplete="username" required>
                 </div>
+                <div *ngIf="form.get('username')!.invalid && (form.get('username')!.dirty || form.get('username')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('username')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
@@ -44,6 +60,14 @@
                   <input type="text" class="form-control" formControlName="email" placeholder="Email"
                     autocomplete="email" required>
                 </div>
+                <div *ngIf="form.get('email')!.invalid && (form.get('email')!.dirty || form.get('email')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('email')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
@@ -51,6 +75,14 @@
                   <input type="password" class="form-control" formControlName="password" placeholder="Password"
                     autocomplete="new-password" required>
                 </div>
+                <div *ngIf="form.get('password')!.invalid && (form.get('password')!.dirty || form.get('password')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('password')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <!-- <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
@@ -65,6 +97,14 @@
                   <input type="text" class="form-control" formControlName="phonenum" placeholder="Mobile Number"
                     autocomplete="phonenum" required>
                 </div>
+                <div *ngIf="form.get('phonenum')!.invalid && (form.get('phonenum')!.dirty || form.get('phonenum')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('phonenum')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-regular fa-address-card"></i></span>
@@ -72,6 +112,15 @@
                   <input type="text" class="form-control" formControlName="addressline" placeholder="Address"
                     autocomplete="addressline" required>
                 </div>
+                <div *ngIf="form.get('addressline')!.invalid && (form.get('addressline')!.dirty || form.get('addressline')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('addressline')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
+
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
@@ -79,6 +128,14 @@
                   <input type="text" class="form-control" formControlName="city" placeholder="City" autocomplete="city"
                     required>
                 </div>
+                <div *ngIf="form.get('city')!.invalid && (form.get('city')!.dirty || form.get('city')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('city')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
@@ -86,6 +143,14 @@
                   <input type="text" class="form-control" formControlName="state" placeholder="State"
                     autocomplete="state" required>
                 </div>
+                <div *ngIf="form.get('state')!.invalid && (form.get('state')!.dirty || form.get('state')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('state')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
@@ -93,6 +158,14 @@
                   <input type="text" class="form-control" formControlName="country" placeholder="Country"
                     autocomplete="country" required>
                 </div>
+                <div *ngIf="form.get('country')!.invalid && (form.get('country')!.dirty || form.get('country')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('country')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
@@ -100,6 +173,14 @@
                   <input type="text" class="form-control" formControlName="pincode" placeholder="Pincode"
                     autocomplete="pincode" required>
                 </div>
+                <div *ngIf="form.get('pincode')!.invalid && (form.get('pincode')!.dirty || form.get('pincode')!.touched)">
+                    <small
+                      class="form-text text-danger"
+                      *ngIf="form.get('pincode')?.errors?.required"
+                    >
+                      This field is required.
+                    </small>
+                  </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-check icons font"></i></span>
@@ -110,6 +191,9 @@
                   </select>
                 </div>
                 <button type="submit" class="btn btn-block btn-success mt-3">Create Account</button>
+                <div class="alert alert-warning" *ngIf="isSignUpFailed">
+                    Registration failed! <br/> {{errorMessage}}
+                </div>
               </form>
               <div class="alert alert-success" *ngIf="isSuccessful">Your registration is Successful!</div>
             </div>
