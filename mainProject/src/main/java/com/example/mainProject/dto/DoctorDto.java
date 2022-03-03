@@ -1,6 +1,7 @@
 package com.example.mainProject.dto;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ public class DoctorDto {
 private Long doctor_id;
 	
 	private String prof_statement;
-	private LocalDateTime practicing_date;
+	private Date practicing_date;
 	private UserDto user;
 	private Set<DocSpecialities> docspecialization;
     
@@ -64,11 +65,11 @@ private Long doctor_id;
 		this.prof_statement = prof_statement;
 	}
 
-	public LocalDateTime getPracticing_date() {
+	public Date getPracticing_date() {
 		return practicing_date;
 	}
 
-	public void setPracticing_date(LocalDateTime practicing_date) {
+	public void setPracticing_date(Date practicing_date) {
 		this.practicing_date = practicing_date;
 	}
 

@@ -14,19 +14,19 @@ public interface AdminService {
 	
 	//getting all user,patient,doctor info...............
 	public List<UserDto> getAllUsers();
-	public List<PatientDto> getAllPatients();
-	public List<DoctorDto> getAllDoctors();
+//	public List<PatientDto> getAllPatients();
+//	public List<DoctorDto> getAllDoctors();
 	
 	
 	//updating specific record of user,patient,doctor.......
 	public void updateUser(UserDto userdto);
-	public void updatePatient(PatientDto patientdto);
-	public void updateDoctor(DoctorDto doctordto);
-	
+//	public void updatePatient(PatientDto patientdto);
+//	public void updateDoctor(DoctorDto doctordto);
+//	
 	//deleting specific record of user,patient,doctor.......
 	public void deleteUser(Long id);
-	public void deletePatient(Long id);
-	public void deleteDoctor(Long id);
+//	public void deletePatient(Long id);
+//	public void deleteDoctor(Long id);
 	
 	
 	

@@ -1,5 +1,8 @@
 package com.example.mainProject.dto;
 
+import java.util.Set;
+
+import com.example.mainProject.models.Role;
 import com.example.mainProject.models.User;
 
 public class UserDto {
@@ -13,6 +16,33 @@ public class UserDto {
 	private String phonenum;
 	private String addressline;
 	private String city;
+	private String state;
+	private String country;
+	private Set<Role> roles;
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
 	private Integer pincode;
 	
@@ -27,6 +57,9 @@ public class UserDto {
 		this.phonenum = user.getPhonenum();
 		this.addressline = user.getAddressline();
 		this.city = user.getCity();
+		this.state=user.getState();
+		this.country=user.getCountry();
+		this.roles=user.getRoles();
 		this.pincode = user.getPincode();
 	}
 

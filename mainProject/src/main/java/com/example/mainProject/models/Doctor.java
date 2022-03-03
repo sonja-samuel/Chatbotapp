@@ -1,6 +1,7 @@
 package com.example.mainProject.models;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Doctor {
 	private Long doctor_id;
 	
 	private String prof_statement;
-	private LocalDateTime practicing_date;
+	private Date practicing_date;
 	
 	@OneToOne
 	private User user;
@@ -75,12 +76,12 @@ public class Doctor {
 	}
 
 
-	public LocalDateTime getPracticing_date() {
+	public Date getPracticing_date() {
 		return practicing_date;
 	}
 
 
-	public void setPracticing_date(LocalDateTime practicing_date) {
+	public void setPracticing_date(Date practicing_date) {
 		this.practicing_date = practicing_date;
 	}
 

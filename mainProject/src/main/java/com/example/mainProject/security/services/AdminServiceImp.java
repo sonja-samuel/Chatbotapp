@@ -39,32 +39,32 @@ public class AdminServiceImp implements AdminService {
 		return userDtos;
 	}
 
-	@Override
-	public List<PatientDto> getAllPatients() {
-		List<PatientDto> patientDtos = new ArrayList<>();
-		patientrepo.findAll().forEach(patient -> {
-			PatientDto patientdto = new PatientDto(patient);
-			patientDtos.add(patientdto);
-		});
-		
-		return patientDtos;
-	}
+//	@Override
+//	public List<PatientDto> getAllPatients() {
+//		List<PatientDto> patientDtos = new ArrayList<>();
+//		patientrepo.findAll().forEach(patient -> {
+//			PatientDto patientdto = new PatientDto(patient);
+//			patientDtos.add(patientdto);
+//		});
+//		
+//		return patientDtos;
+//	}
 
-	@Override
-	public List<DoctorDto> getAllDoctors() {
-		List<DoctorDto> doctorDtos = new ArrayList<>();
-		doctorrepo.findAll().forEach(doctor -> {
-			DoctorDto doctordto = new DoctorDto(doctor);
-			doctorDtos.add(doctordto);
-		});
-		
-		return doctorDtos;
-	}
+//	@Override
+//	public List<DoctorDto> getAllDoctors() {
+//		List<DoctorDto> doctorDtos = new ArrayList<>();
+//		doctorrepo.findAll().forEach(doctor -> {
+//			DoctorDto doctordto = new DoctorDto(doctor);
+//			doctorDtos.add(doctordto);
+//		});
+//		
+//		return doctorDtos;
+//	}
 
 	@Override
 	public void updateUser(UserDto userdto) {
 	    Long id = userdto.getId();
-		User user = new User();
+		User user = userrepo.getById(id);
 		user.setUsername(user.getUsername());
 		user.setPassword(user.getPassword());
 		user.setEmail(user.getEmail());
@@ -72,33 +72,38 @@ public class AdminServiceImp implements AdminService {
 		user.setFirstname(user.getFirstname());
 		user.setLastname(user.getLastname());
 		user.setPhonenum(user.getPhonenum());
+		user.setCity(user.getCity());
+		user.setState(user.getState());
+		user.setCountry(user.getCountry());
+		user.setRoles(user.getRoles()); 
 		user.setPincode(user.getPincode());
-     	user.setCity(user.getCity());
+     	
+     	
 		userrepo.save(user);
 		
 	}
 
-	@Override
-	public void updatePatient(PatientDto patientdto) {
-		Long id=patientdto.getId();
-		Patient patient=new Patient();
-		patient.setId(patient.getId());
-//		patient.setUser(patient.getUser());
-		patientrepo.save(patient);
-		
-	}
-
-	@Override
-	public void updateDoctor(DoctorDto doctordto) {
-		Long id=doctordto.getDoctor_id();
-		Doctor doctor=new Doctor();
-		doctor.setDoctor_id(doctor.getDoctor_id());
-		doctor.setProf_statement(doctor.getProf_statement());
-		doctor.setPracticing_date(doctor.getPracticing_date());
+//	@Override
+//	public void updatePatient(PatientDto patientdto) {
+//		Long id=patientdto.getId();
+//		Patient patient=new Patient();
+//		patient.setId(patient.getId());
+////		patient.setUser(patient.getUser());
+//		patientrepo.save(patient);
+//		
+//	}
+//
+//	@Override
+//	public void updateDoctor(DoctorDto doctordto) {
+//		Long id=doctordto.getDoctor_id();
+//		Doctor doctor=new Doctor();
+//		doctor.setDoctor_id(doctor.getDoctor_id());
+//		doctor.setProf_statement(doctor.getProf_statement());
+//		doctor.setPracticing_date(doctor.getPracticing_date());
 //		doctor.setUser(doctor.getUser());
-		doctorrepo.save(doctor);
-		
-	}
+//		doctorrepo.save(doctor);
+//		
+//	}
 
 	@Override
 	public void deleteUser(Long id) {
@@ -106,15 +111,15 @@ public class AdminServiceImp implements AdminService {
 		
 	}
 
-	@Override
-	public void deletePatient(Long id) {
-		patientrepo.deleteById(id);
-	}
-
-	@Override
-	public void deleteDoctor(Long id) {
-		doctorrepo.deleteById(id);
-		
-	}
+//	@Override
+//	public void deletePatient(Long id) {
+//		patientrepo.deleteById(id);
+//	}
+//
+//	@Override
+//	public void deleteDoctor(Long id) {
+//		doctorrepo.deleteById(id);
+//		
+//	}
 
 }
