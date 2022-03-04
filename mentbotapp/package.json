@@ -54,6 +54,7 @@
     "ngx-perfect-scrollbar": "^10.1.0",
     "rxjs": "^6.6.6",
     "simple-line-icons": "^2.5.5",
+    "socket.io-client": "^4.4.1",
     "ts-helpers": "^1.1.2",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
