@@ -35,7 +35,7 @@ public class AdminController {
 	}
 	
 	@PutMapping("/updateuser")
-	public ResponseEntity<UserDto> updateEachUser(UserDto userdto){
+	public ResponseEntity<?> updateEachUser(UserDto userdto){
 		
 		adminservice.updateUser(userdto);
 		return new ResponseEntity<>(HttpStatus.OK);
