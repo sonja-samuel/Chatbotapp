@@ -31,4 +31,10 @@ export class TokenStorageService {
       }
       return {};
   }
+  public isTokenExpired(): boolean{
+
+    return true;
+  }
+
+  
 }

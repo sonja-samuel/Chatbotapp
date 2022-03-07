@@ -29,7 +29,17 @@ export class LoginComponent implements OnInit{
     ngOnInit(): void {
         if(this.tokenStorage.getToken()){
             this.isLoggedIn=true;
-            this.roles=this.tokenStorage.getUser().roles;
+            this.roles=this.tokenStorage.getUser();
+            if(this.roles.includes("ROLE_PATIENT")){
+                    
+                this.router.navigate(['/patients']);
+            } else if(this.roles.includes("ROLE_DOCTOR")){
+                this.router.navigate(['/doctors']);
+            } else if(this.roles.includes("ROLE_ADMIN")){
+                this.router.navigate(['/admin']);
+            }
+           
+
 
         }
     }
@@ -38,11 +48,11 @@ export class LoginComponent implements OnInit{
         const password = this.loginForm.get(['password'])!.value;
         this.authService.login(username,password).subscribe(
             data => {
-                this.tokenStorage.saveToken(data.accessToken);
-                this.tokenStorage.saveUser(data);
+                this.tokenStorage.saveToken(data.token);
+                this.tokenStorage.saveUser(data.roles);
                 this.isLoginFailed=false;
                 this.isLoggedIn=true;
-                this.roles=this.tokenStorage.getUser().roles;
+                this.roles=this.tokenStorage.getUser();
                 if(this.roles.includes("ROLE_PATIENT")){
                     
                     this.router.navigate(['/patients']);
