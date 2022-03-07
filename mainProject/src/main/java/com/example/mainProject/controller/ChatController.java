@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.util.HtmlUtils;
-import org.apache.commons.lang3.StringUtils; 
+import org.apache.commons.lang3.StringUtils;
 
-import com.example.mainProject.chat.HelloMessage;
+import com.example.mainProject.chat.HiMessage;
 import com.example.mainProject.chat.Welcome;
 import com.example.mainProject.security.services.ChatService;
 
@@ -46,7 +46,7 @@ public class ChatController implements ServletContextAware  {
 	
 	@MessageMapping("/talktochatbot")
 	@SendTo("/topic/welcomes")
-	 public Welcome welcome(HelloMessage message) throws Exception{
+	 public Welcome welcome(HiMessage message) throws Exception{
 		 
 		String response = "";
 		try {

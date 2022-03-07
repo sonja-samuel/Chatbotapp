@@ -65,5 +65,9 @@ export class AuthService {
     window.sessionStorage.removeItem("auth-user");
     this.router.navigate(["/login"]);
   }
+
+  IsLoggedIn(){
+      return !!sessionStorage.getItem('auth-token');
+  }
   
 }

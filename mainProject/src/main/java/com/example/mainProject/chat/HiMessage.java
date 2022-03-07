@@ -1,6 +1,6 @@
 package com.example.mainProject.chat;
 
-public class HelloMessage {
+public class HiMessage {
  
 	private String message;
 
@@ -12,12 +12,12 @@ public class HelloMessage {
 		this.message = message;
 	}
 
-	public HelloMessage(String message) {
+	public HiMessage(String message) {
 		
 		this.message = message;
 	}
 
-	public HelloMessage() {
+	public HiMessage() {
 		
 	}
 	
