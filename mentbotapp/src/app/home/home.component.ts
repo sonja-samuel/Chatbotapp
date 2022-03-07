@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { navItems ,adminNavItems,docNavItems,patientNavItems} from '../_nav';
+import { AuthService } from '../_services/auth.service';
 
 
 
@@ -12,7 +13,7 @@ import { navItems ,adminNavItems,docNavItems,patientNavItems} from '../_nav';
 
 export class HomeComponent {
 
-    constructor(router:Router){
+    constructor(router:Router,private auth: AuthService){
         router.events
     .subscribe((event:NavigationEnd) => {
     //   console.log(event);
@@ -43,5 +44,9 @@ export class HomeComponent {
 
   toggleMinimize(e) {
     this.sidebarMinimized = e;
+  }
+
+  logout(){
+      this.auth.logout();
   }
 }
