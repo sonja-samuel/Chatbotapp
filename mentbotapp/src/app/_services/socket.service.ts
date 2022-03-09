@@ -7,7 +7,7 @@ import {io} from 'socket.io-client';
 })
 export class SocketService {
 
-  private socket = io('http://localhost:8000');
+  private socket = io('http://localhost:8080/chatsocket');
   constructor() { }
 
   sendMessage(data) {
