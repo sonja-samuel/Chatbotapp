@@ -67,7 +67,7 @@ public class ChatController implements ServletContextAware  {
 				bot.writeQuit();
 				System.exit(0);
 			} else {
-				String requestmsg = textLine;
+			String requestmsg = textLine;
 				if (MagicBooleans.trace_mode)
 					System.out.println("STATE=NA:THAT=" + ((History) chatSession.thatHistory.get(0)).get(0) + ":TOPIC=" + chatSession.predicates.get("topic"));
 				response = chatSession.multisentenceRespond(requestmsg);
@@ -80,7 +80,7 @@ public class ChatController implements ServletContextAware  {
 				response = executeDefault(response);
 
 				System.out.println("Robot : " + response);
-			  }
+	  }
 			}
 			catch(Exception ex) {
 				ex.printStackTrace();

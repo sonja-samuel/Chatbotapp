@@ -176,8 +176,8 @@
 
                         <input class="publisher-input" type="text" placeholder="Write something" id="message"
                             name="message" #message>
-                        <a class="publisher-btn text-info" type="button" (click)="sendMessage(message.value)"
-                            (click)="message.value=''">
+                        <a class="publisher-btn text-info" type="button" (click)="sendMessage(message.value)">
+                            <!-- (click)="message.value=''" -->
                             <i class="fa fa-paper-plane"></i>
                         </a>
                     </div>

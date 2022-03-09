@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 
+
+
 const AUTH_API = "http://localhost:8080/api/auth/";
 
 const httpOptions = {
@@ -66,8 +68,11 @@ export class AuthService {
     this.router.navigate(["/login"]);
   }
 
-  IsLoggedIn(){
-      return !!sessionStorage.getItem('auth-token');
-  }
+ 
+    public isLoggedIn(){
+    
+       return true;
+    }
+  
   
 }
