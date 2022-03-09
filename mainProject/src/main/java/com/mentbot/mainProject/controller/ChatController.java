@@ -56,7 +56,7 @@ public class ChatController implements ServletContextAware {
 
             if (StringUtils.isEmpty(incomingMsg))
                 incomingMsg = MagicStrings.null_input;
-            if (StringUtils.equalsIgnoreCase(incomingMsg, "q") || StringUtils.equalsIgnoreCase(incomingMsg, "wq")) {
+            if (chatMessage.getMessageType() == MessageType.DISCONNECT || chatMessage.getMessageType() == MessageType.TERMINATE) {
                 bot.writeQuit();
                 System.exit(0);
             } else {
@@ -70,7 +70,7 @@ public class ChatController implements ServletContextAware {
 
 
                 response = executeDefault(response);
-                reply = new ChatMessage(HtmlUtils.htmlEscape(response), chatMessage.getSender(), chatMessage.getRecipient());
+                reply = new ChatMessage(HtmlUtils.htmlEscape(response), chatMessage.getSender(), chatMessage.getRecipient(),chatMessage.getMessageType());
 
 
             }
