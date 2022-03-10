@@ -174,10 +174,8 @@
                         <img class="avatar avatar-xs"
                             src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
 
-                        <input class="publisher-input" type="text" placeholder="Write something" id="message"
-                            name="message" #message>
-                        <a class="publisher-btn text-info" type="button" (click)="sendMessage(message.value)"
-                            (click)="message.value=''">
+                        <input class="publisher-input" type="text"  [(ngModel)]="name" class="form-control" name="name" >
+                        <a class="publisher-btn text-info" type="button" (click)="sendMessage()">
                             <i class="fa fa-paper-plane"></i>
                         </a>
                     </div>

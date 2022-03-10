@@ -1,33 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { SocketService } from '../../_services/socket.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { WebSocketAPI } from '../../_services/WebSocketAPI';
 
 @Component({
   selector: 'app-chatbot',
   templateUrl: './chatbot.component.html',
   styleUrls: ['./chatbot.component.scss']
 })
-export class ChatbotComponent implements OnInit {
-  // title = 'Simple Chatbot';
-  messageArray = [];
-  message= '';
+export class ChatbotComponent implements OnInit,OnDestroy {
+    title = 'springboot websocket';
 
-  messageForm = this.fb.group({
-    message: ['']
-  });
-  constructor(private socketService:SocketService, private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.socketService.receivedMessage().subscribe(data=> {
-      this.messageArray.push({name:'bot', message: data.outputMessage});
-    });
-  }
-
-  sendMessage(msg:string){
-    const data = { message:msg };
-    this.socketService.sendMessage(data);
-    this.messageArray.push({name:'you', message:msg});
-    msg = '';
-  }
-
-}
+    webSocketAPI: WebSocketAPI;
+    message: any;
+    name: string;
+    ngOnInit() {
+      this.webSocketAPI = new WebSocketAPI(new ChatbotComponent());
+      this.connect();
+    }
+  
+    connect(){
+      this.webSocketAPI._connect();
+    }
+  
+    disconnect(){
+      this.webSocketAPI._disconnect();
+    }
+    sendMessage(){
+        this.webSocketAPI._send(this.name);
+      }
+    
+      handleMessage(message){
+        this.message = message;
+      }
+      ngOnDestroy(): void {
+          this.disconnect();
+      }
+    }
