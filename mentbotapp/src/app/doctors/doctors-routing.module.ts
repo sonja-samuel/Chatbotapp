@@ -32,7 +32,7 @@ const routes: Routes = [];
       },
       {
         path: 'docprofile',
-        component:AvailabilitycheckComponent ,
+        component: DocprofileComponent ,
         data: {
           title: "My Profile",
         },
