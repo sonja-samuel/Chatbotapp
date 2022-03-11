@@ -2,7 +2,7 @@ package com.mentbot.mainProject.models;
 
 
 import java.util.Date;
-
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -31,7 +31,8 @@ public class Doctor {
 	@OneToMany
 	private Set<DocSpecialities> docspecialities;
 
-	
+	@OneToMany
+	private List<Appointment> appointments;
 	
 	public Set<DocSpecialities> getDocspecialities() {
 		return docspecialities;
@@ -41,9 +42,16 @@ public class Doctor {
 	public void setDocspecialities(Set<DocSpecialities> docspecialities) {
 		this.docspecialities = docspecialities;
 	}
-
-
 	
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
 
 
 	public Long getDoctor_id() {

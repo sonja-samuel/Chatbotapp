@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +25,8 @@ public class Schedule {
 	private Date dayavailable;
 	private String reasonofavailability;
 	
+	@OneToOne
+	private Doctor doctor;
 	
 	
 	public Long getSchedule_id() {
@@ -72,6 +75,14 @@ public class Schedule {
 	
 	public void setReasonofavailability(String reasonofavailability) {
 		this.reasonofavailability = reasonofavailability;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 	
 	

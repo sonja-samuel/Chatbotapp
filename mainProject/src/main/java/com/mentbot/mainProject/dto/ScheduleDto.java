@@ -3,6 +3,9 @@ package com.mentbot.mainProject.dto;
 import java.time.LocalTime;
 import java.util.Date;
 
+import javax.persistence.OneToOne;
+
+import com.mentbot.mainProject.models.Doctor;
 import com.mentbot.mainProject.models.Schedule;
 
 public class ScheduleDto {
@@ -11,6 +14,12 @@ private Long schedule_id;
 	
 	private LocalTime starttime;
 	private LocalTime endtime;
+	private Date dayavailable;
+	private String reasonofavailability;
+
+	@OneToOne
+	private Doctor doctor;
+	
 	
 	private boolean isavailable;
 	public ScheduleDto(Schedule slot) {
@@ -22,8 +31,7 @@ private Long schedule_id;
 		this.dayavailable = slot.getDayavailable();
 		this.reasonofavailability = slot.getReasonofavailability();
 	}
-	private Date dayavailable;
-	private String reasonofavailability;
+	
 	public Long getSchedule_id() {
 		return schedule_id;
 	}
