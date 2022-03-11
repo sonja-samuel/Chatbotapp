@@ -1,8 +1,8 @@
 package com.mentbot.mainProject.models;
 
-import java.time.LocalDateTime;
+
 import java.util.Date;
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -41,9 +41,6 @@ public class Doctor {
 	public void setDocspecialities(Set<DocSpecialities> docspecialities) {
 		this.docspecialities = docspecialities;
 	}
-
-
-	
 
 
 	public Long getDoctor_id() {
