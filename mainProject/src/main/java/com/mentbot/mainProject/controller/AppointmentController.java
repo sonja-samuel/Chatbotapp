@@ -24,11 +24,11 @@ public class AppointmentController {
 	@Autowired
 	AppointmentService appointmentService;
 	
-	@PostMapping("/addAppointment")
-	public ResponseEntity<?> addAppointment(@RequestBody AppointmentDto appointmentDto){
-		
-		appointmentService.addAppointment(appointmentDto);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+//	@PostMapping("/addAppointment")
+//	public ResponseEntity<?> addAppointment(@RequestBody AppointmentDto appointmentDto){
+//		
+//		appointmentService.addAppointment(appointmentDto);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//	}
 
 }

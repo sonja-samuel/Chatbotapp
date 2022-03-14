@@ -23,24 +23,24 @@ import com.mentbot.mainProject.security.services.DoctorService;
 @PreAuthorize("hasRole('ROLE_DOCTOR')")
 @RequestMapping("/doctors")
 public class DoctorController {
-	
-	@Autowired
-	DoctorService doctorservice;
-	
-	@Autowired
-	ScheduleService 
-	
-	@PostMapping("/addDetails")
-	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
-		
-		doctorservice.addDetails(doctordto);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
 
-	@GetMapping("/getAvailableSlots")
-	public ResponseEntity<List<ScheduleDto>> getAvaialableSlots(){
-		
-			
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+//	@Autowired
+//	DoctorService doctorservice;
+////	
+////	@Autowired
+////	ScheduleService 
+//	
+//	@PostMapping("/addDetails")
+//	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
+//		
+//		doctorservice.addDetails(doctordto);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//	}
+//
+//	@GetMapping("/getAvailableSlots")
+//	public ResponseEntity<List<ScheduleDto>> getAvaialableSlots(){
+//		
+//			
+//		return new ResponseEntity<>(HttpStatus.OK);
+//	}
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @PreAuthorize("hasRole('ROLE_PATIENT')")
 @RequestMapping("/patient")
 public class PatientController {
+	
+	
 	@GetMapping("/profile")
 	public void chatbot() {
 		

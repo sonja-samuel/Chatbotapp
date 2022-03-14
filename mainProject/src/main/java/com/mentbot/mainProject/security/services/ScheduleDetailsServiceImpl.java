@@ -23,16 +23,16 @@ public class ScheduleDetailsServiceImpl implements ScheduleService{
 	@Autowired
 	ScheduleRepo scheduleRepo;
 	
- @Override
-	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId ) {
-		List<ScheduleDto> scheduleDtos = new ArrayList<>();
-//		scheduleRepo.findAllById(doctorId).forEach(schedules -> {
-//			ScheduleDto sdto = new ScheduleDto(schedules);
-//			scheduleDtos.add(sdto);
-//		});
-		
-		return scheduleDtos;
-	}
+// @Override
+//	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId ) {
+//		List<ScheduleDto> scheduleDtos = new ArrayList<>();
+////		scheduleRepo.findAllById(doctorId).forEach(schedules -> {
+////			ScheduleDto sdto = new ScheduleDto(schedules);
+////			scheduleDtos.add(sdto);
+////		});
+//		
+//		return scheduleDtos;
+//	}
 
 	
 

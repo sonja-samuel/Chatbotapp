@@ -7,7 +7,7 @@ import com.mentbot.mainProject.dto.ScheduleDto;
 
 public interface ScheduleService {
 	
-	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId);
+//	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId);
 	
 	
 

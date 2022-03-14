@@ -17,11 +17,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 	
 
 
-	@Override
-	public void addAppointment(AppointmentDto appointmentDto) {
-		
-		
-	}
+//	@Override
+//	public void addAppointment(AppointmentDto appointmentDto) {
+//		
+//		
+//	}
 
 	
 }
