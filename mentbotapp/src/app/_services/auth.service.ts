@@ -66,8 +66,8 @@ export class AuthService {
     this.router.navigate(["/login"]);
   }
 
-  IsLoggedIn(){
-      return !!sessionStorage.getItem('auth-token');
+  isLoggedIn(){
+     return true;
   }
   
 }
