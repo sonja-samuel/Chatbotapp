@@ -69,10 +69,9 @@ export class AuthService {
   }
 
  
-    public isLoggedIn(){
-    
-       return true;
-    }
+  IsLoggedIn(){
+    return !!sessionStorage.getItem('auth-token');
+}
   
   
 }
