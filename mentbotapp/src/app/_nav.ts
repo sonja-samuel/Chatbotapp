@@ -43,6 +43,11 @@ export const docNavItems: INavData[] = [
             name: 'View Profile',
             url: 'doctors/docprofile',
             icon: 'icon-user'
+          },
+          {
+            name: 'Add Speciality',
+            url: 'doctors/docspeciality',
+            icon: 'icon-pencil'
           }
      
   

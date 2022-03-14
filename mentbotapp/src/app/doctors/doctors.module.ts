@@ -6,6 +6,7 @@ import { DoctorsDashboardComponent } from './doctors-dashboard/doctors-dashboard
 import { AdddetailComponent } from './adddetail/adddetail.component';
 import { AvailabilitycheckComponent } from './availabilitycheck/availabilitycheck.component';
 import { DocprofileComponent } from './docprofile/docprofile.component';
+import { AddspecialityComponent } from './addspeciality/addspeciality.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DocprofileComponent } from './docprofile/docprofile.component';
     DoctorsDashboardComponent,
     AdddetailComponent,
     AvailabilitycheckComponent,
-    DocprofileComponent
+    DocprofileComponent,
+    AddspecialityComponent
   ],
   imports: [
     CommonModule,
