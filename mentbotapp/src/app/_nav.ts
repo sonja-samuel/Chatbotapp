@@ -61,6 +61,12 @@ export const patientNavItems: INavData[] = [
           
 },
           {
+            name: 'Add Details',
+            url: 'patients/adddetails',
+            icon: 'icon-pencil'
+          },
+
+          {
             name: 'Add Appointment',
             url: 'patients/addappointment',
             icon: 'icon-check'

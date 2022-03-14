@@ -7,6 +7,7 @@ import { PatientprofileComponent } from './patientprofile/patientprofile.compone
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { AddappointmentComponent } from './addappointment/addappointment.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddDetailsComponent } from './add-details/add-details.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
     PatientsDashboardComponent,
     PatientprofileComponent,
     ChatbotComponent,
-    AddappointmentComponent
+    AddappointmentComponent,
+    AddDetailsComponent
   ],
   imports: [
     CommonModule,
