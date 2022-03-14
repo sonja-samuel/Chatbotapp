@@ -25,7 +25,9 @@ export class ChatbotComponent implements OnInit,OnDestroy {
     disconnect(){
       this.webSocketAPI._disconnect();
     }
-   
+    sendMessage(message){
+        this.webSocketAPI._send(message);
+      }
     
       handleMessage(message){
         this.message = message;
@@ -34,7 +36,5 @@ export class ChatbotComponent implements OnInit,OnDestroy {
           this.disconnect();
       }
 
-      sendMessage(message){
-        this.webSocketAPI._send(message);
-      }
+     
     }
