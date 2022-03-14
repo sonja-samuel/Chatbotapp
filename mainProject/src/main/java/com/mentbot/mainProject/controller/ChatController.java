@@ -27,7 +27,7 @@ import com.mentbot.mainProject.security.services.ChatService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@PreAuthorize("hasRole('ROLE_PATIENT')")
+//@PreAuthorize("hasRole('ROLE_PATIENT')")
 
 public class ChatController implements ServletContextAware {
 

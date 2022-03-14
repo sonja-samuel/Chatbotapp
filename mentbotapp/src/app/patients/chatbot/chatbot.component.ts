@@ -11,7 +11,7 @@ export class ChatbotComponent implements OnInit,OnDestroy {
 
     webSocketAPI: WebSocketAPI;
     message: any;
-    messageArray:any;
+    messageArray=[];
     name: string;
     ngOnInit() {
       this.webSocketAPI = new WebSocketAPI(new ChatbotComponent());
@@ -30,8 +30,11 @@ export class ChatbotComponent implements OnInit,OnDestroy {
       }
     
       handleMessage(message){
-        this.message = message;
+          console.log("received from:" ,message);
+          
+        // this.message = message;
       }
+
       ngOnDestroy(): void {
           this.disconnect();
       }
