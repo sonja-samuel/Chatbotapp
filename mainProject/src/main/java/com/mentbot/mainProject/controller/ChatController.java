@@ -20,7 +20,8 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.util.HtmlUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import com.mentbot.mainProject.chat.HiMessage;
+//import com.mentbot.mainProject.chat.ChatMessage;
+//import com.mentbot.mainProject.chat.HiMessage;
 import com.mentbot.mainProject.chat.Welcome;
 import com.mentbot.mainProject.security.services.ChatService;
 
@@ -46,7 +47,7 @@ public class ChatController implements ServletContextAware  {
 	
 	@MessageMapping("/talktochatbot")
 	@SendTo("/topic/welcomes")
-	 public Welcome welcome(HiMessage message) throws Exception{
+	 public Welcome welcome(Welcome message) throws Exception{
 		 
 		String response = "";
 		try {
@@ -56,7 +57,7 @@ public class ChatController implements ServletContextAware  {
 		         InitFlag = false;
 			
 			}
-			String textLine = message.getMessage();
+			String textLine = message.getContent();
 
 			System.out.println("Human : " + textLine);
 			if ((textLine == null) || (textLine.length() < 1))
