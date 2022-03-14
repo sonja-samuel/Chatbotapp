@@ -186,11 +186,11 @@
                     <span class="input-group-text"><i class="icon-check icons font"></i></span>
                   </div>
                   <select  class="form-control" formControlName="role" >
-                    <option value="0">ROLE_DOCTOR</option>
-                    <option value="1">ROLE_PATIENT</option>
+                    <option value="ROLE_DOCTOR">ROLE_DOCTOR</option>
+                    <option value="ROLE_PATIENT">ROLE_PATIENT</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-block btn-success mt-3" >Create Account</button>
+                <button type="submit" class="btn btn-block btn-success mt-3" [disabled]="!form.valid">Create Account</button>
                 <div class="alert alert-warning" *ngIf="isSignUpFailed">
                     Registration failed! <br/> {{errorMessage}}
                 </div>

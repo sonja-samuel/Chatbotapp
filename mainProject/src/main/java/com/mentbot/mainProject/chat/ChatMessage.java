@@ -3,9 +3,7 @@ package com.mentbot.mainProject.chat;
 import com.mentbot.mainProject.constants.MessageType;
 import lombok.*;
 
-@Builder
 
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class ChatMessage {
  
 	private String message;
