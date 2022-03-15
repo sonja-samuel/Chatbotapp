@@ -49,7 +49,7 @@ public class ChatController implements ServletContextAware {
         try {
             if (InitFlag == true) {
 
-                chatservice.initiateBot();
+                chatSession = chatservice.initiateBot();
                 InitFlag = false;
             }
             String incomingMsg = chatMessage.getMessage();
