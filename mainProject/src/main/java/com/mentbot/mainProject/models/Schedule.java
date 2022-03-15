@@ -23,7 +23,7 @@ public class Schedule {
 	
 	private boolean isavailable;
 	private Date dayavailable;
-	private String reasonofavailability;
+	private String reasonofunavailability;
 	
 	@OneToOne
 	private Doctor doctor;
@@ -69,12 +69,12 @@ public class Schedule {
 		this.dayavailable = dayavailable;
 	}
 	
-	public String getReasonofavailability() {
-		return reasonofavailability;
+	public String getReasonofunavailability() {
+		return reasonofunavailability;
 	}
 	
-	public void setReasonofavailability(String reasonofavailability) {
-		this.reasonofavailability = reasonofavailability;
+	public void setReasonofavailability(String reasonofunavailability) {
+		this.reasonofunavailability = reasonofunavailability;
 	}
 
 	public Doctor getDoctor() {

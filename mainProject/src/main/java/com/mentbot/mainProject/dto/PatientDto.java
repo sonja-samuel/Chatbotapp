@@ -9,10 +9,32 @@ public class PatientDto {
 	
     private long patient_id;
     private UserDto user;
+    private String gender;
+	private String bloodgroup;
+	public long getPatient_id() {
+		return patient_id;
+	}
+	public void setPatient_id(long patient_id) {
+		this.patient_id = patient_id;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getBloodgroup() {
+		return bloodgroup;
+	}
+	public void setBloodgroup(String bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
 	public PatientDto(Patient patient) {
 		
 		this.patient_id = patient.getId();
 		this.user = new UserDto(patient.getUser());
+		this.gender=patient.getGender();
+		this.bloodgroup=patient.getBloodgroup();
 	}
 	public long getId() {
 		return patient_id;

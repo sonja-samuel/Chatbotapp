@@ -15,21 +15,21 @@ private Long schedule_id;
 	private LocalTime starttime;
 	private LocalTime endtime;
 	private Date dayavailable;
-	private String reasonofavailability;
+	private String reasonofunavailability;
 
 	@OneToOne
 	private Doctor doctor;
 	
 	
 	private boolean isavailable;
-	public ScheduleDto(Schedule slot) {
+	public ScheduleDto(Schedule schedule) {
 	
-		this.schedule_id = slot.getSchedule_id();
-		this.starttime = slot.getStarttime();
-		this.endtime = slot.getEndtime();
-		this.isavailable = slot.isIsavailable();
-		this.dayavailable = slot.getDayavailable();
-		this.reasonofavailability = slot.getReasonofavailability();
+		this.schedule_id = schedule.getSchedule_id();
+		this.starttime = schedule.getStarttime();
+		this.endtime = schedule.getEndtime();
+		this.isavailable = schedule.isIsavailable();
+		this.dayavailable = schedule.getDayavailable();
+		this.reasonofunavailability = schedule.getReasonofunavailability();
 	}
 	
 	public Long getSchedule_id() {
@@ -62,11 +62,11 @@ private Long schedule_id;
 	public void setDayavailable(Date dayavailable) {
 		this.dayavailable = dayavailable;
 	}
-	public String getReasonofavailability() {
-		return reasonofavailability;
+	public String getReasonofunavailability() {
+		return reasonofunavailability;
 	}
-	public void setReasonofavailability(String reasonofavailability) {
-		this.reasonofavailability = reasonofavailability;
+	public void setReasonofunavailability(String reasonofavailability) {
+		this.reasonofunavailability = reasonofunavailability;
 	}
 
 }

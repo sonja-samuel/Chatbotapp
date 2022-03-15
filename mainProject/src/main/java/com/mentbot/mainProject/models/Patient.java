@@ -17,12 +17,32 @@ public class Patient {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long patient_id;
 	
+	private String gender;
+	private String bloodgroup;
 	@OneToOne
 	private User user;
 	
 	@OneToMany
 	private List<Appointment> appointments;
 
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getBloodgroup() {
+		return bloodgroup;
+	}
+
+	public void setBloodgroup(String bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
+
+	
 
 	public long getPatient_id() {
 		return patient_id;
