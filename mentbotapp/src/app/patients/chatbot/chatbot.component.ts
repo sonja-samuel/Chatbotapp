@@ -10,7 +10,7 @@ export class ChatbotComponent implements OnInit,OnDestroy {
     title = 'springboot websocket';
 
     webSocketAPI: WebSocketAPI;
-    message="";
+    message: any;
     messageArray=[];
     name: string;
     ngOnInit() {
@@ -26,9 +26,10 @@ export class ChatbotComponent implements OnInit,OnDestroy {
     disconnect(){
       this.webSocketAPI._disconnect();
     }
-    sendMessage(){
-        console.log(this.message);
-        this.webSocketAPI._send(this.message);
+    sendMessage(message){
+       let data = {};
+       data['message'] = message;
+        this.webSocketAPI._send(data);
       }
     
       handleMessage(message){
