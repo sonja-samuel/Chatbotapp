@@ -30,10 +30,14 @@ export class ChatbotComponent implements OnInit,OnDestroy {
        let data = {};
        data['message'] = message;
         this.webSocketAPI._send(data);
+        this.messageArray.push({name:'you',message:message})
       }
     
       handleMessage(message){
-          console.log("received from:" ,message);
+        console.log("received from:" ,message);
+          this.messageArray.push({name:'bot',message:message})
+
+          
           
         // this.message = message;
       }

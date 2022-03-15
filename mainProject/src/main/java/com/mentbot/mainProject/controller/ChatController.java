@@ -43,7 +43,7 @@ public class ChatController implements ServletContextAware {
 
     @MessageMapping("/talktochatbot")
     @SendTo("/topic/client")
-    public ChatMessage welcome(@Payload ChatMessage chatMessage) throws Exception {
+    public String welcome(@Payload ChatMessage chatMessage) throws Exception {
         ChatMessage reply = null;
         String response = "";
         try {
@@ -78,7 +78,7 @@ public class ChatController implements ServletContextAware {
             ex.printStackTrace();
         }
         Thread.sleep(1000);
-        return reply;
+        return reply.getMessage();
     }
 
     private String executeDefault(String response) {
