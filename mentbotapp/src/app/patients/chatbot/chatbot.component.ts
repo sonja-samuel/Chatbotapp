@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WebSocketAPI } from '../../_services/WebSocketAPI';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-chatbot',
@@ -29,16 +30,16 @@ export class ChatbotComponent implements OnInit,OnDestroy {
     sendMessage(message){
        let data = {};
        data['message'] = message;
-       this.messageArray.push({name:'you',message:message})
+       this.messageArray.push({name:"you",message:message})
         this.webSocketAPI._send(data);
         
       }
     
       handleMessage(message){
         console.log("received from:" ,message);
-          this.messageArray.push({name:'bot',message:message})
+          this.messageArray.push({name:"bot",message:message})
 
-          console.error(this.messageArray);
+        //   console.error(this.messageArray);
           
         // this.message = message;
       }
