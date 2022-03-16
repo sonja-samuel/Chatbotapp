@@ -15,8 +15,7 @@ private Long schedule_id;
 	private LocalTime starttime;
 	private LocalTime endtime;
 	private Date dayavailable;
-	private String reasonofunavailability;
-
+	
 	@OneToOne
 	private Doctor doctor;
 	
@@ -27,9 +26,8 @@ private Long schedule_id;
 		this.schedule_id = schedule.getSchedule_id();
 		this.starttime = schedule.getStarttime();
 		this.endtime = schedule.getEndtime();
-		this.isavailable = schedule.isIsavailable();
 		this.dayavailable = schedule.getDayavailable();
-		this.reasonofunavailability = schedule.getReasonofunavailability();
+		
 	}
 	
 	public Long getSchedule_id() {
@@ -62,11 +60,14 @@ private Long schedule_id;
 	public void setDayavailable(Date dayavailable) {
 		this.dayavailable = dayavailable;
 	}
-	public String getReasonofunavailability() {
-		return reasonofunavailability;
+
+	public Doctor getDoctor() {
+		return doctor;
 	}
-	public void setReasonofunavailability(String reasonofavailability) {
-		this.reasonofunavailability = reasonofunavailability;
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
+	
 
 }

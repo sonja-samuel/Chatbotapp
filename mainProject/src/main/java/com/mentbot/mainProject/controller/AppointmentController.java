@@ -17,7 +17,7 @@ import com.mentbot.mainProject.security.services.DoctorService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@PreAuthorize("hasRole('ROLE_DOCTOR')")
+@PreAuthorize("hasRole('ROLE_PATIENT')")
 @RequestMapping("/appointment")
 public class AppointmentController {
 	

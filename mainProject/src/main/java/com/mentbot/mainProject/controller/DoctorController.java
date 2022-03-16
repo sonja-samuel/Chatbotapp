@@ -18,6 +18,7 @@ import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
 import com.mentbot.mainProject.security.services.DoctorService;
+import com.mentbot.mainProject.security.services.ScheduleService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -28,8 +29,8 @@ public class DoctorController {
 	@Autowired
 	DoctorService doctorservice;
 ////	
-////	@Autowired
-////	ScheduleService 
+	@Autowired
+    ScheduleService scheduleservice;
 //	
 //	@PostMapping("/addDetails")
 //	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
@@ -45,9 +46,16 @@ public class DoctorController {
 //		return new ResponseEntity<>(HttpStatus.OK);
 //	}
 	@PostMapping("/addSpecialities")
-	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docspecdto){
+	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
+	
+    doctorservice.addSpecialities(docSpecDto);
+	return new ResponseEntity<>(HttpStatus.OK);
+
+	}
+	@PostMapping("/addSchedule")
+	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto){
 //		
-    doctorservice.addSpecialities(docspecdto);
+	scheduleservice.addSchedules(scheduleDto);
 	return new ResponseEntity<>(HttpStatus.OK);
 //	}
 	}

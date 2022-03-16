@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
+import com.mentbot.mainProject.dto.ScheduleDto;
 import com.mentbot.mainProject.models.DocSpecialities;
 import com.mentbot.mainProject.models.Doctor;
 import com.mentbot.mainProject.models.Specialization;
@@ -23,6 +24,8 @@ public class DoctorServiceImpl implements DoctorService {
 	
 	@Autowired
 	DocSpecialitiesRepo docspecrepo;
+	
+	
 	
 
 	@Override
@@ -47,6 +50,9 @@ public class DoctorServiceImpl implements DoctorService {
 		docspecrepo.save(docspec);
 		
 	}
+
+
+	
 
 	
 }
