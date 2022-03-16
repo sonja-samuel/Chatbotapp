@@ -7,9 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -29,6 +31,33 @@ public class Appointment {
 	private AppointmentStatus status;
 	
     private LocalDateTime appointment_takentime;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="doctor_id")
+	
+    private Doctor doctor;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+   	@JoinColumn(name="patient_id")
+    private Patient patient;
+
+	
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
 
 	public Long getAppointment_id() {
 		return appointment_id;

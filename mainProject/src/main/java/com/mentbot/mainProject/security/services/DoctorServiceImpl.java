@@ -44,7 +44,7 @@ public class DoctorServiceImpl implements DoctorService {
 		Specialization spec= specrepo.getById(docspecdto.getSpecId());
 		docspec.setDoctor(doctor);
 		docspec.setSpecialization(spec);
-		 docspecrepo.save(docspec);
+		docspecrepo.save(docspec);
 		
 	}
 

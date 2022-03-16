@@ -5,6 +5,6 @@ import com.mentbot.mainProject.dto.DoctorDto;
 
 public interface AppointmentService {
 	
-//	public void addAppointment(AppointmentDto appointmentDto);
+	public void addAppointment(AppointmentDto appointmentDto);
 	
 }

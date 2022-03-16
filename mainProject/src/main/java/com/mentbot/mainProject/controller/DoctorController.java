@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mentbot.mainProject.dto.AppointmentDto;
+import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
 import com.mentbot.mainProject.security.services.DoctorService;
@@ -24,8 +25,8 @@ import com.mentbot.mainProject.security.services.DoctorService;
 @RequestMapping("/doctors")
 public class DoctorController {
 
-//	@Autowired
-//	DoctorService doctorservice;
+	@Autowired
+	DoctorService doctorservice;
 ////	
 ////	@Autowired
 ////	ScheduleService 
@@ -43,4 +44,11 @@ public class DoctorController {
 //			
 //		return new ResponseEntity<>(HttpStatus.OK);
 //	}
+	@PostMapping("/addSpecialities")
+	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docspecdto){
+//		
+    doctorservice.addSpecialities(docspecdto);
+	return new ResponseEntity<>(HttpStatus.OK);
+//	}
+	}
 }
