@@ -11,6 +11,8 @@ import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { authInterceptorProviders} from './_helpers/auth.interceptor';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -36,6 +38,8 @@ import {
   AppHeaderModule,
   AppFooterModule,
   AppSidebarModule,
+  
+ 
 } from '@coreui/angular';
 
 // Import routing module
@@ -65,6 +69,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxMaterialTimepickerModule,
   ],
   declarations: [
     AppComponent,

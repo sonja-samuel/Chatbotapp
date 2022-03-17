@@ -23,11 +23,15 @@
                     <option value="Tuesday">Tuesday</option>
                     <!-- <option [ngValue]="60">60 days</option> -->
                   </select></td>
-                <td><select class="form-control" style="width: auto" name="starttime">
+                <td>
+                    <!-- <select class="form-control" style="width: auto" name="starttime">
                     <option value="9.00">9.00 </option>
                     <option value="10.00">10.00</option>
                    
-                  </select></td>
+                  </select> -->
+                  <input [ngxTimepicker]="picker">
+<ngx-material-timepicker #picker></ngx-material-timepicker>
+                </td>
                 <td><select class="form-control" style="width: auto" name="endtime">
                     <option value="15">15 days</option>
                     <option value="30">30 days</option>

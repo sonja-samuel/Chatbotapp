@@ -7,6 +7,7 @@ import { AdddetailComponent } from './adddetail/adddetail.component';
 import { AvailabilitycheckComponent } from './availabilitycheck/availabilitycheck.component';
 import { DocprofileComponent } from './docprofile/docprofile.component';
 import { AddspecialityComponent } from './addspeciality/addspeciality.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AddspecialityComponent } from './addspeciality/addspeciality.component'
   ],
   imports: [
     CommonModule,
-    DoctorsRoutingModule
+    DoctorsRoutingModule,
+    NgxMaterialTimepickerModule,
   ]
 })
 export class DoctorsModule { }

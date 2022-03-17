@@ -52,6 +52,8 @@
     "font-awesome": "^4.7.0",
     "ng2-charts": "^2.4.2",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-mat-timepicker": "^13.0.0",
+    "ngx-material-timepicker": "^5.5.3",
     "ngx-perfect-scrollbar": "^10.1.0",
     "rxjs": "^6.6.6",
     "simple-line-icons": "^2.5.5",
