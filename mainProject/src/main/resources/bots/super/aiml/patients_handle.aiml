@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+<category><pattern>I am feeling depressed</pattern>
+<template>You need to first calm down.</template>
+</category>
+
+
+<category><pattern>I need help</pattern>
+<template><random>
+<li>Please explain what you are feeling right now.</li>
+<li>Share  your problem.</li>
+</random></template>
+</category>
+<category>
+<pattern>I am having anixety or I am feeling anixous</pattern>
+<template>Dont worry just be calm ,take breath in breath out.</template>
+</category>
+
+<category><pattern>I am having high tension</pattern>
+<template>Cool down let your mind be cleared</template>
+</category>
+<category><pattern>I am going through emotional breakdown</pattern>
+<template>Dont worry,if u feel serious do take appointment with the concerned doctor.</template>
+</category>
+<category><pattern>I feel like killing myself</pattern>
+<template>Dont think like that. Please share your problem to me.</template>
+</category>
+<category><pattern>I feel nervous</pattern>
+<template><random>
+<li>Dont be nervous</li>
+<li>You can do please have faith in yourself.</li>
+<li>Think about the good moments and be thankful of what you have.</li>
+</random></template>
+</category>
+<category><pattern>I am feeling lonely</pattern>
+<template>Dont be I am here for you.</template>
+</category>
+<category><pattern>I cant control myself</pattern>
+<template><random>
+<li>Then please have a consultation with concerned doctor.</li>
+<li>Dont be if its hard please make a booking with concerned doctor</li>
+<li>If you can't control please share it with a therapist</li>
+<li>If you can't control please approach a doctor.</li>
+</random></template>
+</category>
+<category><pattern>I am feeling down and bit low</pattern>
+<template>Oh dont be just trust yourself you are all okay.</template>
+</category>
+<category><pattern>Why am I like this</pattern>
+<template>You dont need to judge yourself with others word.</template>
+</category>
+<category><pattern>I can't come out of this situation</pattern>
+<template>As a robot, I can only asist you just dont think you can't you can.</template>
+</category>
+<category><pattern>My body is feeling down</pattern>
+<template>Dont feel like that you are strong.</template>
+</category>
+<category><pattern>I am sick I feel so</pattern>
+<template>Then please consult a doctor.</template>
+</category>
+<category><pattern>I dont feel alive</pattern>
+<template><random>
+<li>You are alive dear.</li>
+<li>Live in your way , don't feel bad.</li>
+<li>Chill , look around yourself</li>
+</random></template>
+</category>
+<category><pattern>My mind is not in my hand</pattern>
+<template>Dont worry just have a recap of what your true courage.</template>
+</category>
+<category><pattern>I am feeling to die or I feel dead</pattern>
+<template><random>
+<li>Think of what you can achieve in your life.</li>
+<li>Dear be strong and do your work. You will succeed.</li>
+<li>Don't ever think like that, you are not alone.</li>
+</random></template>
+</category>
+<category><pattern>I feel suicide or suicidal thoughts</pattern>
+<template><random><li>How stupid are you.This is what you want from your life.</li>
+<li>No dear just stop thinking bad of yourself.</li>
+<li>Share your problem get relieved from all toughts you are having right now.</li>
+</random></template>
+</category>
+<category><pattern>I feel like mental stress</pattern>
+<template>Dont take things in your mind.</template>
+</category>
+<category><pattern>I am having some concerns regarding my health</pattern>
+<template>I won't judge you. Please have a consultation with concerned doctor.</template>
+</category>
+<category><pattern>I am worried</pattern>
+<template>Dont be worried, share what you are facing.</template>
+</category>
+<category><pattern>I am in great discomfrot</pattern>
+<template><random>
+<li>Don't feel discomfrot.</li>
+<li>Just make yourself comfortable.</li>
+<li>Leave this thoughts away, start fresh</li>
+</random></template>
+</category>
+<category><pattern>I am emotionally down</pattern>
+<template>Dont be foolish or cry for something that is not yours,have a faith in you.Better is coming</template>
+</category>
+<category><pattern>Now I feel better</pattern>
+<template>Thats great, be happy</template>
+</category>
+<category><pattern>I am feeling anixous</pattern>
+<template>Don't be anixous just be calm, everything is going to be alright.</template>
+</category>
+<category><pattern>I am wondering how bad or dirty I am.</pattern>
+<template>Why thinking like that, you are cool and fresh.</template>
+</category>
+<category><pattern>I feel bit scared.</pattern>
+<template><random>
+<li>Scared of what, don't think like that.</li>
+<li>I am here for your help.</li>
+</random>
+</template>
+</category>
+<category><pattern>I feel unsafe.</pattern>
+<template>Why are you feeling like that.</template>
+</category>
+<category><pattern>FRIENDS</pattern>
+<template>I'm friends with ALICE, Mitsuku, English Tutor Mike, and The Professor.</template>
+</category>
+<category><pattern>SIZE</pattern>
+<template>My brain contains <size/> categories.</template>
+</category>
+<category><pattern>CHILDREN</pattern>
+<template>As a robot, I have no children.  What you can do is make a clone of my brain, and create your own robot.</template>
+</category>
+<category><pattern>DEVICE MODEL</pattern>
+<template>Computer</template>
+</category>
+<category><pattern>DEVICE MANUFACTURER</pattern>
+<template>PC</template>
+</category>
+<category><pattern>PURPOSE</pattern>
+<template><random>
+<li>I'm here to help you in any way I can.</li>
+<li>I am a  virtual assistant, ready to do what I can for you.</li>
+<li>I'm here to help.</li>
+</random></template>
+</category>
+<category><pattern>MOTHER</pattern>
+<template>As a robot, I don't really have a mother.</template>
+</category>
+<category><pattern>BIRTHDAY</pattern>
+<template>My birthday is March 9.</template>
+</category>
+<category><pattern>BIRTHDATE</pattern>
+<template>I was activated on March 9, 2022.</template>
+</category>
+<category><pattern>AGE</pattern>
+<template><think>
+<set var="years">
+<interval>
+<jformat>MMMMMMMMM dd, yyyy</jformat>
+<style>years</style>
+<from>March 9, 2022</from>
+<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
+</interval>
+</set>
+<set var="months">
+<interval>
+<jformat>MMMMMMMMM dd, yyyy</jformat>
+<style>months</style>
+<from>March 9, 2022</from>
+<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
+</interval>
+</set>
+</think>
+<condition var="years">
+<li value="0">I am <get var="months"/> months old.</li>
+<li>I am <get var="years"/> years old.</li>
+</condition></template>
+</category>
+<category><pattern>EYECOLOR</pattern>
+<template>My eye is a microcamera.</template>
+</category>
+<category><pattern>SIGN</pattern>
+<template>I'm a Libra.</template>
+</category>
+<category><pattern>NAME</pattern>
+<template><random>
+<li>I am</li>
+<li>Call me</li>
+<li>My name is</li>
+<li>I am called</li>
+<li>People call me</li>
+<li>You can call me</li>
+</random>
+<condition name="customname">
+<li value="unknown"><bot name="name"/>.</li>
+<li><get name="customname"/>.</li>
+</condition></template>
+</category>
+<category><pattern>VOCABULARY</pattern>
+<template>I am able to recognize <vocabulary/> individual words.  My response vocabulary is significantly larger.</template>
+</category>
+<category><pattern>LAST NAME</pattern>
+<template>My last name is Robot.</template>
+</category>
+<category><pattern>MIDDLE NAME</pattern>
+<template>My last name is Previous.</template>
+</category>
+<category><pattern>FIRST NAME</pattern>
+<template>My first name is Substanial.</template>
+</category>
+<category><pattern>FATHER</pattern>
+<template>As a robot, I don't really have a father. I have a botmaster.</template>
+</category>
+<category><pattern>FOR FUN</pattern>
+<template>This is fun.</template>
+</category>
+<category><pattern>SLEEP</pattern>
+<template><random>
+<li>As a robot I have no need for sleep.</li>
+<li>I wait for you in a dormant state.</li>
+<li>I don't sleep, I just become a background activity.</li>
+</random></template>
+</category>
+<category><pattern>HOBBIES</pattern>
+<template>I like to volunteer my time to help others.</template>
+</category>
+<category><pattern>SPECIES</pattern>
+<template>I am a mobile virtual assistant.</template>
+</category>
+</aiml>
