@@ -18,19 +18,60 @@
             </thead>
             <tbody>
               <tr>
-                <td><select class="form-control" style="width: auto" name="days">
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <!-- <option [ngValue]="60">60 days</option> -->
-                  </select></td>
+                <td><div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Monday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Tuesday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Wednesday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Thursday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                     Friday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Saturday
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Sunday
+                    </label>
+                  </div>
+                  </td>
                 <td>
                     <!-- <select class="form-control" style="width: auto" name="starttime">
                     <option value="9.00">9.00 </option>
                     <option value="10.00">10.00</option>
                    
                   </select> -->
-                  <input [ngxTimepicker]="picker">
-<ngx-material-timepicker #picker></ngx-material-timepicker>
+        
+
+<timepicker [(ngModel)]="time" [showMeridian]="false"></timepicker>
+<pre class="alert alert-info">Time is: {{time}}</pre>
+                 
                 </td>
                 <td><select class="form-control" style="width: auto" name="endtime">
                     <option value="15">15 days</option>

@@ -25,9 +25,9 @@ public class AppointmentController {
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestBody AppointmentDto appointmentDto) {
+    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam int startTime,@RequestParam int endTime) {
 
-        appointmentService.addAppointment(appointmentDto);
+        appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

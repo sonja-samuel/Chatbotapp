@@ -36,9 +36,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 
     @Override
-    public void addAppointment(AppointmentDto appointmentDto) {
+    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime) {
 
-
+       Appointment appointment=new Appointment();
     }
 
     @Override

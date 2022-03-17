@@ -7,8 +7,10 @@ import { AdddetailComponent } from './adddetail/adddetail.component';
 import { AvailabilitycheckComponent } from './availabilitycheck/availabilitycheck.component';
 import { DocprofileComponent } from './docprofile/docprofile.component';
 import { AddspecialityComponent } from './addspeciality/addspeciality.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-
+// import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { FormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,10 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
   imports: [
     CommonModule,
     DoctorsRoutingModule,
-    NgxMaterialTimepickerModule,
+    // NgxMaterialTimepickerModule,
+    TimepickerModule.forRoot(),
+    FormsModule,
+    MatCheckboxModule,
   ]
 })
 export class DoctorsModule { }

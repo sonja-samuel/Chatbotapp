@@ -8,11 +8,11 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { authInterceptorProviders} from './_helpers/auth.interceptor';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { FormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -69,7 +69,8 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxMaterialTimepickerModule,
+    TimepickerModule.forRoot(),
+    FormsModule,
   ],
   declarations: [
     AppComponent,

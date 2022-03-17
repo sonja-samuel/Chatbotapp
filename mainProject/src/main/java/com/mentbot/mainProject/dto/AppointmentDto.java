@@ -2,6 +2,7 @@ package com.mentbot.mainProject.dto;
 
 import com.mentbot.mainProject.models.Appointment;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class AppointmentDto {
@@ -13,14 +14,26 @@ public class AppointmentDto {
     private Long patientId;
     private String status;
     private String comments;
+    private LocalDate appointmentDate;
 
 
-    public AppointmentDto(Appointment appointment) {
+    public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
+
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+
+	public AppointmentDto(Appointment appointment) {
         super();
         this.appointmentId = appointment.getAppointment_id();
         this.start_time = appointment.getStarttime();
         this.end_time = appointment.getEndtime();
-    }
+        this.appointmentDate=appointment.getAppointmentDate();
+        this.doctorId=appointment.getDoctor().getDoctor_id();
+        this.patientId=appointment.getPatient().getPatient_id();
+        		}
 
     public Long getAppointmentId() {
         return appointmentId;

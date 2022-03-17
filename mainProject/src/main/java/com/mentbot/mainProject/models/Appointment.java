@@ -23,7 +23,7 @@ public class Appointment {
     @Column(length = 20)
     private AppointmentStatus status;
 
-    private LocalDateTime appointment_takentime;
+//    private LocalDateTime appointment_takentime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")
@@ -91,13 +91,7 @@ public class Appointment {
         this.status = status;
     }
 
-    public LocalDateTime getAppointment_takentime() {
-        return appointment_takentime;
-    }
-
-    public void setAppointment_takentime(LocalDateTime appointment_takentime) {
-        this.appointment_takentime = appointment_takentime;
-    }
+   
 
     public String getComments() {
         return comments;
