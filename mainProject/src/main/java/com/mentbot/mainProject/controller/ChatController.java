@@ -69,7 +69,7 @@ public class ChatController implements ServletContextAware {
                     response = response.replace("&gt;", ">");
 
 
-                response = executeDefault(response);
+                response = takeIncomingMessage(response);
                 reply = new ChatMessage(HtmlUtils.htmlEscape(response), chatMessage.getSender(), chatMessage.getRecipient(),chatMessage.getMessageType());
 
 
@@ -81,24 +81,24 @@ public class ChatController implements ServletContextAware {
         return reply.getMessage();
     }
 
-    private String executeDefault(String response) {
+    private String  takeIncomingMessage(String response) {
         if (response.trim().contains("<oob><url>")) {
-            response = setOOBUrl(response);
+            response = setForUrl(response);
         }
         if (response.trim().contains("<oob><search>")) {
-            response = setOOBSearch(response);
+            response = setForSearch(response);
         }
         return response;
     }
 
-    private String setOOBUrl(String response) {
+    private String setForUrl(String response) {
         String mytext = StringUtils.substringBetween(response, "<oob><url>", "</url></oob>");
         response = response.replace("<oob><url>", "<a href=\"");
         response = response.replace("</url></oob>", "\" target=\"_blank\">" + mytext + "</a>");
         return response;
     }
 
-    private String setOOBSearch(String response) {
+    private String setForSearch(String response) {
         String mytext = StringUtils.substringBetween(response, "<oob><search>", "</search></oob>");
         response = response.replace("<oob><search>", "<br/><a href=\"https://www.google.com/search?q=");
         response = response.replace("</search></oob>", "\" target=\"_blank\"><i>Click Here to View Result for " + mytext + ".</i></a>");
