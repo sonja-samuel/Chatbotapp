@@ -12,7 +12,14 @@ export class ChatbotComponent implements OnInit,OnDestroy {
 
     webSocketAPI: WebSocketAPI;
     message: any;
-    messageArray=[];
+    messageArray=[
+      {name: "you", message: "hello1"},
+      {name: "bot", message: "hello2"},
+      {name: "you", message: "hello3"},
+      {name: "bot", message: "hello4"},
+      {name: "you", message: "hello5"},
+      {name: "you", message: "hello6"},
+    ];
     name: string;
     ngOnInit() {
       this.webSocketAPI = new WebSocketAPI(new ChatbotComponent());

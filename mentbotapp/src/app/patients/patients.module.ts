@@ -13,7 +13,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     PatientsDashboardComponent,
     PatientprofileComponent,
-    ChatbotComponent,
+    // ChatbotComponent,
     AddappointmentComponent
   ],
   imports: [

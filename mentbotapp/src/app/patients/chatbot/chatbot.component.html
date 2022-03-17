@@ -10,8 +10,8 @@
                     <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
                         style="overflow-y: scroll !important; height:400px !important;">
                         <div *ngFor="let item of messageArray">
-                            <div class="media media-chat"> <img class="avatar" *ngIf="item.name === 'bot'"
-                                    src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                            <div class="media media-chat"  *ngIf="item.name === 'bot'"> <img class="avatar"
+                                    src="https://img.icons8.com/color/36/000000/administrator-male.png">
                                 <div class="media-body">
                                     <p><span>{{item.name}} </span> {{item.message}}</p>
                                 </div>
