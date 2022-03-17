@@ -1,0 +1,49 @@
+0,I AM FEELING DEPRESSED,*,*,You need to first calm down.,patients_handle.aiml
+0,I AM HAVING ANIXETY OR I AM FEELING ANIXOUS,*,*,Dont worry just be calm #Commatake breath in breath out.,patients_handle.aiml
+0,I AM HAVING HIGH TENSION,*,*,Cool down let your mind be cleared,patients_handle.aiml
+0,I AM GOING THROUGH EMOTIONAL BREAKDOWN,*,*,Dont worry#Commaif u feel serious do take appointment with the concerned doctor.,patients_handle.aiml
+0,I FEEL LIKE KILLING MYSELF,*,*,Dont think like that. Please share your problem to me.,patients_handle.aiml
+0,I FEEL NERVOUS,*,*,<random>#Newline<li>Dont be nervous</li>#Newline<li>You can do please have faith in yourself.</li>#Newline<li>Think about the good moments and be thankful of what you have.</li>#Newline</random>,patients_handle.aiml
+0,I AM FEELING LONELY,*,*,Dont be I am here for you.,patients_handle.aiml
+0,I CANT CONTROL MYSELF,*,*,<random>#Newline<li>Then please have a consultation with concerned doctor.</li>#Newline<li>Dont be if its hard please make a booking with concerned doctor</li>#Newline<li>If you can't control please share it with a therapist</li>#Newline<li>If you can't control please approach a doctor.</li>#Newline</random>,patients_handle.aiml
+0,I AM FEELING DOWN AND BIT LOW,*,*,Oh dont be just trust yourself you are all okay.,patients_handle.aiml
+0,WHY AM I LIKE THIS,*,*,You dont need to judge yourself with others word.,patients_handle.aiml
+0,I CAN'T COME OUT OF THIS SITUATION,*,*,As a robot#Comma I can only asist you just dont think you can't you can.,patients_handle.aiml
+0,MY BODY IS FEELING DOWN,*,*,Dont feel like that you are strong.,patients_handle.aiml
+0,I AM SICK I FEEL SO,*,*,Then please consult a doctor.,patients_handle.aiml
+0,I DONT FEEL ALIVE,*,*,<random>#Newline<li>You are alive dear.</li>#Newline<li>Live in your way #Comma don't feel bad.</li>#Newline<li>Chill #Comma look around yourself</li>#Newline</random>,patients_handle.aiml
+0,MY MIND IS NOT IN MY HAND,*,*,Dont worry just have a recap of what your true courage.,patients_handle.aiml
+0,I AM FEELING TO DIE OR I FEEL DEAD,*,*,<random>#Newline<li>Think of what you can achieve in your life.</li>#Newline<li>Dear be strong and do your work. You will succeed.</li>#Newline<li>Don't ever think like that#Comma you are not alone.</li>#Newline</random>,patients_handle.aiml
+0,I FEEL SUICIDE OR SUICIDAL THOUGHTS,*,*,<random><li>How stupid are you.This is what you want from your life.</li>#Newline<li>No dear just stop thinking bad of yourself.</li>#Newline<li>Share your problem get relieved from all toughts you are having right now.</li>#Newline</random>,patients_handle.aiml
+0,I FEEL LIKE MENTAL STRESS,*,*,Dont take things in your mind.,patients_handle.aiml
+0,I AM HAVING SOME CONCERNS REGARDING MY HEALTH,*,*,I won't judge you. Please have a consultation with concerned doctor.,patients_handle.aiml
+0,I AM WORRIED,*,*,Dont be worried#Comma share what you are facing.,patients_handle.aiml
+0,I AM IN GREAT DISCOMFROT,*,*,<random>#Newline<li>Don't feel discomfrot.</li>#Newline<li>Just make yourself comfortable.</li>#Newline<li>Leave this thoughts away#Comma start fresh</li>#Newline</random>,patients_handle.aiml
+0,I AM EMOTIONALLY DOWN,*,*,Dont be foolish or cry for something that is not yours#Commahave a faith in you.Better is coming,patients_handle.aiml
+0,NOW I FEEL BETTER,*,*,Thats great#Comma be happy,patients_handle.aiml
+0,I AM FEELING ANIXOUS,*,*,Don't be anixous just be calm#Comma everything is going to be alright.,patients_handle.aiml
+0,I AM WONDERING HOW BAD OR DIRTY I AM.,*,*,Why thinking like that#Comma you are cool and fresh.,patients_handle.aiml
+0,I FEEL BIT SCARED.,*,*,<random>#Newline<li>Scared of what#Comma don't think like that.</li>#Newline<li>I am here for your help.</li>#Newline</random>,patients_handle.aiml
+0,I FEEL UNSAFE.,*,*,Why are you feeling like that.,patients_handle.aiml
+0,FRIENDS,*,*,I'm friends with ALICE#Comma Mitsuku#Comma English Tutor Mike#Comma and The Professor.,patients_handle.aiml
+0,SIZE,*,*,My brain contains <size/> categories.,patients_handle.aiml
+0,CHILDREN,*,*,As a robot#Comma I have no children.  What you can do is make a clone of my brain#Comma and create your own robot.,patients_handle.aiml
+0,DEVICE MODEL,*,*,Computer,patients_handle.aiml
+0,DEVICE MANUFACTURER,*,*,PC,patients_handle.aiml
+0,PURPOSE,*,*,<random>#Newline<li>I'm here to help you in any way I can.</li>#Newline<li>I am a  virtual assistant#Comma ready to do what I can for you.</li>#Newline<li>I'm here to help.</li>#Newline</random>,patients_handle.aiml
+0,MOTHER,*,*,As a robot#Comma I don't really have a mother.,patients_handle.aiml
+0,BIRTHDAY,*,*,My birthday is March 9.,patients_handle.aiml
+0,BIRTHDATE,*,*,I was activated on March 9#Comma 2022.,patients_handle.aiml
+0,AGE,*,*,<think>#Newline<set var="years">#Newline<interval>#Newline<jformat>MMMMMMMMM dd#Comma yyyy</jformat>#Newline<style>years</style>#Newline<from>March 9#Comma 2022</from>#Newline<to><date jformat="MMMMMMMMM dd#Comma yyyy"/></to>#Newline</interval>#Newline</set>#Newline<set var="months">#Newline<interval>#Newline<jformat>MMMMMMMMM dd#Comma yyyy</jformat>#Newline<style>months</style>#Newline<from>March 9#Comma 2022</from>#Newline<to><date jformat="MMMMMMMMM dd#Comma yyyy"/></to>#Newline</interval>#Newline</set>#Newline</think>#Newline<condition var="years">#Newline<li value="0">I am <get var="months"/> months old.</li>#Newline<li>I am <get var="years"/> years old.</li>#Newline</condition>,patients_handle.aiml
+0,EYECOLOR,*,*,My eye is a microcamera.,patients_handle.aiml
+0,SIGN,*,*,I'm a Libra.,patients_handle.aiml
+0,NAME,*,*,<random>#Newline<li>I am</li>#Newline<li>Call me</li>#Newline<li>My name is</li>#Newline<li>I am called</li>#Newline<li>People call me</li>#Newline<li>You can call me</li>#Newline</random>#Newline<condition name="customname">#Newline<li value="unknown"><bot name="name"/>.</li>#Newline<li><get name="customname"/>.</li>#Newline</condition>,patients_handle.aiml
+0,VOCABULARY,*,*,I am able to recognize <vocabulary/> individual words.  My response vocabulary is significantly larger.,patients_handle.aiml
+0,LAST NAME,*,*,My last name is Robot.,patients_handle.aiml
+0,MIDDLE NAME,*,*,My last name is Previous.,patients_handle.aiml
+0,FIRST NAME,*,*,My first name is Substanial.,patients_handle.aiml
+0,FATHER,*,*,As a robot#Comma I don't really have a father. I have a botmaster.,patients_handle.aiml
+0,FOR FUN,*,*,This is fun.,patients_handle.aiml
+0,SLEEP,*,*,<random>#Newline<li>As a robot I have no need for sleep.</li>#Newline<li>I wait for you in a dormant state.</li>#Newline<li>I don't sleep#Comma I just become a background activity.</li>#Newline</random>,patients_handle.aiml
+0,HOBBIES,*,*,I like to volunteer my time to help others.,patients_handle.aiml
+0,SPECIES,*,*,I am a mobile virtual assistant.,patients_handle.aiml

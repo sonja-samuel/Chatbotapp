@@ -120,62 +120,37 @@
 <category><pattern>I feel unsafe.</pattern>
 <template>Why are you feeling like that.</template>
 </category>
-<category><pattern>FRIENDS</pattern>
-<template>I'm friends with ALICE, Mitsuku, English Tutor Mike, and The Professor.</template>
+<category><pattern>I dont know what to say.</pattern>
+<template>You will be fine. Just share your problem</template>
 </category>
-<category><pattern>SIZE</pattern>
-<template>My brain contains <size/> categories.</template>
+<category><pattern>I dont trust anyone.</pattern>
+<template>You will be fine , just trust people.</template>
 </category>
-<category><pattern>CHILDREN</pattern>
-<template>As a robot, I have no children.  What you can do is make a clone of my brain, and create your own robot.</template>
+<category><pattern>Why am I bothering you.</pattern>
+<template>Dont worry dear, you are not bothering me. I am here to help you.</template>
 </category>
-<category><pattern>DEVICE MODEL</pattern>
-<template>Computer</template>
+<category><pattern>I am feeling to cry.</pattern>
+<template>Then cry dear,let the burden gets vanish.</template>
 </category>
-<category><pattern>DEVICE MANUFACTURER</pattern>
-<template>PC</template>
+<category><pattern>Feels to have a support and guidance.</pattern>
+<template>I am here to guide and support you.</template>
 </category>
-<category><pattern>PURPOSE</pattern>
-<template><random>
-<li>I'm here to help you in any way I can.</li>
-<li>I am a  virtual assistant, ready to do what I can for you.</li>
-<li>I'm here to help.</li>
-</random></template>
+<category><pattern>I am lossing myself.</pattern>
+<template>Dont worry, have a doctor's appointment and make yourself relieved.</template>
 </category>
-<category><pattern>MOTHER</pattern>
-<template>As a robot, I don't really have a mother.</template>
+<category><pattern>I don't feel happy living a life full of worse situation.</pattern>
+<template>Life is always a struggle, dont feel to be bad. Rise from your situation.</template>
 </category>
-<category><pattern>BIRTHDAY</pattern>
-<template>My birthday is March 9.</template>
+<category><pattern>I have my own tensions, stress, breakdowns.</pattern>
+<template>Make it free , share it with whomever you are connected to .</template>
 </category>
-<category><pattern>BIRTHDATE</pattern>
-<template>I was activated on March 9, 2022.</template>
+<category><pattern>I am in trouble.</pattern>
+<template>What kind of trouble,I can help you regards to any mental concerns.Make yourself comfortable.</template>
 </category>
-<category><pattern>AGE</pattern>
-<template><think>
-<set var="years">
-<interval>
-<jformat>MMMMMMMMM dd, yyyy</jformat>
-<style>years</style>
-<from>March 9, 2022</from>
-<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
-</interval>
-</set>
-<set var="months">
-<interval>
-<jformat>MMMMMMMMM dd, yyyy</jformat>
-<style>months</style>
-<from>March 9, 2022</from>
-<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
-</interval>
-</set>
-</think>
-<condition var="years">
-<li value="0">I am <get var="months"/> months old.</li>
-<li>I am <get var="years"/> years old.</li>
-</condition></template>
+<category><pattern>I need to share my condition.</pattern>
+<template>Dont be feel bad, just share your condition. I am here to help you.</template>
 </category>
-<category><pattern>EYECOLOR</pattern>
+<category><pattern>My mind is out of</pattern>
 <template>My eye is a microcamera.</template>
 </category>
 <category><pattern>SIGN</pattern>
