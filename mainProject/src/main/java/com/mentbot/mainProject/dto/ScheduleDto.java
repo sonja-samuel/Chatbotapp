@@ -1,73 +1,67 @@
 package com.mentbot.mainProject.dto;
 
-import java.time.LocalTime;
-import java.util.Date;
-
-import javax.persistence.OneToOne;
-
 import com.mentbot.mainProject.models.Doctor;
 import com.mentbot.mainProject.models.Schedule;
 
+import javax.persistence.OneToOne;
+import java.time.LocalTime;
+
 public class ScheduleDto {
-private Long schedule_id;
+    private Long scheduleId;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private String availableDays;
+    @OneToOne
+    private Doctor doctor;
 
-	
-	private LocalTime starttime;
-	private LocalTime endtime;
-	private Date dayavailable;
-	
-	@OneToOne
-	private Doctor doctor;
-	
-	
-	private boolean isavailable;
-	public ScheduleDto(Schedule schedule) {
-	
-		this.schedule_id = schedule.getSchedule_id();
-		this.starttime = schedule.getStarttime();
-		this.endtime = schedule.getEndtime();
-		this.dayavailable = schedule.getDayavailable();
-		
-	}
-	
-	public Long getSchedule_id() {
-		return schedule_id;
-	}
-	public void setSchedule_id(Long schedule_id) {
-		this.schedule_id = schedule_id;
-	}
-	public LocalTime getStarttime() {
-		return starttime;
-	}
-	public void setStarttime(LocalTime starttime) {
-		this.starttime = starttime;
-	}
-	public LocalTime getEndtime() {
-		return endtime;
-	}
-	public void setEndtime(LocalTime endtime) {
-		this.endtime = endtime;
-	}
-	public boolean isIsavailable() {
-		return isavailable;
-	}
-	public void setIsavailable(boolean isavailable) {
-		this.isavailable = isavailable;
-	}
-	public Date getDayavailable() {
-		return dayavailable;
-	}
-	public void setDayavailable(Date dayavailable) {
-		this.dayavailable = dayavailable;
-	}
+    public ScheduleDto(Schedule schedule) {
 
-	public Doctor getDoctor() {
-		return doctor;
-	}
+        this.scheduleId = schedule.getSchedule_id();
+        this.startTime = schedule.getStartTime();
+        this.endTime = schedule.getEndTime();
+        this.availableDays = schedule.getAvailableDays();
 
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
-	
+    }
+
+    public Long getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(Long scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getAvailableDays() {
+        return availableDays;
+    }
+
+    public void setAvailableDays(String availableDays) {
+        this.availableDays = availableDays;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
 
 }

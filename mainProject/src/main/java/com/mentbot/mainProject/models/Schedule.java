@@ -1,78 +1,62 @@
 package com.mentbot.mainProject.models;
 
+import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table(name ="schedule")
+@Table(name = "schedule")
 public class Schedule {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long schedule_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long schedule_id;
+    @Column(name = "start_time")
+    private LocalTime startTime;
+    @Column(name = "end_time")
+    private LocalTime endTime;
+    @Column(name = "available_days")
+    private String availableDays;
 
-	
-	private LocalTime starttime;
-	private LocalTime endtime;
-	
-	
-	private Date dayavailable;
-	
-	
-	@OneToOne
-	private Doctor doctor;
-	
-	
-	public Long getSchedule_id() {
-		return schedule_id;
-	}
+    @OneToOne
+    private Doctor doctor;
 
-	public void setSchedule_id(Long schedule_id) {
-		this.schedule_id = schedule_id;
-	}
 
-	public LocalTime getStarttime() {
-		return starttime;
-	}
-	
-	public void setStarttime(LocalTime starttime) {
-		this.starttime = starttime;
-	}
-	
-	public LocalTime getEndtime() {
-		return endtime;
-	}
-	
-	public void setEndtime(LocalTime endtime) {
-		this.endtime = endtime;
-	}
-	
-	
-	
-	public Date getDayavailable() {
-		return dayavailable;
-	}
-	
-	public void setDayavailable(Date dayavailable) {
-		this.dayavailable = dayavailable;
-	}
-	
-	
+    public Long getSchedule_id() {
+        return schedule_id;
+    }
 
-	public Doctor getDoctor() {
-		return doctor;
-	}
+    public void setSchedule_id(Long schedule_id) {
+        this.schedule_id = schedule_id;
+    }
 
-	public void setDoctor(Doctor doctor) {
-		this.doctor = doctor;
-	}
-	
-	
+    public LocalTime getStartTime() {
+        return startTime;
+    }
 
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public String getAvailableDays() {
+        return availableDays;
+    }
+
+    public void setAvailableDays(String availableDays) {
+        this.availableDays = availableDays;
+    }
 }
