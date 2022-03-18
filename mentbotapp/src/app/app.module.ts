@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-
+import { NgbTimepickerModule, NgbModule ,  } from '@ng-bootstrap/ng-bootstrap'
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
@@ -55,6 +55,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    NgbTimepickerModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -71,6 +72,7 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule,
     TimepickerModule.forRoot(),
     FormsModule,
+    NgbModule,
   ],
   declarations: [
     AppComponent,

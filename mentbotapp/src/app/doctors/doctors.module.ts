@@ -8,7 +8,8 @@ import { AvailabilitycheckComponent } from './availabilitycheck/availabilitychec
 import { DocprofileComponent } from './docprofile/docprofile.component';
 import { AddspecialityComponent } from './addspeciality/addspeciality.component';
 // import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TimepickerModule  } from 'ngx-bootstrap/timepicker';
+import { NgbTimepicker , NgbTimepickerModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
@@ -25,6 +26,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     DoctorsRoutingModule,
     // NgxMaterialTimepickerModule,
     TimepickerModule.forRoot(),
+    NgbTimepickerModule,
+    NgbTimepicker,
     FormsModule,
     MatCheckboxModule,
   ]
