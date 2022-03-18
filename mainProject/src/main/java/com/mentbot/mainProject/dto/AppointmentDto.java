@@ -15,9 +15,19 @@ public class AppointmentDto {
     private String status;
     private String comments;
     private LocalDate appointmentDate;
+    private Long specId;
+    
+    private String patientName;
 
+    public Long getSpecId() {
+		return specId;
+	}
 
-    public LocalDate getAppointmentDate() {
+	public void setSpecId(Long specId) {
+		this.specId = specId;
+	}
+
+	public LocalDate getAppointmentDate() {
 		return appointmentDate;
 	}
 
@@ -90,4 +100,14 @@ public class AppointmentDto {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+	public String getPatientName() {
+		return patientName;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+    
+    
 }

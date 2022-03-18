@@ -23,7 +23,7 @@ public class Appointment {
     @Column(length = 20)
     private AppointmentStatus status;
 
-
+    
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")
@@ -34,8 +34,18 @@ public class Appointment {
     private Patient patient;
 
     private String comments;
+    
+    private Long specId;
 
-    public Doctor getDoctor() {
+    public Long getSpecId() {
+		return specId;
+	}
+
+	public void setSpecId(Long specId) {
+		this.specId = specId;
+	}
+
+	public Doctor getDoctor() {
         return doctor;
     }
 
@@ -91,8 +101,7 @@ public class Appointment {
         this.status = status;
     }
 
-   
-
+  
     public String getComments() {
         return comments;
     }

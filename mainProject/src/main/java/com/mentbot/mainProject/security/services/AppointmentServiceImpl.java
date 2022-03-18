@@ -4,10 +4,15 @@ import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.models.Appointment;
 import com.mentbot.mainProject.models.Doctor;
+import com.mentbot.mainProject.models.Patient;
 import com.mentbot.mainProject.models.Schedule;
+import com.mentbot.mainProject.models.Specialization;
 import com.mentbot.mainProject.repo.AppointmentRepo;
 import com.mentbot.mainProject.repo.DoctorRepo;
+import com.mentbot.mainProject.repo.PatientRepo;
 import com.mentbot.mainProject.repo.ScheduleRepo;
+import com.mentbot.mainProject.repo.SpecializationRepo;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -25,20 +30,41 @@ public class AppointmentServiceImpl implements AppointmentService {
     private DoctorRepo doctorRepo;
 
     private ScheduleRepo scheduleRepo;
+    
+    private PatientRepo patientRepo;
+    
+    private SpecializationRepo specializationRepo;
+    
 
     public AppointmentServiceImpl(AppointmentRepo appointmentRepo,
                                   DoctorRepo doctorRepo,
-                                  ScheduleRepo scheduleRepo) {
+                                  ScheduleRepo scheduleRepo,
+                                  PatientRepo patientRepo,
+                                  SpecializationRepo specializationRepo) {
         this.appointmentRepo = appointmentRepo;
         this.doctorRepo = doctorRepo;
         this.scheduleRepo = scheduleRepo;
+        this.patientRepo=patientRepo;
+        this.specializationRepo=specializationRepo;
     }
 
 
     @Override
-    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime) {
+    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,LocalTime startTime,LocalTime endTime) {
 
        Appointment appointment=new Appointment();
+    
+       Doctor doctor=doctorRepo.getById(Long.valueOf(doctorId));
+       Patient patient= patientRepo.getById(Long.valueOf(patientId));
+      
+       
+       appointment.setAppointmentDate(appointmentDate);
+       appointment.setDoctor(doctor);
+       appointment.setPatient(patient);
+       appointment.setStarttime(startTime);
+       appointment.setEndtime(endTime);
+       appointment.setSpecId(Long.valueOf(specId));
+       
     }
 
     @Override

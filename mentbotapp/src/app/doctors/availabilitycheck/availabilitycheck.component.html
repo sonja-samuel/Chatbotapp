@@ -71,7 +71,54 @@
 
                  
                 </td>
-                <td><ngb-timepicker [(ngModel)]="time"></ngb-timepicker></td>
+                <td>
+                    <!-- <ngb-timepicker [(ngModel)]="time"> </ngb-timepicker> -->
+                    <!-- <timepicker [(ngModel)]="time" [showMeridian]="false">hello</timepicker>
+<pre class="alert alert-info">Time is: {{time}}</pre> -->
+
+<div class="row">
+    <div class="form-group col-sm-3">
+      <label for="ccmonth">Month</label>
+      <select class="form-control" id="ccmonth">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+    </div>
+    <div class="form-group col-sm-3">
+      <label for="ccyear">Year</label>
+      <select class="form-control" id="ccyear">
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option></option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+      </select>
+    </div>
+    <!-- <div class="col-sm-4">
+      <div class="form-group">
+        <label for="cvv">CVV/CVC</label>
+        <input type="text" class="form-control" id="cvv" placeholder="123">
+      </div>
+    </div> -->
+  </div>
+
                 <td>
                   <span> <td>
                     <span><button type="Accept" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Add Schedule</button>

@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mentbot.mainProject.dto.AppointmentDto;
+import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
@@ -59,4 +61,18 @@ public class DoctorController {
 	return new ResponseEntity<>(HttpStatus.OK);
 //	}
 	}
+	
+	 @GetMapping("/getAppointments")
+	    public List<AppointmentDto> getAppointments(@RequestParam  int doctorId) {
+
+	        return doctorservice.getAppointmentsByDoctorId(doctorId);
+	    }
+	 
+//	 @PostMapping("/addSpecialities")
+//		public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
+//		
+//	    doctorservice.addSpecialities(docSpecDto);
+//		return new ResponseEntity<>(HttpStatus.OK);
+//
+//		}
 }

@@ -31,7 +31,7 @@ public class PatientDto {
 	}
 	public PatientDto(Patient patient) {
 		
-		this.patient_id = patient.getId();
+		this.patient_id = patient.getPatient_id();
 		this.user = new UserDto(patient.getUser());
 		this.gender=patient.getGender();
 		this.bloodgroup=patient.getBloodgroup();

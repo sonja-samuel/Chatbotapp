@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class AppointmentController {
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam int startTime,@RequestParam int endTime) {
+    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam LocalTime startTime,@RequestParam LocalTime endTime) {
 
         appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -36,5 +37,8 @@ public class AppointmentController {
 
         return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("")));
     }
+    
+    
+   
 
 }
