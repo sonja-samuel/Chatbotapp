@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { NgbTimepickerModule, NgbModule ,  } from '@ng-bootstrap/ng-bootstrap'
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
@@ -56,7 +55,6 @@ import { ChatbotComponent } from './patients/chatbot/chatbot.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgbTimepickerModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -73,7 +71,6 @@ import { ChatbotComponent } from './patients/chatbot/chatbot.component';
     HttpClientModule,
     TimepickerModule.forRoot(),
     FormsModule,
-    NgbModule,
   ],
   declarations: [
     AppComponent,
