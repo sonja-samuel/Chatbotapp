@@ -1,5 +1,6 @@
 package com.mentbot.mainProject.dto;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ public class DoctorDto {
 private Long doctor_id;
 	
 	private String prof_statement;
-	private Date practicing_date;
+	private LocalDate practicing_date;
 	private UserDto user;
 	private Set<DocSpecialities> docspecialization;
     
@@ -65,11 +66,13 @@ private Long doctor_id;
 		this.prof_statement = prof_statement;
 	}
 
-	public Date getPracticing_date() {
+	
+
+	public LocalDate getPracticing_date() {
 		return practicing_date;
 	}
 
-	public void setPracticing_date(Date practicing_date) {
+	public void setPracticing_date(LocalDate practicing_date) {
 		this.practicing_date = practicing_date;
 	}
 

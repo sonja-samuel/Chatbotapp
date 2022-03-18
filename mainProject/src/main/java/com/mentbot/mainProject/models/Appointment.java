@@ -23,7 +23,7 @@ public class Appointment {
     @Column(length = 20)
     private AppointmentStatus status;
 
-//    private LocalDateTime appointment_takentime;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")
