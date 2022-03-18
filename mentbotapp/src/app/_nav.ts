@@ -43,6 +43,11 @@ export const docNavItems: INavData[] = [
             name: 'View Profile',
             url: 'doctors/docprofile',
             icon: 'icon-user'
+          },
+          {
+            name: 'Add Speciality',
+            url: 'doctors/docspeciality',
+            icon: 'icon-pencil'
           }
      
   
@@ -60,6 +65,12 @@ export const patientNavItems: INavData[] = [
             icon: 'icon-pencil'
           
 },
+          {
+            name: 'Add Details',
+            url: 'patients/adddetails',
+            icon: 'icon-pencil'
+          },
+
           {
             name: 'Add Appointment',
             url: 'patients/addappointment',

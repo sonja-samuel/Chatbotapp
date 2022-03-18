@@ -24,6 +24,32 @@ public class DocSpecialities {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="spec_id")
 	private Specialization specialization;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public Specialization getSpecialization() {
+		return specialization;
+	}
+
+	public void setSpecialization(Specialization specialization) {
+		this.specialization = specialization;
+	}
+
+	
 	
 	
 

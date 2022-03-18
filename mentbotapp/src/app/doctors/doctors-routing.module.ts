@@ -4,6 +4,7 @@ import { DoctorsDashboardComponent } from './doctors-dashboard/doctors-dashboard
 import { AdddetailComponent } from './adddetail/adddetail.component';
 import { AvailabilitycheckComponent } from './availabilitycheck/availabilitycheck.component';
 import { DocprofileComponent } from './docprofile/docprofile.component';
+import { AddspecialityComponent } from './addspeciality/addspeciality.component';
 const routes: Routes = [];
 
 @NgModule({
@@ -32,9 +33,16 @@ const routes: Routes = [];
       },
       {
         path: 'docprofile',
-        component:AvailabilitycheckComponent ,
+        component: DocprofileComponent ,
         data: {
           title: "My Profile",
+        },
+      },
+      {
+        path: 'docspeciality',
+        component: AddspecialityComponent ,
+        data: {
+          title: "My Speciality",
         },
       },
     ]),

@@ -1,8 +1,9 @@
 package com.mentbot.mainProject.models;
 
 
+import java.time.LocalDate;
 import java.util.Date;
-
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Doctor {
 	private Long doctor_id;
 	
 	private String prof_statement;
-	private Date practicing_date;
+	private LocalDate practicing_date;
 	
 	@OneToOne
 	private User user;
@@ -31,7 +32,8 @@ public class Doctor {
 	@OneToMany
 	private Set<DocSpecialities> docspecialities;
 
-	
+	@OneToMany
+	private List<Appointment> appointments;
 	
 	public Set<DocSpecialities> getDocspecialities() {
 		return docspecialities;
@@ -40,6 +42,16 @@ public class Doctor {
 
 	public void setDocspecialities(Set<DocSpecialities> docspecialities) {
 		this.docspecialities = docspecialities;
+	}
+	
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 
@@ -73,14 +85,17 @@ public class Doctor {
 	}
 
 
-	public Date getPracticing_date() {
+	public LocalDate getPracticing_date() {
 		return practicing_date;
 	}
 
 
-	public void setPracticing_date(Date practicing_date) {
+	public void setPracticing_date(LocalDate practicing_date) {
 		this.practicing_date = practicing_date;
 	}
+
+
+	
 
 
 

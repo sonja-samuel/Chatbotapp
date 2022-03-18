@@ -1,9 +1,12 @@
 package com.mentbot.mainProject.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,9 +17,32 @@ public class Patient {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long patient_id;
 	
+	private String gender;
+	private String bloodgroup;
 	@OneToOne
 	private User user;
+	
+	@OneToMany
+	private List<Appointment> appointments;
 
+	
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getBloodgroup() {
+		return bloodgroup;
+	}
+
+	public void setBloodgroup(String bloodgroup) {
+		this.bloodgroup = bloodgroup;
+	}
+
+	
 
 	public long getPatient_id() {
 		return patient_id;
@@ -41,6 +67,15 @@ public class Patient {
 	public void setId(long id) {
 		this.patient_id = patient_id;
 	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
+	
 
 
 }

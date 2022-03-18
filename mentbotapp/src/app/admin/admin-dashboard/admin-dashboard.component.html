@@ -10,21 +10,25 @@
           <table class="table table-sm">
             <thead>
               <tr>
-                <th>Username</th>
-                <th>Date registered</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Patient name</th>
+                <th>Doctor name</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
             
-              <tr>
-                <td>Leopold Gáspár</td>
-                <td>2012/01/21</td>
-                <td>Staff</td>
+              <tr *ngFor="let item of appointmentDetails">
+                <td>{{item.patientName}hello</td>
+                <td>{{item.doctorName}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.date}}</td>
                 <td>
-                    <span><button type="update" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Update</button>
-                      <button type="delete" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete</button></span>
+                    <span> 
+                      <button type="update" (click)="updateUserDetails(item.patientName)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Update</button>
+                      <button type="delete" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete</button>
+                    </span>
                   </td>
               </tr>
             </tbody>

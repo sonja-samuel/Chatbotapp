@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-usermanage',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usermanage.component.scss']
 })
 export class UsermanageComponent implements OnInit {
+  userDetails: any;
 
-  constructor() { }
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
+    this.getUserDetails();
   }
 
+  getUserDetails():void{
+    this.adminService.getUserDetails().subscribe(
+      (value:any) => {
+        this.userDetails = value;
+      }
+    );
+  }
 }

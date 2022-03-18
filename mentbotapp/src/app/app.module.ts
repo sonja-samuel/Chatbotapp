@@ -1,15 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-
+import { NgbTimepickerModule, NgbModule ,  } from '@ng-bootstrap/ng-bootstrap'
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { authInterceptorProviders} from './_helpers/auth.interceptor';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { FormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -35,6 +38,8 @@ import {
   AppHeaderModule,
   AppFooterModule,
   AppSidebarModule,
+  
+ 
 } from '@coreui/angular';
 
 // Import routing module
@@ -52,6 +57,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    NgbTimepickerModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -66,6 +72,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    TimepickerModule.forRoot(),
+    FormsModule,
     NgbModule,
   ],
   declarations: [

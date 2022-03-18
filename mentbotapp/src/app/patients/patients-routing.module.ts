@@ -4,6 +4,7 @@ import { PatientsDashboardComponent } from './patients-dashboard/patients-dashbo
 import { AddappointmentComponent } from './addappointment/addappointment.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { PatientprofileComponent } from './patientprofile/patientprofile.component';
+import { AddDetailsComponent } from './add-details/add-details.component';
 
 const routes: Routes = [];
 
@@ -25,12 +26,20 @@ const routes: Routes = [];
         },
       },
       {
+        path: 'adddetails',
+        component: AddDetailsComponent,
+        data: {
+          title: "Add Details",
+        },
+      },
+      {
         path: 'addappointment',
         component: AddappointmentComponent,
         data: {
           title: "Add Appointment",
         },
       },
+
       {
         path: 'chat',
         component: ChatbotComponent,

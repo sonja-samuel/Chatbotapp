@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 const TOKEN_KEY='auth-token';
 const USER_KEY='auth-user';
 @Injectable({
@@ -32,10 +33,8 @@ export class TokenStorageService {
       }
       return {};
   }
-  public isTokenExpired(): boolean{
-
-    return true;
-  }
+  
+   
 
   
 }
