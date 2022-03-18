@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PatientsRoutingModule } from './patients-routing.module';
 import { PatientsDashboardComponent } from './patients-dashboard/patients-dashboard.component';
 import { PatientprofileComponent } from './patientprofile/patientprofile.component';
-import { ChatbotComponent } from './chatbot/chatbot.component';
 import { AddappointmentComponent } from './addappointment/addappointment.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddDetailsComponent } from './add-details/add-details.component';
@@ -14,7 +13,6 @@ import { AddDetailsComponent } from './add-details/add-details.component';
   declarations: [
     PatientsDashboardComponent,
     PatientprofileComponent,
-    ChatbotComponent,
     AddappointmentComponent,
     AddDetailsComponent
   ],
