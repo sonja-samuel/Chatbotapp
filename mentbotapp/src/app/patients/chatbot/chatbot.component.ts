@@ -35,7 +35,7 @@ export class ChatbotComponent implements OnInit, OnDestroy {
   sendMessage() {
     let data = {};
     data["message"] = this.message;
-    this.messageArray.push({ name: "you:", message: this.message });
+    this.messageArray.push({ name: "you", message: this.message });
     this.appSocket._send(data);
     console.log(this.messageArray);
     this.message = '';
@@ -43,7 +43,7 @@ export class ChatbotComponent implements OnInit, OnDestroy {
 
   handleMessage(message) {
     console.log("received from:", message);
-    this.messageArray.push({ name: "bot:", message: message });
+    this.messageArray.push({ name: "bot", message: message });
     console.log(this.messageArray);
   }
 
