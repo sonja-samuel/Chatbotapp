@@ -34,10 +34,10 @@ public class DoctorController {
 	@Autowired
     ScheduleService scheduleservice;
 //	
-@PostMapping("/addDetails")
-	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
+    @PostMapping("/addDetails")
+	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto,@RequestParam int userId){
 		
-		doctorservice.addDetails(doctordto);
+		doctorservice.addDetails(doctordto,userId);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 //

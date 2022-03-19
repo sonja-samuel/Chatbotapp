@@ -4,6 +4,6 @@ import com.mentbot.mainProject.dto.UserDto;
 
 public interface UserService {
 	
-	UserDto getUserDetails(int userId);
+	UserDto getUserDetails(int id);
 
 }

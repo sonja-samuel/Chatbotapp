@@ -2,6 +2,7 @@ package com.mentbot.mainProject.dto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -16,11 +17,15 @@ public class DoctorDto {
 private Long doctor_id;
 	
 	private String prof_statement;
-	private LocalDate practicing_date;
+	private String practicing_date;
 	private UserDto user;
 	private Set<DocSpecialities> docspecialization;
     
 
+	
+
+	public DoctorDto() {
+	}
 
 	public Long getDoctor_id() {
 		return doctor_id;
@@ -37,7 +42,7 @@ private Long doctor_id;
 	
 		this.doctor_id =doctor.getDoctor_id();
 		this.prof_statement =doctor.getProf_statement();
-		this.practicing_date = doctor.getPracticing_date();
+		this.practicing_date = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("ddmmyyyy"));
      	this.user = new UserDto(doctor.getUser());
         this.docspecialization=doctor.getDocspecialities();
 	}
@@ -67,12 +72,11 @@ private Long doctor_id;
 	}
 
 	
-
-	public LocalDate getPracticing_date() {
+	public String getPracticing_date() {
 		return practicing_date;
 	}
 
-	public void setPracticing_date(LocalDate practicing_date) {
+	public void setPracticing_date(String practicing_date) {
 		this.practicing_date = practicing_date;
 	}
 

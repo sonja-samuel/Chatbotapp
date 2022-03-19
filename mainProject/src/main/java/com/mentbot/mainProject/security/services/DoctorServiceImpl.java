@@ -1,8 +1,12 @@
 package com.mentbot.mainProject.security.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,13 +61,18 @@ public class DoctorServiceImpl implements DoctorService {
 
 
 	@Override
-	public void addDetails(DoctorDto doctordto) {
+	public void addDetails(DoctorDto doctordto,int userId) {
+		
+//		LocalDate practicingDate = LocalDate.parse(doctordto.getPracticing_date(), DateTimeFormatter.ofPattern("dd-mm-yyyy"));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-mm-yyyy", Locale.ENGLISH);
+		LocalDate practicingDate = LocalDate.parse(doctordto.getPracticing_date(), formatter);
+		
 		Doctor doctor=new Doctor();
+		User user=userrepo.getById(Long.valueOf(userId));
+		doctor.setUser(user);
 		doctor.setProf_statement(doctordto.getProf_statement());
-		doctor.setPracticing_date(doctordto.getPracticing_date());
-		
+		doctor.setPracticing_date(practicingDate);
 		doctorrepo.save(doctor);
-		
 	}
 
 

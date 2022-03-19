@@ -11,7 +11,7 @@ import com.mentbot.mainProject.dto.ScheduleDto;
 
 public interface DoctorService {
 	
-	public void addDetails(DoctorDto doctordto);
+	public void addDetails(DoctorDto doctordto,int userId);
 	public void addSpecialities(DocSpecialitiesDto docspecdto);
 	
 //	List<AppointmentDto> getAppointmentsByDoctorId(int doctorId);

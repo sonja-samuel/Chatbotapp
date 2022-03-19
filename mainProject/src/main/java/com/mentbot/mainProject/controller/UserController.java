@@ -26,9 +26,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/getUserDetails")
-	public UserDto getUserDetails(@RequestParam int userId ){
+	public UserDto getUserDetails(@RequestParam int id ){
 		
-		return userService.getUserDetails(userId);
+		return userService.getUserDetails(id);
 	}
 	   
 

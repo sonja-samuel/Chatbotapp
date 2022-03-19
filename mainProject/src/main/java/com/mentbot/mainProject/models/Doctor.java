@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 
 
+
 @Entity
 @Table(name="Doctor_table")
 public class Doctor {

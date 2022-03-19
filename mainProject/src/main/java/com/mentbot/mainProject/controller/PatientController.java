@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mentbot.mainProject.dto.DocSpecialitiesDto;
@@ -26,9 +27,9 @@ public class PatientController {
 	PatientService patientService;
 	
 	@PostMapping("/addDetails")
-	public ResponseEntity<?> addDetailsForPatient(@RequestBody PatientDto patientDto){
+	public ResponseEntity<?> addDetailsForPatient(@RequestBody PatientDto patientDto,@RequestParam int userId){
 	
-	patientService.addDetailsForPatient(patientDto);
+	patientService.addDetailsForPatient(patientDto,userId);
 	return new ResponseEntity<>(HttpStatus.OK);
 
 	}
