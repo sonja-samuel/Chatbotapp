@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ToastService } from '../../_services/toast.service';
+import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-adddetail',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdddetailComponent implements OnInit {
 
-  constructor() { }
+  addDetailsForm = this.fb.group({
+    practingDate: [null, [Validators.required]],
+    professionalStatement: [null, [Validators.required]]
+  });
+
+  constructor(
+    private toastService : ToastService,
+    private doctorService: DoctorService,
+    private fb: FormBuilder,
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  addDetails():void {
+    const practingDate = this.addDetailsForm.get(['practingDate'])!.value;
+    const professionalStatement = this.addDetailsForm.get(['professionalStatement'])!.value;
+    this.doctorService.addDetails(practingDate,professionalStatement).subscribe(
+      () => {
+        this.toastService.openSweetAlertToast('Success','Details Added Succesfully');
+      },
+      () => {
+        this.toastService.openSweetAlertToast('Error','Something went wrong!');
+      }
+    )
   }
 
 }

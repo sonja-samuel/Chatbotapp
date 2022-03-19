@@ -54,6 +54,11 @@ import { UsermanageComponent } from './admin/usermanage/usermanage.component';
 import { PatientsDashboardComponent } from './patients/patients-dashboard/patients-dashboard.component';
 import { AddDetailsComponent } from './patients/add-details/add-details.component';
 import { AddappointmentComponent } from './patients/addappointment/addappointment.component';
+import { DocprofileComponent } from './doctors/docprofile/docprofile.component';
+import { AdddetailComponent } from './doctors/adddetail/adddetail.component';
+import { AddspecialityComponent } from './doctors/addspeciality/addspeciality.component';
+import { AvailabilitycheckComponent } from './doctors/availabilitycheck/availabilitycheck.component';
+import { DoctorsDashboardComponent } from './doctors/doctors-dashboard/doctors-dashboard.component';
 
 @NgModule({
   imports: [
@@ -91,6 +96,11 @@ import { AddappointmentComponent } from './patients/addappointment/addappointmen
     PatientsDashboardComponent,
     AddDetailsComponent,
     AddappointmentComponent,
+    DocprofileComponent,
+    AdddetailComponent,
+    AddspecialityComponent,
+    AvailabilitycheckComponent,
+    DoctorsDashboardComponent,
 
   ],
   providers: [

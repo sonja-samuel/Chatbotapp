@@ -10,18 +10,18 @@ import { AddspecialityComponent } from './addspeciality/addspeciality.component'
 // import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { TimepickerModule, } from 'ngx-bootstrap/timepicker';
 import { NgbTimepicker , NgbTimepickerModule ,NgbModule,NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap'
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
 @NgModule({
   declarations: [
-    DoctorsDashboardComponent,
-    AdddetailComponent,
-    AvailabilitycheckComponent,
-    DocprofileComponent,
-    AddspecialityComponent
+    // DoctorsDashboardComponent,
+    // AdddetailComponent,
+    // AvailabilitycheckComponent,
+    // DocprofileComponent,
+    // AddspecialityComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +32,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     // NgbTimepicker,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     MatCheckboxModule,
     
     
