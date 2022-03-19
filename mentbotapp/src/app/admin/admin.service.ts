@@ -17,19 +17,19 @@ export class AdminService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  getAppointmentDetails(): any{
+  getAppointmentDetails(): Observable<any>{
     return this.http.get(AUTH_API);
   }
 
-  getUserDetails():any{
+  getUserDetails():Observable<any>{
     return this.http.get(GET_USER_DETAILS);
   }
 
-  updateUserDetails(id):any{
+  updateUserDetails(id):Observable<any>{
     return this.http.post(AUTH_API,{id})
   }
 
-  deleteAppointment(id):any{
+  deleteAppointment(id):Observable<any>{
     return this.http.post(AUTH_API,{id})
   }
 

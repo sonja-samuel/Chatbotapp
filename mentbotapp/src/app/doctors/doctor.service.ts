@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 const GET_USER_DETAILS = "http://localhost:8080/common/getUserDetails"
 const ADD_SPECIALITY = "http://localhost:8080/doctors/addSpecialities"
@@ -14,19 +15,19 @@ export class DoctorService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  getUserDetails():any{
-    this.http.get(GET_USER_DETAILS);
+  getUserDetails():Observable<any>{
+    return this.http.get(GET_USER_DETAILS);
   }
 
-  addSpeciality():any{
-    this.http.post(ADD_SPECIALITY , {});
+  addSpeciality():Observable<any>{
+    return this.http.post(ADD_SPECIALITY, {});
   }
 
-  addSchedule():any{
-    this.http.post(ADD_SCHEDULE , {});
+  addSchedule():Observable<any>{
+    return this.http.post(ADD_SCHEDULE, {});
   }
 
-  addDetails():any{
-    this.http.post(ADD_DETAILS , {});
+  addDetails():Observable<any>{
+    return this.http.post(ADD_DETAILS, {});
   }
 }

@@ -1,13 +1,73 @@
 <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-        
-          <i class="bg-indigo theme-color mb-3 w-75 rounded mb-2 "></i><b> <em>My Schedule </em></b>
-           </div>
-        <!-- </div> -->
-        <div class="card-body">
-          <table class="table table-sm">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="bg-indigo theme-color mb-3 w-75 rounded mb-2"></i
+        ><b> <em>My Schedule </em></b>
+      </div>
+      <!-- </div> -->
+      <div class="card-body">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="multiple-select"
+            >Days Available</label
+          >
+          <div class="col-md-9">
+            <select
+              id="multiple-select"
+              name="multiple-select"
+              class="form-control"
+              size="5"
+              multiple="multiple"
+            >
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+              <option value="7">Sunday</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="date-input"
+            >Start Time</label
+          >
+          <div class="col-md-9">
+            <input
+              class="form-control"
+              id="date-input"
+              type="time"
+              name="date-input"
+              placeholder="time"
+            />
+            <span class="help-block">Please enter a valid Start Time</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="date-input"
+            >End Time</label
+          >
+          <div class="col-md-9">
+            <input
+              class="form-control"
+              id="date-input"
+              type="time"
+              name="date-input"
+              placeholder="time"
+            />
+            <span class="help-block">Please enter a valid End Time</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="Accept" class="btn btn-sm btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Add Schedule
+          </button>
+          <button type="Cancel" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Cancel
+          </button>
+        </div>
+        <!-- <table class="table table-sm">
             <thead>
               <tr>
                 <th>Days Available</th>
@@ -61,22 +121,18 @@
                     </label>
                   </div>
                   </td>
-                <td>
-                    <!-- <select class="form-control" style="width: auto" name="starttime">
+                <td> -->
+              <!-- <select class="form-control" style="width: auto" name="starttime">
                     <option value="9.00">9.00 </option>
                     <option value="10.00">10.00</option>
-                   
                   </select> -->
-        
-
-                 
-                </td>
-                <td>
-                    <!-- <ngb-timepicker [(ngModel)]="time"> </ngb-timepicker> -->
-                    <!-- <timepicker [(ngModel)]="time" [showMeridian]="false">hello</timepicker>
+        <!-- </td>
+                <td> -->
+        <!-- <ngb-timepicker [(ngModel)]="time"> </ngb-timepicker> -->
+        <!-- <timepicker [(ngModel)]="time" [showMeridian]="false">hello</timepicker>
 <pre class="alert alert-info">Time is: {{time}}</pre> -->
 
-<div class="row">
+        <!-- <div class="row">
     <div class="form-group col-sm-3">
       <label for="ccmonth">Month</label>
       <select class="form-control" id="ccmonth">
@@ -110,16 +166,16 @@
         <option>2024</option>
         <option>2025</option>
       </select>
-    </div>
-    <!-- <div class="col-sm-4">
+    </div> -->
+        <!-- <div class="col-sm-4">
       <div class="form-group">
         <label for="cvv">CVV/CVC</label>
         <input type="text" class="form-control" id="cvv" placeholder="123">
       </div>
     </div> -->
-  </div>
+        <!-- </div> -->
 
-                <td>
+        <!-- <td>
                   <span> <td>
                     <span><button type="Accept" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Add Schedule</button>
                       <button type="Cancel" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancel</button></span>
@@ -129,10 +185,8 @@
               
               
             </tbody>
-          </table>
-          
-        </div>
+          </table> -->
       </div>
     </div>
-    
-   
+  </div>
+</div>
