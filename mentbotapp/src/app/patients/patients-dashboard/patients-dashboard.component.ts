@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { convertTypeAcquisitionFromJson } from 'typescript';
+import { PatientsService } from '../patients.service';
 
 @Component({
   selector: 'app-patients-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsDashboardComponent implements OnInit {
 
-  constructor() { }
+  appointmentStatus : any;
+  constructor(private patientService: PatientsService) { }
 
   ngOnInit(): void {
+    this.getAppointmentStatus();
+  }
+
+  getAppointmentStatus():void{
+    this.patientService.getAppointmentStatus().subscribe(
+      (value:any) => {
+        this.appointmentStatus = value;
+      }
+    )
   }
 
 }

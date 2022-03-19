@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 const AUTH_API = "http://localhost:8080/api/auth/";
+const GET_USER_DETAILS = "http://localhost:8080/admin/v1/getusers";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -21,10 +22,14 @@ export class AdminService {
   }
 
   getUserDetails():any{
-    return this.http.get(AUTH_API);
+    return this.http.get(GET_USER_DETAILS);
   }
 
   updateUserDetails(id):any{
+    return this.http.post(AUTH_API,{id})
+  }
+
+  deleteAppointment(id):any{
     return this.http.post(AUTH_API,{id})
   }
 

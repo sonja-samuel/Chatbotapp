@@ -18,15 +18,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>x</td>
-                <td>y</td>
-                <td>z</td>
-                <td>z</td>
-                <td>j</td>
-              </tr>
-              
-              
+              <tr *ngFor="let item of appointmentStatus">
+                <td>{{item.doctorName}}</td>
+                <td>{{item.appointmentDate}}</td>
+                <td>{{item.speciality}}</td>
+                <td>{{item.slot}}</td>
+                <td>{{item.status}}</td>
+              </tr>  
             </tbody>
           </table>
           

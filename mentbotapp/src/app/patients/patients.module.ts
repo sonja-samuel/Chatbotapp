@@ -11,10 +11,10 @@ import { AddDetailsComponent } from './add-details/add-details.component';
 
 @NgModule({
   declarations: [
-    PatientsDashboardComponent,
+    // PatientsDashboardComponent,
     PatientprofileComponent,
-    AddappointmentComponent,
-    AddDetailsComponent
+    // AddappointmentComponent,
+    // AddDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -50,6 +50,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ChatbotComponent } from './patients/chatbot/chatbot.component';
+import { UsermanageComponent } from './admin/usermanage/usermanage.component';
+import { PatientsDashboardComponent } from './patients/patients-dashboard/patients-dashboard.component';
+import { AddDetailsComponent } from './patients/add-details/add-details.component';
+import { AddappointmentComponent } from './patients/addappointment/addappointment.component';
 
 @NgModule({
   imports: [
@@ -82,7 +86,12 @@ import { ChatbotComponent } from './patients/chatbot/chatbot.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    UsermanageComponent,
+    PatientsDashboardComponent,
+    AddDetailsComponent,
+    AddappointmentComponent,
+
   ],
   providers: [
     IconSetService,
