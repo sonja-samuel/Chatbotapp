@@ -80,26 +80,26 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 
-	@Override
-	public List<AppointmentDto>  getAppointmentsByDoctorId(int doctorId) {
-
-        Optional<Doctor> doctor = doctorrepo.findById((long) doctorId);
-		
-		List<Appointment> appointments= appointmentrepo.getAppointmentsByDoctorId(doctor.get());
-		
-		List<AppointmentDto> appointmentdto=new ArrayList<>();
-		for (Appointment appointment : appointments) {
-			
-			Patient patient=patientrepo.getById(appointment.getPatient().getPatient_id());
-			User user=userrepo.getById(patient.getUser().getId());
-			
-			AppointmentDto appointdto=new AppointmentDto(appointment);
-			appointdto.setPatientName(user.getFirstname() + user.getLastname());
-			appointmentdto.add(appointdto);	
-		}
-		
-		return appointmentdto;
-	}
+//	@Override
+//	public List<AppointmentDto>  getAppointmentsByDoctorId(int doctorId) {
+//
+//        Optional<Doctor> doctor = doctorrepo.findById((long) doctorId);
+//		
+//		List<Appointment> appointments= appointmentrepo.getAppointmentsByDoctorId(doctor.get());
+//		
+//		List<AppointmentDto> appointmentdto=new ArrayList<>();
+//		for (Appointment appointment : appointments) {
+//			
+//			Patient patient=patientrepo.getById(appointment.getPatient().getPatient_id());
+//			User user=userrepo.getById(patient.getUser().getId());
+//			
+//			AppointmentDto appointdto=new AppointmentDto(appointment);
+//			appointdto.setPatientName(user.getFirstname() + user.getLastname());
+//			appointmentdto.add(appointdto);	
+//		}
+//		
+//		return appointmentdto;
+//	}
 
 
 	

@@ -34,12 +34,12 @@ public class DoctorController {
 	@Autowired
     ScheduleService scheduleservice;
 //	
-//	@PostMapping("/addDetails")
-//	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
-//		
-//		doctorservice.addDetails(doctordto);
-//		return new ResponseEntity<>(HttpStatus.OK);
-//	}
+@PostMapping("/addDetails")
+	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto){
+		
+		doctorservice.addDetails(doctordto);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 //
 //	@GetMapping("/getAvailableSlots")
 //	public ResponseEntity<List<ScheduleDto>> getAvaialableSlots(){
@@ -62,11 +62,11 @@ public class DoctorController {
 //	}
 	}
 	
-	 @GetMapping("/getAppointments")
-	    public List<AppointmentDto> getAppointments(@RequestParam  int doctorId) {
-
-	        return doctorservice.getAppointmentsByDoctorId(doctorId);
-	    }
+//	 @GetMapping("/getAppointments")
+//	    public List<AppointmentDto> getAppointments(@RequestParam  int doctorId) {
+//
+//	        return doctorservice.getAppointmentsByDoctorId(doctorId);
+//	    }
 	 
 //	 @PostMapping("/addSpecialities")
 //		public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){

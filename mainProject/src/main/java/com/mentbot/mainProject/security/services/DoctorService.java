@@ -14,5 +14,5 @@ public interface DoctorService {
 	public void addDetails(DoctorDto doctordto);
 	public void addSpecialities(DocSpecialitiesDto docspecdto);
 	
-	List<AppointmentDto> getAppointmentsByDoctorId(int doctorId);
+//	List<AppointmentDto> getAppointmentsByDoctorId(int doctorId);
 }
