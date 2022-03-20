@@ -19,11 +19,22 @@
                 <textarea id="textarea-input" formControlName="professionalStatement" name="textarea-input" rows="9" class="form-control" placeholder="Content.."></textarea>
               </div>
             </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="textarea-input">Speciality</label>
+                <div class="col-md-9">
+            <select id="multiple-select" formControlName="specializationIds" name="multiple-select" class="form-control" size="5" multiple="multiple">
+                <option value="1">Anxiety</option>
+                <option value="2">Depression</option>
+                <option value="3">Stress</option>
+               
+              </select>
+              </div>
+            </div>
           </form>
         </div>
         <div class="card-footer">
           <button type="submit" (click)="addDetails()" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Add Details</button>
-          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+          <!-- <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button> -->
         </div>
       </div>
     </div>

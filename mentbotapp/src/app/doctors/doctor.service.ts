@@ -7,7 +7,7 @@ const GET_USER_DETAILS = "http://localhost:8080/common/getUserDetails"
 const GET_APPOINTMENT_DETAILS = "http://localhost:8080/doctors/getMyAppointments"
 const CONFIRM_APPOINTMENT_DETAILS = "http://localhost:8080/doctors/confirmAppointment"
 const REJECT_APPOINTMENT_DETAILS = "http://localhost:8080/doctors/rejectAppointment"
-const ADD_SPECIALITY = "http://localhost:8080/doctors/addSpecialities"
+// const ADD_SPECIALITY = "http://localhost:8080/doctors/addSpecialities"
 const ADD_SCHEDULE = "http://localhost:8080/doctors/addSchedule"
 const ADD_DETAILS = "http://localhost:8080/doctors/addDetails"
 
@@ -22,16 +22,16 @@ export class DoctorService {
     return this.http.get(GET_USER_DETAILS);
   }
 
-  addSpeciality(speciality):Observable<any>{
-    return this.http.post(ADD_SPECIALITY, {speciality});
-  }
+//   addSpeciality(speciality):Observable<any>{
+//     return this.http.post(ADD_SPECIALITY, {speciality});
+//   }
 
   addSchedule(practingDate,startTime,endTime):Observable<any>{
     return this.http.post(ADD_SCHEDULE, {practingDate,startTime,endTime});
   }
 
-  addDetails(practingDate,professionalStatement):Observable<any>{
-    return this.http.post(ADD_DETAILS, { practingDate , professionalStatement });
+  addDetails(practingDate,professionalStatement,specializationIds):Observable<any>{
+    return this.http.post(ADD_DETAILS, { practingDate , professionalStatement,specializationIds });
   }
 
   getAppointmentDetails():Observable<any>{

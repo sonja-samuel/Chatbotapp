@@ -11,7 +11,7 @@ export class AddDetailsComponent implements OnInit {
   bloodGroup:any;
   gender:any
   addDetailsForm = this.fb.group({
-    bloodGroup: [null, [Validators.required]],
+    bloodgroup: [null, [Validators.required]],
     gender: [null, [Validators.required]]
 });
   constructor(
@@ -22,9 +22,9 @@ export class AddDetailsComponent implements OnInit {
   }
 
   addDetails(): void {
-    const bloodGroup = this.addDetailsForm.get(['bloodGroup'])!.value;
+    const bloodgroup = this.addDetailsForm.get(['bloodgroup'])!.value;
     const gender = this.addDetailsForm.get(['gender'])!.value;
-    this.patientService.addPatientDetails(bloodGroup,gender).subscribe(
+    this.patientService.addPatientDetails(bloodgroup,gender).subscribe(
     );
   }
 }

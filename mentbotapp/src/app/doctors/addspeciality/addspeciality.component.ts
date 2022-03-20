@@ -15,8 +15,8 @@ export class AddspecialityComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addSpeciality():void {
-    this.doctorService.addSpeciality(this.speciality)
-  }
+//   addSpeciality():void {
+//     this.doctorService.addSpeciality(this.speciality)
+//   }
 
 }

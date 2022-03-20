@@ -38,13 +38,13 @@ const routes: Routes = [];
           title: "My Profile",
         },
       },
-      {
-        path: 'docspeciality',
-        component: AddspecialityComponent ,
-        data: {
-          title: "My Speciality",
-        },
-      },
+    //   {
+    //     path: 'docspeciality',
+    //     component: AddspecialityComponent ,
+    //     data: {
+    //       title: "My Speciality",
+    //     },
+    //   },
     ]),
   ],
   exports: [RouterModule]

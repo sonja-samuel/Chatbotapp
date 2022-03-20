@@ -44,11 +44,11 @@ export const docNavItems: INavData[] = [
             url: 'doctors/docprofile',
             icon: 'icon-user'
           },
-          {
-            name: 'Add Speciality',
-            url: 'doctors/docspeciality',
-            icon: 'icon-pencil'
-          }
+        //   {
+        //     name: 'Add Speciality',
+        //     url: 'doctors/docspeciality',
+        //     icon: 'icon-pencil'
+        //   }
      
   
     ];
