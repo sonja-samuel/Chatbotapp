@@ -21,9 +21,10 @@ public class ScheduleDetailsServiceImpl implements ScheduleService {
 
 
     @Override
-    public void addSchedules(ScheduleDto scheduleDto) {
+    public void addSchedules(ScheduleDto scheduleDto,int doctorId) {
         Schedule schedule = new Schedule();
-        Doctor doctor = doctorrepo.getById(scheduleDto.getDoctor().getDoctor_id());
+//        Doctor doctor = doctorrepo.getById(scheduleDto.getDoctor().getDoctor_id());
+        Doctor doctor=doctorrepo.getById(Long.valueOf(doctorId));
         schedule.setDoctor(doctor);
         schedule.setStartTime(scheduleDto.getStartTime());
         schedule.setEndTime(scheduleDto.getEndTime());

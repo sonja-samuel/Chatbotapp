@@ -56,11 +56,11 @@ public class DoctorController {
 //
 //	}
 	@PostMapping("/addSchedule")
-	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto){
-//		
-	scheduleservice.addSchedules(scheduleDto);
+	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto,@RequestParam int doctorId){
+	
+	scheduleservice.addSchedules(scheduleDto,doctorId);
 	return new ResponseEntity<>(HttpStatus.OK);
-//	}
+
 	}
 	
 	

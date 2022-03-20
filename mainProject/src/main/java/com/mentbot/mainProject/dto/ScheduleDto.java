@@ -5,12 +5,13 @@ import com.mentbot.mainProject.models.Schedule;
 
 import javax.persistence.OneToOne;
 import java.time.LocalTime;
+import java.util.List;
 
 public class ScheduleDto {
     private Long scheduleId;
     private LocalTime startTime;
     private LocalTime endTime;
-    private String availableDays;
+    private  String availableDays;
     @OneToOne
     private Doctor doctor;
 
@@ -23,7 +24,11 @@ public class ScheduleDto {
 
     }
 
-    public Long getScheduleId() {
+    public ScheduleDto() {
+		
+	}
+
+	public Long getScheduleId() {
         return scheduleId;
     }
 
