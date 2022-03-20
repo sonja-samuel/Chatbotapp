@@ -15,6 +15,8 @@ import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
+import com.mentbot.mainProject.dto.SpecializationDto;
+import com.mentbot.mainProject.dto.UserDto;
 import com.mentbot.mainProject.models.Appointment;
 import com.mentbot.mainProject.models.DocSpecialities;
 import com.mentbot.mainProject.models.Doctor;
@@ -86,6 +88,18 @@ public class DoctorServiceImpl implements DoctorService {
 		docspec.setSpecialization(spec);
 		docspecrepo.save(docspec);
 		
+	}
+
+
+	@Override
+	public List<SpecializationDto> getAllSpeciality() {
+		List<SpecializationDto> specialization = new ArrayList<>();
+		specrepo.findAll().forEach(spec -> {
+			SpecializationDto dto = new SpecializationDto(spec);
+			specialization.add(dto);
+		});
+		
+		return specialization;
 	}
 
 

@@ -19,6 +19,8 @@ import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
+import com.mentbot.mainProject.dto.SpecializationDto;
+import com.mentbot.mainProject.dto.UserDto;
 import com.mentbot.mainProject.security.services.DoctorService;
 import com.mentbot.mainProject.security.services.ScheduleService;
 
@@ -60,6 +62,14 @@ public class DoctorController {
 	scheduleservice.addSchedules(scheduleDto);
 	return new ResponseEntity<>(HttpStatus.OK);
 //	}
+	}
+	
+	@GetMapping("/listSpeciality")
+    public ResponseEntity<List<SpecializationDto>> getAllSpeciality(){
+		
+		List<SpecializationDto> specializations=doctorservice.getAllSpeciality();
+		return new ResponseEntity<>(specializations,HttpStatus.OK);
+		
 	}
 	
 //	 @GetMapping("/getAppointments")
