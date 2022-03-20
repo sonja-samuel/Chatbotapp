@@ -17,6 +17,7 @@ public class Schedule {
     private String availableDays;
 
     @OneToOne
+//    @JoinColumn(name="doctor_id")
     private Doctor doctor;
 
 

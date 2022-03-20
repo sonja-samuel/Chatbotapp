@@ -56,9 +56,9 @@ public class DoctorController {
 //
 //	}
 	@PostMapping("/addSchedule")
-	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto,@RequestParam int doctorId){
+	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto){
 	
-	scheduleservice.addSchedules(scheduleDto,doctorId);
+	scheduleservice.addSchedules(scheduleDto);
 	return new ResponseEntity<>(HttpStatus.OK);
 
 	}

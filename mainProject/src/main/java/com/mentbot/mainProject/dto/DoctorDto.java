@@ -7,8 +7,8 @@ import com.mentbot.mainProject.models.Doctor;
 
 public class DoctorDto {
 
-private Long doctor_id;
-	
+    private Long doctor_id;
+  	
 	private String prof_statement;
 	private String practicing_date;
 	private UserDto user;

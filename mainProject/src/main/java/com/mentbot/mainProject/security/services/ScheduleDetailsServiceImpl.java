@@ -5,6 +5,11 @@ import com.mentbot.mainProject.models.Doctor;
 import com.mentbot.mainProject.models.Schedule;
 import com.mentbot.mainProject.repo.DoctorRepo;
 import com.mentbot.mainProject.repo.ScheduleRepo;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,13 +26,18 @@ public class ScheduleDetailsServiceImpl implements ScheduleService {
 
 
     @Override
-    public void addSchedules(ScheduleDto scheduleDto,int doctorId) {
+    public void addSchedules(ScheduleDto scheduleDto) {
         Schedule schedule = new Schedule();
+      
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("H:mm");
+        LocalTime startTime = LocalTime.parse(scheduleDto.getStartTime(), dtf);
+        LocalTime endTime = LocalTime.parse(scheduleDto.getEndTime(), dtf);
+//        Doctor doctor=doctorrepo.getById(Long.valueOf(doctorId));
 //        Doctor doctor = doctorrepo.getById(scheduleDto.getDoctor().getDoctor_id());
-        Doctor doctor=doctorrepo.getById(Long.valueOf(doctorId));
+        Doctor doctor=doctorrepo.getById(Long.valueOf(scheduleDto.getDoctorId()));
         schedule.setDoctor(doctor);
-        schedule.setStartTime(scheduleDto.getStartTime());
-        schedule.setEndTime(scheduleDto.getEndTime());
+        schedule.setStartTime(startTime);
+        schedule.setEndTime(endTime);
         schedule.setAvailableDays(scheduleDto.getAvailableDays());
         scheduleRepo.save(schedule);
 

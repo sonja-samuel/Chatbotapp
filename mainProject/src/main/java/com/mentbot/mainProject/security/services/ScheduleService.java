@@ -9,6 +9,6 @@ public interface ScheduleService {
 	
 //	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId);
 	
-	public void addSchedules(ScheduleDto scheduleDto,int doctorId);
+	public void addSchedules(ScheduleDto scheduleDto);
 
 }
