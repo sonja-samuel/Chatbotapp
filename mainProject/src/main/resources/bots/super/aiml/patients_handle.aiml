@@ -40,8 +40,8 @@
 <template><random>
 <li>Then please have a consultation with concerned doctor.</li>
 <li>Dont be if its hard please make a booking with concerned doctor</li>
-<li>If you can't control please share it with a therapist</li>
-<li>If you can't control please approach a doctor.</li>
+<li>If you cant control please share it with a therapist</li>
+<li>If you cant control please approach a doctor.</li>
 </random></template>
 </category>
 <category><pattern>I am feeling down and bit low</pattern>
@@ -112,7 +112,7 @@
 </category>
 <category><pattern>I feel bit scared.</pattern>
 <template><random>
-<li>Scared of what, don't think like that.</li>
+<li>Scared of what, dont think like that.</li>
 <li>I am here for your help.</li>
 </random>
 </template>
@@ -138,7 +138,7 @@
 <category><pattern>I am lossing myself.</pattern>
 <template>Dont worry, have a doctor's appointment and make yourself relieved.</template>
 </category>
-<category><pattern>I don't feel happy living a life full of worse situation.</pattern>
+<category><pattern>I dont feel happy living a life full of worse situation.</pattern>
 <template>Life is always a struggle, dont feel to be bad. Rise from your situation.</template>
 </category>
 <category><pattern>I have my own tensions, stress, breakdowns.</pattern>

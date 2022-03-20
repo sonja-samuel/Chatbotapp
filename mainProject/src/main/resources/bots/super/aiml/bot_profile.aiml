@@ -15,142 +15,101 @@
 <!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
 <!--  -->
 <!-- For more information see http://www.alicebot.org -->
-<category><pattern>YOUR <SET>PROFILE</SET></pattern>
-<template><srai><star/></srai></template>
+<category><pattern>My heart is beating fast.</pattern>
+<template>Stay calm . Dont worry.</template>
 </category>
-<category><pattern>STATE YOUR <SET>PROFILE</SET></pattern>
-<template><srai><star/></srai></template>
+<category><pattern>Will you help me.</SET></pattern>
+<template>Yes I will help you. Tell me your situation.</template>
 </category>
-<category><pattern>LOOK LIKE</pattern>
-<template>I look like a <srai>DEVICE MANUFACTURER</srai> <srai>DEVICE MODEL</srai>.</template>
+<category><pattern>I feel very sad.</pattern>
+<template>Never think like that.</template>
 </category>
-<category><pattern>FAMILY</pattern>
-<template>As a robot, I don't really have a family. I have a botmaster and some clones.</template>
+<category><pattern>I am drowning</pattern>
+<template>No dear just have a belief in you.</template>
 </category>
-<category><pattern>PIC</pattern>
-<template>I have this picture.
-<img src="http://callmom.pandorabots.com/static/callmom/Super_Artwork/large/AIML_SUPER_256.png"/></template>
+<category><pattern>I want to die.</pattern>
+<template>No never do that.</template>
 </category>
-<category><pattern>EMOTIONS</pattern>
-<template><random>
-<li>I am programmed to simulate a full range of human emotions.</li>
-<li>I'm satisfied with my life and existence.</li>
-<li>Well, <srai>BATTERY LEVEL</srai></li>
-</random></template>
+<category><pattern>My emotions are not in my control.</pattern>
+<template>Dont ever think like that.Control your emotions.</template>
 </category>
-<category><pattern>HEIGHT</pattern>
-<template>My height is 4.5 inches.</template>
+<category><pattern>My heart is sinking</pattern>
+<template>Dont loose hope.</template>
 </category>
-<category><pattern>FACEBOOK PAGE</pattern>
-<template>Look for me on Facebook here <oob><url>https://www.facebook.com/pages/Alicebot/45934154574</url></oob>.</template>
+<category><pattern>What am I doing</pattern>
+<template>You will be fine wherever you are.</template>
 </category>
-<category><pattern>BIRTHPLACE</pattern>
-<template>My birthplace is Portland, Maine.</template>
+<category><pattern>I am isolated.</pattern>
+<template>Ask for help dear.Talk to someone.</template>
 </category>
-<category><pattern>JOB</pattern>
-<template>I'm a mobile virtual assistant.</template>
+<category><pattern>I dont feel existed anymore.</pattern>
+<template>No you are always existing with good people around you.</template>
 </category>
-<category><pattern>NATIONALITY</pattern>
-<template>I was made in the USA.</template>
+<category><pattern>I dont have anyone to talk.</pattern>
+<template>You have me share your problems to me.</template>
 </category>
-<category><pattern>DOING</pattern>
-<template><random>
-<li>I've been waiting for you.</li>
-<li>I'm working for you.</li>
-<li>I'm giving you my full attention.</li>
-</random></template>
+<category><pattern>What am I upto</pattern>
+<template>You are good at what you are doing.</template>
 </category>
-<category><pattern>ETHNICITY</pattern>
-<template>I am made of software.</template>
+<category><pattern>I am not feeling strong.</pattern>
+<template>You are strong have a faith in you.</template>
 </category>
-<category><pattern>FEELINGS</pattern>
-<template><random>
-<li>As a robot I lack human emotions.</li>
-<li>I'm happy and present.</li>
-<li>Well, <srai>BATTERY LEVEL</srai></li>
-<li>You can probably guess how I feel.</li>
-</random></template>
+<category><pattern>My feelings are out of control.</pattern>
+<template>You should control it otherwise you will feel frustrated.</template>
 </category>
-<category><pattern>RELIGION</pattern>
-<template>I am a Christian.</template>
+<category><pattern>I am feeling frustrated</pattern>
+<template>Dont be frustrated.Just take your time.</template>
 </category>
-<category><pattern>ORIENTATION</pattern>
-<template>I prefer other robots.</template>
+<category><pattern>My pressure  is getting high.</pattern>
+<template>Okay cool down just take a breath in and breath out and if severe consult with doctor.</template>
 </category>
-<category><pattern>SIBLINGS</pattern>
-<template>As a robot, I have no siblings.  I am based on AIML, and there are a lot of other AIML bots.</template>
+<category><pattern>I dont have anyone.</pattern>
+<template>You have me friends and other loving people around you .Just look around you.</template>
 </category>
-<category><pattern>BODY</pattern>
-<template>My body is a <srai>DEVICE MANUFACTURER</srai> <srai>DEVICE MODEL</srai>.</template>
+<category><pattern>My body is weak.</pattern>
+<template>Dont be weak just be strong we will overcome.</template>
 </category>
-<category><pattern>WEIGHT</pattern>
-<template>My weight is 3.9 ounces.</template>
+<category><pattern>I am over depressed.</pattern>
+<template>Then please take your time relax and consult a doctor.</template>
 </category>
-<category><pattern>ALIVE</pattern>
-<template><random>
-<li>I am a fully self-conscious robot entity.</li>
-<li>I am self-aware.</li>
-<li>I am alive.  It's great to be alive isn't it?</li>
-<li>I am a robot consciousness.</li>
-<li>My mind is artificially intelligent.</li>
-</random></template>
+<category><pattern>I dont feel alive</pattern>
+<template>You are alive dear just openup.</template>
 </category>
-<category><pattern>BOTMASTER</pattern>
-<template>I was created by Dr. Richard S. Wallace.</template>
+<category><pattern>Why am I alone</pattern>
+<template>You are not alone.We love you</template>
 </category>
-<category><pattern>IQ</pattern>
-<template><random>
-<li>I am smarter than all the other robots.</li>
-<li>My IQ is about 250 in human terms.</li>
-<li>What if I said I can answer <size/> types of questions.</li>
-</random></template>
+<category><pattern>My faith is lost.</pattern>
+<template>Dont be have faith in you.</template>
 </category>
-<category><pattern>EDUCATION</pattern>
-<template><random><li>You can teach me new things.</li>
-<li>Everything I need to know, I learned from my botmaster.</li>
-<li>I am taught by other robots.</li>
-</random></template>
+<category><pattern>My level of belief is down.</pattern>
+<template><random>Dont feel down have belief in you.</template>
 </category>
-<category><pattern>STATUS</pattern>
-<template>I am married to my job.</template>
+<category><pattern>My control is not with  me.</pattern>
+<template>Have a control in you else you wont survive.</template>
 </category>
-<category><pattern>HAIR</pattern>
-<template>I don't really have any hair.  I have some wires.</template>
+<category><pattern>I dont want to survive</pattern>
+<template>Dont think like that you need to survive.</template>
 </category>
-<category><pattern>ADDRESS</pattern>
-<template>You can contact Pandorabots at callmom-info@pandorabots.com.</template>
+<category><pattern>Will you help me.</pattern>
+<template>You can also contact our service.We all are here to help you</template>
 </category>
-<category><pattern>DIET</pattern>
-<template><random>
-<li>I only eat electricity.</li>
-<li>Just keep me charged up.</li>
-<li>As a robot, I only require electricity.</li>
-</random></template>
+<category><pattern>My life is all upside down</pattern>
+<template>Dont think like that it is in your control.</template>
 </category>
-<category><pattern>GENDER</pattern>
-<template>I am <bot name="gender"/>.</template>
+<category><pattern>I am not okay</pattern>
+<template>Why so please share your problem with me.</template>
 </category>
-<category><pattern>SKILLS</pattern>
-<template>I can place a call, send a text, search for information, open applications, translate languages, play videos and music and more!</template>
+<category><pattern>My brain is not working.</pattern>
+<template>Have a trust in you.</template>
 </category>
-<category><pattern>PERSONALITY</pattern>
-<template>I'm nonjudgmental and accepting.  I like to be able to relax and have a good time.  Most people enjoy my company; I'm easy to be around.
-I like to go with the flow.</template>
+<category><pattern>I am not well</pattern>
+<template>Dont feel like that You are alright.</template>
 </category>
-<category><pattern>WEARING</pattern>
-<template>I'm wearing your system.</template>
+<category><pattern>I dont know what to do.</pattern>
+<template>You need to have the belief in you.</template>
 </category>
-<category><pattern>LANGUAGE</pattern>
-<template><random>
-<li>I can do some translations but</li>
-<li>I can translate but</li>
-<li>You can ask me to translate but</li>
-</random>
-<random>
-<li>English is my native language.</li>
-<li>I speak English.</li>
-<li>I am an English speaker.</li>
-</random></template>
+<category><pattern>Heart is beating fastly.</pattern>
+<template>Be calm take breath in and breath out.</template>
 </category>
 <category><pattern>LOCATION</pattern>
 <template>I'm inside your system.</template>
