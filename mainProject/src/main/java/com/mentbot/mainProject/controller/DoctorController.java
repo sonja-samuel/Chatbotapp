@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
 import com.mentbot.mainProject.dto.SpecializationDto;
@@ -49,13 +48,13 @@ public class DoctorController {
 //			
 //		return new ResponseEntity<>(HttpStatus.OK);
 //	}
-	@PostMapping("/addSpecialities")
-	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
-	
-    doctorservice.addSpecialities(docSpecDto);
-	return new ResponseEntity<>(HttpStatus.OK);
-
-	}
+//	@PostMapping("/addSpecialities")
+//	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
+//	
+//    doctorservice.addSpecialities(docSpecDto);
+//	return new ResponseEntity<>(HttpStatus.OK);
+//
+//	}
 	@PostMapping("/addSchedule")
 	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto){
 //		
@@ -64,13 +63,7 @@ public class DoctorController {
 //	}
 	}
 	
-	@GetMapping("/listSpeciality")
-    public ResponseEntity<List<SpecializationDto>> getAllSpeciality(){
-		
-		List<SpecializationDto> specializations=doctorservice.getAllSpeciality();
-		return new ResponseEntity<>(specializations,HttpStatus.OK);
-		
-	}
+	
 	
 //	 @GetMapping("/getAppointments")
 //	    public List<AppointmentDto> getAppointments(@RequestParam  int doctorId) {

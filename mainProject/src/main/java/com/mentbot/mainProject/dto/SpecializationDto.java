@@ -10,17 +10,23 @@ public class SpecializationDto {
 
 	public SpecializationDto(Specialization spec) {
 		
-		this.id = spec.getId();
+		this.id = spec.getSpec_id();
 		this.spec_name =spec.getSpec_name();
 	}
+
+	
 
 	public Long getId() {
 		return id;
 	}
 
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 
 	public String getSpec_name() {
 		return spec_name;

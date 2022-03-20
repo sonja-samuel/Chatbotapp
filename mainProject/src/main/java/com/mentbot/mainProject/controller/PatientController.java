@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mentbot.mainProject.dto.DocSpecialitiesDto;
+//import com.mentbot.mainProject.dto.DocSpecialitiesDto;
 import com.mentbot.mainProject.dto.PatientDto;
 import com.mentbot.mainProject.security.services.AppointmentService;
 import com.mentbot.mainProject.security.services.PatientService;

@@ -1,16 +1,9 @@
 package com.mentbot.mainProject.dto;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
-import com.mentbot.mainProject.models.DocSpecialities;
 import com.mentbot.mainProject.models.Doctor;
-import com.mentbot.mainProject.models.Specialization;
-import com.mentbot.mainProject.models.User;
 
 public class DoctorDto {
 
@@ -19,7 +12,7 @@ private Long doctor_id;
 	private String prof_statement;
 	private String practicing_date;
 	private UserDto user;
-	private Set<DocSpecialities> docspecialization;
+	private Set<Integer> specializationIds;
     
 
 	
@@ -44,17 +37,10 @@ private Long doctor_id;
 		this.prof_statement =doctor.getProf_statement();
 		this.practicing_date = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("ddmmyyyy"));
      	this.user = new UserDto(doctor.getUser());
-        this.docspecialization=doctor.getDocspecialities();
+     	
 	}
 
-	public Set<DocSpecialities> getDocspecialization() {
-		return docspecialization;
-	}
-
-	public void setDocspecialization(Set<DocSpecialities> docspecialization) {
-		this.docspecialization = docspecialization;
-	}
-
+	
 	public long getId() {
 		return doctor_id;
 	}
@@ -86,6 +72,14 @@ private Long doctor_id;
 
 	public void setUser(UserDto user) {
 		this.user = user;
+	}
+
+	public Set<Integer> getSpecializationIds() {
+		return specializationIds;
+	}
+
+	public void setSpecializationIds(Set<Integer> specializationIds) {
+		this.specializationIds = specializationIds;
 	}
 
 	
