@@ -4,17 +4,14 @@ import java.io.File;
 
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
-import org.alicebot.ab.History;
 import org.alicebot.ab.MagicBooleans;
-import org.alicebot.ab.MagicStrings;
-import org.alicebot.ab.utils.IOUtils;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ChatServiceImpl implements ChatService {
 
 
-	public  void initiateBot() {
+	public Chat initiateBot() {
 		
 		final boolean TRACE_MODE = false;
 	//	final String botName = "super";
@@ -35,7 +32,7 @@ public class ChatServiceImpl implements ChatService {
 			chatSession = new Chat(bot);
 			bot.brain.nodeStats();
 		
-					
+			return chatSession;
 		
 	}
 

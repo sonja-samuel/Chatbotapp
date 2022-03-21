@@ -15,25 +15,38 @@ public class AppointmentDto {
     private String status;
     private String comments;
     private LocalDate appointmentDate;
+    private Long specId;
 
+    private String patientName;
+
+    public Long getSpecId() {
+        return specId;
+    }
+
+    public void setSpecId(Long specId) {
+        this.specId = specId;
+    }
 
     public LocalDate getAppointmentDate() {
-		return appointmentDate;
-	}
+        return appointmentDate;
+    }
 
-	public void setAppointmentDate(LocalDate appointmentDate) {
-		this.appointmentDate = appointmentDate;
-	}
+    public void setAppointmentDate(LocalDate appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
 
-	public AppointmentDto(Appointment appointment) {
+    public AppointmentDto(Appointment appointment) {
         super();
         this.appointmentId = appointment.getAppointment_id();
         this.start_time = appointment.getStarttime();
         this.end_time = appointment.getEndtime();
-        this.appointmentDate=appointment.getAppointmentDate();
-        this.doctorId=appointment.getDoctor().getDoctor_id();
-        this.patientId=appointment.getPatient().getPatient_id();
-        		}
+        this.appointmentDate = appointment.getAppointmentDate();
+        this.doctorId = appointment.getDoctor().getDoctor_id();
+        this.patientId = appointment.getPatient().getPatient_id();
+        this.status = appointment.getStatus().name();
+        this.comments = appointment.getComments();
+        this.specId = appointment.getSpecId();
+    }
 
     public Long getAppointmentId() {
         return appointmentId;
@@ -90,4 +103,14 @@ public class AppointmentDto {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+
 }

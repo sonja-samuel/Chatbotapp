@@ -5,25 +5,29 @@ import com.mentbot.mainProject.models.Schedule;
 
 import javax.persistence.OneToOne;
 import java.time.LocalTime;
+import java.util.List;
 
 public class ScheduleDto {
     private Long scheduleId;
-    private LocalTime startTime;
-    private LocalTime endTime;
-    private String availableDays;
-    @OneToOne
-    private Doctor doctor;
-
+    private String startTime;
+    private String endTime;
+    private  String availableDays;
+    private int doctorId;
+   
     public ScheduleDto(Schedule schedule) {
 
         this.scheduleId = schedule.getSchedule_id();
-        this.startTime = schedule.getStartTime();
-        this.endTime = schedule.getEndTime();
+//      this.startTime = schedule.getStartTime();
+//      this.endTime = schedule.getEndTime();
         this.availableDays = schedule.getAvailableDays();
 
     }
 
-    public Long getScheduleId() {
+    public ScheduleDto() {
+		
+	}
+
+	public Long getScheduleId() {
         return scheduleId;
     }
 
@@ -31,23 +35,24 @@ public class ScheduleDto {
         this.scheduleId = scheduleId;
     }
 
-    public LocalTime getStartTime() {
-        return startTime;
-    }
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
+    public String getStartTime() {
+		return startTime;
+	}
 
-    public LocalTime getEndTime() {
-        return endTime;
-    }
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
 
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
+	public String getEndTime() {
+		return endTime;
+	}
 
-    public String getAvailableDays() {
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getAvailableDays() {
         return availableDays;
     }
 
@@ -55,13 +60,12 @@ public class ScheduleDto {
         this.availableDays = availableDays;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
+	public int getDoctorId() {
+		return doctorId;
+	}
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
 
 }

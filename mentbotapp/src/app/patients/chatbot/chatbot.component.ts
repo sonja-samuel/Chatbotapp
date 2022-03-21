@@ -1,33 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { SocketService } from '../../_services/socket.service';
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { WebSocketAPI } from "../../_services/WebSocketAPI";
+import { NgForm } from "@angular/forms";
+import { AppsocketService } from "../../_services/appsocket.service";
 
 @Component({
-  selector: 'app-chatbot',
-  templateUrl: './chatbot.component.html',
-  styleUrls: ['./chatbot.component.scss']
+  selector: "app-chatbot",
+  templateUrl: "./chatbot.component.html",
+  styleUrls: ["./chatbot.component.scss"],
 })
-export class ChatbotComponent implements OnInit {
-  // title = 'Simple Chatbot';
+export class ChatbotComponent implements OnInit, OnDestroy {
+  title = "springboot websocket";
+
+  // webSocketAPI: WebSocketAPI;
+  message : any;
   messageArray = [];
-  message= '';
+  name: string;
 
-  messageForm = this.fb.group({
-    message: ['']
-  });
-  constructor(private socketService:SocketService, private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.socketService.receivedMessage().subscribe(data=> {
-      this.messageArray.push({name:'bot', message: data.outputMessage});
+  constructor(private appSocket:AppsocketService){}
+  ngOnInit() {
+    this.appSocket.returnMessage.subscribe({
+      next: (v) => this.handleMessage(v)
     });
+    // this.webSocketAPI = new WebSocketAPI(new ChatbotComponent());
+    this.connect();
   }
 
-  sendMessage(msg:string){
-    const data = { message:msg };
-    this.socketService.sendMessage(data);
-    this.messageArray.push({name:'you', message:msg});
-    msg = '';
+  connect() {
+    this.appSocket._connect();
   }
 
+  disconnect() {
+    this.appSocket._disconnect();
+  }
+  sendMessage() {
+    let data = {};
+    data["message"] = this.message;
+    this.messageArray.push({ name: "you", message: this.message });
+    this.appSocket._send(data);
+    console.log(this.messageArray);
+    this.message = '';
+  }
+
+  handleMessage(message) {
+    console.log("received from:", message);
+    this.messageArray.push({ name: "bot", message: message });
+    console.log(this.messageArray);
+  }
+
+  ngOnDestroy(): void {
+    this.disconnect();
+  }
 }

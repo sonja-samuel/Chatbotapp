@@ -1,11 +1,13 @@
 package com.mentbot.mainProject.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,15 +22,17 @@ public class Specialization {
 	
 	private String spec_name;
 	
-	@OneToMany
-	private Set<DocSpecialities> docspecialities;
+//	@OneToMany
+//	private Set<DocSpecialities> docspecialities;
 	
+	 @ManyToMany(mappedBy = "specialization")
+	 private Set<Doctor> doctors = new HashSet<>();
 
-	public Long getId() {
+	public Long getSpec_id() {
 		return spec_id;
 	}
 
-	public void setId(Long spec_id) {
+	public void setSpec_id(Long spec_id) {
 		this.spec_id = spec_id;
 	}
 
@@ -39,6 +43,16 @@ public class Specialization {
 	public void setSpec_name(String spec_name) {
 		this.spec_name = spec_name;
 	}
-		
+
+	public Set<Doctor> getDoctors() {
+		return doctors;
+	}
+
+	public void setDoctors(Set<Doctor> doctors) {
+		this.doctors = doctors;
+	}
+	    
+	
+
 	
 }

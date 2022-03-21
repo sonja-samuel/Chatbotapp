@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'docprofile.component.html'
+  templateUrl: './doctors-profile.component.html'
 })
 export class DocProfileComponent {
 

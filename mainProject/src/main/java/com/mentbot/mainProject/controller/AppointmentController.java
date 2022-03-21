@@ -1,7 +1,7 @@
 package com.mentbot.mainProject.controller;
 
-import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
+import com.mentbot.mainProject.dto.DoctorNameDto;
 import com.mentbot.mainProject.security.services.AppointmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -25,16 +26,23 @@ public class AppointmentController {
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam int startTime,@RequestParam int endTime) {
+    public ResponseEntity<?> addAppointment(@RequestParam String appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam int patientId, @RequestParam String startTime, @RequestParam String endTime) {
 
-        appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
+        LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalTime startTimeLocalTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime endTimeLocalTime = LocalTime.parse(endTime, DateTimeFormatter.ofPattern("HH:mm"));
+        appointmentService.addAppointment(apptDate, specId, doctorId, patientId, startTimeLocalTime, endTimeLocalTime);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/getAvailableSlots")
     public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
+        return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+    }
 
-        return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("")));
+    @GetMapping("/getDoctors")
+    public List<DoctorNameDto> getDoctors(@RequestParam int specialityId) {
+        return appointmentService.getDoctors(specialityId);
     }
 
 }

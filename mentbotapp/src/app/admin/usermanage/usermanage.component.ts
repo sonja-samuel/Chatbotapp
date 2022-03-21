@@ -22,4 +22,8 @@ export class UsermanageComponent implements OnInit {
       }
     );
   }
+
+  updateuserDetails(id):void{
+    this.adminService.updateUserDetails(id)
+  }
 }

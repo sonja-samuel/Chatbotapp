@@ -6,12 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { NgbTimepickerModule, NgbModule ,  } from '@ng-bootstrap/ng-bootstrap'
+import { NgbTimepickerModule, NgbModule , NgbTimeAdapter } from '@ng-bootstrap/ng-bootstrap'
 import { IconModule, IconSetModule, IconSetService } from '@coreui/icons-angular';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { authInterceptorProviders} from './_helpers/auth.interceptor';
-import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { TimepickerModule, } from 'ngx-bootstrap/timepicker';
 import { FormsModule } from '@angular/forms';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -49,6 +49,17 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { ChatbotComponent } from './patients/chatbot/chatbot.component';
+import { UsermanageComponent } from './admin/usermanage/usermanage.component';
+import { PatientsDashboardComponent } from './patients/patients-dashboard/patients-dashboard.component';
+import { AddDetailsComponent } from './patients/add-details/add-details.component';
+import { AddappointmentComponent } from './patients/addappointment/addappointment.component';
+import { DocprofileComponent } from './doctors/docprofile/docprofile.component';
+import { AdddetailComponent } from './doctors/adddetail/adddetail.component';
+import { AddspecialityComponent } from './doctors/addspeciality/addspeciality.component';
+import { AvailabilitycheckComponent } from './doctors/availabilitycheck/availabilitycheck.component';
+import { DoctorsDashboardComponent } from './doctors/doctors-dashboard/doctors-dashboard.component';
+import { PatientprofileComponent } from './patients/patientprofile/patientprofile.component';
 
 @NgModule({
   imports: [
@@ -80,7 +91,19 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ChatbotComponent,
+    UsermanageComponent,
+    PatientsDashboardComponent,
+    AddDetailsComponent,
+    AddappointmentComponent,
+    DocprofileComponent,
+    AdddetailComponent,
+    AddspecialityComponent,
+    AvailabilitycheckComponent,
+    DoctorsDashboardComponent,
+    PatientprofileComponent,
+
   ],
   providers: [
     IconSetService,

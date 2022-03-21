@@ -12,20 +12,24 @@
               <tr>
                 <th>Patient name</th>
                 <th>Date</th>
-                <th>Slot</th>
+                <th>Start Time</th>
+                <th>End Time</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>x</td>
-                <td>y</td>
-                <td>z</td>
+              <tr *ngFor="let item of appointmentDetails">
+                <td>{{item.patientname}}</td>
+                <td>{{item.appointmentdate}}</td>
+                <td>{{item.starttime}}</td>
+                <td>{{item.endtime}}</td>
                 <td>
-                  <span> <td>
-                    <span><button type="Accept" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Accept</button>
-                      <button type="Cancel" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancel</button></span>
-                  </td></span>
+                  <span>
+                    <button type="Accept" (click)="acceptAppointment(item.appointmentId)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Accept</button>
+                  </span>
+                  <span>
+                    <button type="Cancel" (click)="cancelAppointment(item.appointmentId)" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancel</button>
+                  </span>
                 </td>
               </tr>
               

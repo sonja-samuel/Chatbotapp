@@ -11,6 +11,20 @@ public class PatientDto {
     private UserDto user;
     private String gender;
 	private String bloodgroup;
+	
+	
+	
+	public PatientDto() {
+		
+	}
+
+	public PatientDto(Patient patient) {
+		
+		this.patient_id = patient.getPatient_id();
+		this.gender=patient.getGender();
+		this.bloodgroup=patient.getBloodgroup();
+	}
+	
 	public long getPatient_id() {
 		return patient_id;
 	}
@@ -29,13 +43,7 @@ public class PatientDto {
 	public void setBloodgroup(String bloodgroup) {
 		this.bloodgroup = bloodgroup;
 	}
-	public PatientDto(Patient patient) {
-		
-		this.patient_id = patient.getId();
-		this.user = new UserDto(patient.getUser());
-		this.gender=patient.getGender();
-		this.bloodgroup=patient.getBloodgroup();
-	}
+	
 	public long getId() {
 		return patient_id;
 	}

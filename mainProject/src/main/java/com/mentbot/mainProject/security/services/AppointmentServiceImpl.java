@@ -1,13 +1,10 @@
 package com.mentbot.mainProject.security.services;
 
-import com.mentbot.mainProject.dto.AppointmentDto;
+import com.mentbot.mainProject.dto.AppointmentDetailDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.models.Appointment;
-import com.mentbot.mainProject.models.Doctor;
-import com.mentbot.mainProject.models.Schedule;
-import com.mentbot.mainProject.repo.AppointmentRepo;
-import com.mentbot.mainProject.repo.DoctorRepo;
-import com.mentbot.mainProject.repo.ScheduleRepo;
+import com.mentbot.mainProject.dto.DoctorNameDto;
+import com.mentbot.mainProject.models.*;
+import com.mentbot.mainProject.repo.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -26,19 +23,42 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     private ScheduleRepo scheduleRepo;
 
+    private PatientRepo patientRepo;
+
+    private SpecializationRepo specializationRepo;
+
+    private UserRepo userRepo;
+
+
     public AppointmentServiceImpl(AppointmentRepo appointmentRepo,
                                   DoctorRepo doctorRepo,
-                                  ScheduleRepo scheduleRepo) {
+                                  ScheduleRepo scheduleRepo,
+                                  PatientRepo patientRepo,
+                                  SpecializationRepo specializationRepo,
+                                  UserRepo userRepo) {
         this.appointmentRepo = appointmentRepo;
         this.doctorRepo = doctorRepo;
         this.scheduleRepo = scheduleRepo;
+        this.patientRepo = patientRepo;
+        this.specializationRepo = specializationRepo;
+        this.userRepo = userRepo;
     }
 
 
     @Override
-    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime) {
+    public void addAppointment(LocalDate appointmentDate, int specId, int doctorId, int patientId, LocalTime startTime, LocalTime endTime) {
 
-       Appointment appointment=new Appointment();
+        Appointment appointment = new Appointment();
+        Doctor doctor = doctorRepo.getById((long) doctorId);
+        Patient patient = patientRepo.getById((long) patientId);
+        appointment.setAppointmentDate(appointmentDate);
+        appointment.setDoctor(doctor);
+        appointment.setPatient(patient);
+        appointment.setStarttime(startTime);
+        appointment.setEndtime(endTime);
+        appointment.setSpecId((long) specId);
+        appointmentRepo.save(appointment);
+
     }
 
     @Override
@@ -90,5 +110,46 @@ public class AppointmentServiceImpl implements AppointmentService {
             availableSlotsDtos.add(availableSlotsDto);
         }
         return availableSlotsDtos;
+    }
+
+    @Override
+    public List<DoctorNameDto> getDoctors(int specialityId) {
+        Optional<Specialization> specializationOptional = specializationRepo.findById((long) specialityId);
+        if (!specializationOptional.isPresent()) {
+            return new ArrayList<>();
+        }
+        List<Doctor> doctorsBySpecialization = doctorRepo.findAllBySpecialization(specializationOptional.get());
+        List<DoctorNameDto> doctorsForSpecialization = new ArrayList<>();
+        for(Doctor doctor : doctorsBySpecialization) {
+            DoctorNameDto doctorNameDto = new DoctorNameDto();
+            User user = doctor.getUser();
+            String doctorName = user.getFirstname() + " " + user.getLastname();
+            doctorNameDto.setDoctorName(doctorName);
+            doctorNameDto.setDoctorId(doctor.getDoctor_id());
+            doctorsForSpecialization.add(doctorNameDto);
+        }
+        return doctorsForSpecialization;
+    }
+
+    @Override
+    public List<AppointmentDetailDto> getAppointmentsForPatient(int patientId) {
+        Optional<Patient> patientOptional = patientRepo.findById((long) patientId);
+        if (!patientOptional.isPresent()) {
+            return new ArrayList<>();
+        }
+        List<Appointment> appointments = appointmentRepo.findAllByPatient(patientOptional.get());
+        List<AppointmentDetailDto> appointmentsForPatient = new ArrayList<>();
+        for (Appointment appointment : appointments) {
+            User user = appointment.getDoctor().getUser();
+            String doctorName = user.getFirstname() + " " + user.getLastname();
+            String specializationName = "";
+            Optional<Specialization> specializationOptional = specializationRepo.findById(appointment.getSpecId());
+            if (specializationOptional.isPresent()) {
+                specializationName = specializationOptional.get().getSpec_name();
+            }
+            AppointmentDetailDto appointmentDetailDto = new AppointmentDetailDto(appointment.getAppointment_id(), appointment.getStarttime(), appointment.getEndtime(), appointment.getAppointmentDate(), specializationName, doctorName, appointment.getStatus());
+            appointmentsForPatient.add(appointmentDetailDto);
+        }
+        return appointmentsForPatient;
     }
 }

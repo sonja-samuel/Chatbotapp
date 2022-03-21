@@ -26,5 +26,9 @@ export class AdminDashboardComponent implements OnInit {
   updateUserDetails(id):void{
     this.adminService.updateUserDetails(id)
   }
+
+  deleteAppointment(id):void{
+    this.adminService.deleteAppointment(id);
+  }
   
 }

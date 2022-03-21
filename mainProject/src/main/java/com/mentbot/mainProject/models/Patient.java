@@ -60,13 +60,7 @@ public class Patient {
 		this.user = user;
 	}
 
-	public long getId() {
-		return patient_id;
-	}
-
-	public void setId(long id) {
-		this.patient_id = patient_id;
-	}
+	
 
 	public List<Appointment> getAppointments() {
 		return appointments;

@@ -5,6 +5,6 @@ import com.mentbot.mainProject.dto.ScheduleDto;
 
 public interface PatientService {
 	
-	public void addDetailsForPatient(PatientDto patientDto);
+	public void addDetailsForPatient(PatientDto patientDto,int userId);
 
 }
