@@ -1,18 +1,9 @@
 package com.mentbot.mainProject.security.services;
 
-import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.models.Appointment;
-import com.mentbot.mainProject.models.Doctor;
-import com.mentbot.mainProject.models.Patient;
-import com.mentbot.mainProject.models.Schedule;
-import com.mentbot.mainProject.models.Specialization;
-import com.mentbot.mainProject.repo.AppointmentRepo;
-import com.mentbot.mainProject.repo.DoctorRepo;
-import com.mentbot.mainProject.repo.PatientRepo;
-import com.mentbot.mainProject.repo.ScheduleRepo;
-import com.mentbot.mainProject.repo.SpecializationRepo;
-
+import com.mentbot.mainProject.dto.DoctorDto;
+import com.mentbot.mainProject.models.*;
+import com.mentbot.mainProject.repo.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -21,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -30,11 +22,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     private DoctorRepo doctorRepo;
 
     private ScheduleRepo scheduleRepo;
-    
+
     private PatientRepo patientRepo;
-    
+
     private SpecializationRepo specializationRepo;
-    
+
 
     public AppointmentServiceImpl(AppointmentRepo appointmentRepo,
                                   DoctorRepo doctorRepo,
@@ -44,27 +36,27 @@ public class AppointmentServiceImpl implements AppointmentService {
         this.appointmentRepo = appointmentRepo;
         this.doctorRepo = doctorRepo;
         this.scheduleRepo = scheduleRepo;
-        this.patientRepo=patientRepo;
-        this.specializationRepo=specializationRepo;
+        this.patientRepo = patientRepo;
+        this.specializationRepo = specializationRepo;
     }
 
 
     @Override
-    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,LocalTime startTime,LocalTime endTime) {
+    public void addAppointment(LocalDate appointmentDate, int specId, int doctorId, int patientId, LocalTime startTime, LocalTime endTime) {
 
-       Appointment appointment=new Appointment();
-    
-       Doctor doctor=doctorRepo.getById(Long.valueOf(doctorId));
-       Patient patient= patientRepo.getById(Long.valueOf(patientId));
-      
-       
-       appointment.setAppointmentDate(appointmentDate);
-       appointment.setDoctor(doctor);
-       appointment.setPatient(patient);
-       appointment.setStarttime(startTime);
-       appointment.setEndtime(endTime);
-       appointment.setSpecId(Long.valueOf(specId));
-       
+        Appointment appointment = new Appointment();
+
+        Doctor doctor = doctorRepo.getById((long) doctorId);
+        Patient patient = patientRepo.getById((long) patientId);
+
+
+        appointment.setAppointmentDate(appointmentDate);
+        appointment.setDoctor(doctor);
+        appointment.setPatient(patient);
+        appointment.setStarttime(startTime);
+        appointment.setEndtime(endTime);
+        appointment.setSpecId((long) specId);
+
     }
 
     @Override
@@ -116,5 +108,15 @@ public class AppointmentServiceImpl implements AppointmentService {
             availableSlotsDtos.add(availableSlotsDto);
         }
         return availableSlotsDtos;
+    }
+
+    @Override
+    public List<DoctorDto> getDoctors(int specialityId) {
+        Optional<Specialization> specializationOptional = specializationRepo.findById((long) specialityId);
+        if (!specializationOptional.isPresent()) {
+            return new ArrayList<>();
+        }
+        List<Doctor> doctorsBySpecialization = doctorRepo.findAllBySpecialization(specializationOptional.get());
+        return doctorsBySpecialization.stream().map(DoctorDto::new).collect(Collectors.toList());
     }
 }

@@ -1,7 +1,7 @@
 package com.mentbot.mainProject.controller;
 
-import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
+import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.security.services.AppointmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,19 +26,20 @@ public class AppointmentController {
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam LocalTime startTime,@RequestParam LocalTime endTime) {
+    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam int patientId, @RequestParam LocalTime startTime, @RequestParam LocalTime endTime) {
 
-        appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
+        appointmentService.addAppointment(appointmentDate, specId, doctorId, patientId, startTime, endTime);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/getAvailableSlots")
     public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
-
         return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("dd-MM-yyyy")));
     }
-    
-    
-   
+
+    @GetMapping("/getDoctors")
+    public List<DoctorDto> getDoctors(@RequestParam int specialityId) {
+        return appointmentService.getDoctors(specialityId);
+    }
 
 }
