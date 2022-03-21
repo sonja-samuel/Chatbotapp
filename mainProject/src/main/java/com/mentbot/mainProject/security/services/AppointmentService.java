@@ -2,7 +2,7 @@ package com.mentbot.mainProject.security.services;
 
 import com.mentbot.mainProject.dto.AppointmentDetailDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.dto.DoctorDto;
+import com.mentbot.mainProject.dto.DoctorNameDto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -14,7 +14,7 @@ public interface AppointmentService {
 
     List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date);
 
-    List<DoctorDto> getDoctors(int specialityId);
+    List<DoctorNameDto> getDoctors(int specialityId);
 
     List<AppointmentDetailDto> getAppointmentsForPatient(int patientId);
 }

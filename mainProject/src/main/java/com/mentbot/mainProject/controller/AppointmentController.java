@@ -1,7 +1,7 @@
 package com.mentbot.mainProject.controller;
 
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.dto.DoctorDto;
+import com.mentbot.mainProject.dto.DoctorNameDto;
 import com.mentbot.mainProject.security.services.AppointmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +41,7 @@ public class AppointmentController {
     }
 
     @GetMapping("/getDoctors")
-    public List<DoctorDto> getDoctors(@RequestParam int specialityId) {
+    public List<DoctorNameDto> getDoctors(@RequestParam int specialityId) {
         return appointmentService.getDoctors(specialityId);
     }
 

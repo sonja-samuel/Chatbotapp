@@ -2,7 +2,7 @@ package com.mentbot.mainProject.security.services;
 
 import com.mentbot.mainProject.dto.AppointmentDetailDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
-import com.mentbot.mainProject.dto.DoctorDto;
+import com.mentbot.mainProject.dto.DoctorNameDto;
 import com.mentbot.mainProject.models.*;
 import com.mentbot.mainProject.repo.*;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -114,13 +113,22 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<DoctorDto> getDoctors(int specialityId) {
+    public List<DoctorNameDto> getDoctors(int specialityId) {
         Optional<Specialization> specializationOptional = specializationRepo.findById((long) specialityId);
         if (!specializationOptional.isPresent()) {
             return new ArrayList<>();
         }
         List<Doctor> doctorsBySpecialization = doctorRepo.findAllBySpecialization(specializationOptional.get());
-        return doctorsBySpecialization.stream().map(DoctorDto::new).collect(Collectors.toList());
+        List<DoctorNameDto> doctorsForSpecialization = new ArrayList<>();
+        for(Doctor doctor : doctorsBySpecialization) {
+            DoctorNameDto doctorNameDto = new DoctorNameDto();
+            User user = doctor.getUser();
+            String doctorName = user.getFirstname() + " " + user.getLastname();
+            doctorNameDto.setDoctorName(doctorName);
+            doctorNameDto.setDoctorId(doctor.getDoctor_id());
+            doctorsForSpecialization.add(doctorNameDto);
+        }
+        return doctorsForSpecialization;
     }
 
     @Override
