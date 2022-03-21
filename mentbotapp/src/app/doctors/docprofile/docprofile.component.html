@@ -6,53 +6,51 @@
           <strong><em>My Profile</em></strong>
         </div>
         <div class="card-body">
-          <div *ngFor="let item of userDetails">
             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
               <div class="form-group row">
                 <label class="col-md-3 col-form-label">Username:</label> 
                  <div class="col-md-9">
-                  <p class="form-control-static">{{item.username}}</p>
+                  <p class="form-control-static">{{userDetails.username}}</p>
                 </div>
               </div>
               <div class="form-group row">
                   <label class="col-md-3 col-form-label">Email:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.email}}</p>
+                    <p class="form-control-static">{{userDetails.email}}</p>
                   </div>
                 </div>
   
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">Phone Number:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.phonenum}}</p>
+                    <p class="form-control-static">{{userDetails.phonenum}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">Address:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.addressline}}</p>
+                    <p class="form-control-static">{{userDetails.addressline}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">City:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.city}}</p>
+                    <p class="form-control-static">{{userDetails.city}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">State:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.state}}</p>
+                    <p class="form-control-static">{{userDetails.state}}</p>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label">Pincode:</label> 
                    <div class="col-md-9">
-                    <p class="form-control-static">{{item.pincode}}</p>
+                    <p class="form-control-static">{{userDetails.pincode}}</p>
                   </div>
                 </div>
               </form>
-          </div>
         </div>
     </div>
     </div>

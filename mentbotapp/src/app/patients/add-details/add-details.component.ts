@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { ToastService } from "../../_services/toast.service";
 import { PatientsService } from "../patients.service";
 
 @Component({
@@ -15,6 +16,7 @@ export class AddDetailsComponent implements OnInit {
     gender: [null, [Validators.required]]
 });
   constructor(
+    private toastService : ToastService,
     private patientService: PatientsService,
     private fb: FormBuilder,) {}
 
@@ -22,9 +24,16 @@ export class AddDetailsComponent implements OnInit {
   }
 
   addDetails(): void {
+    const id = window.sessionStorage.getItem('auth-id');
     const bloodgroup = this.addDetailsForm.get(['bloodgroup'])!.value;
     const gender = this.addDetailsForm.get(['gender'])!.value;
-    this.patientService.addPatientDetails(bloodgroup,gender).subscribe(
+    this.patientService.addPatientDetails(id,bloodgroup,gender).subscribe(
+        () => {
+            this.toastService.openSweetAlertToast('Success','Details Added Succesfully');
+        },
+        () => {
+            this.toastService.openSweetAlertToast('Error','Something went wrong!');
+        }
     );
   }
 }

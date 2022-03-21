@@ -18,8 +18,8 @@ export class DoctorService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  getUserDetails():Observable<any>{
-    return this.http.get(GET_USER_DETAILS);
+  getUserDetails(id):Observable<any>{
+    return this.http.get(`${GET_USER_DETAILS}?userId=${id}`);
   }
 
 //   addSpeciality(speciality):Observable<any>{

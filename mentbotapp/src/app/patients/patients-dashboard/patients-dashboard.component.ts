@@ -17,7 +17,8 @@ export class PatientsDashboardComponent implements OnInit {
   }
 
   getAppointmentStatus():void{
-    this.patientService.getAppointmentStatus().subscribe(
+    const id = window.sessionStorage.getItem('auth-id');
+    this.patientService.getAppointmentStatus(id).subscribe(
       (value:any) => {
         this.appointmentStatus = value;
       }

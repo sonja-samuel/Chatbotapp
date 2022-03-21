@@ -59,6 +59,7 @@ import { AdddetailComponent } from './doctors/adddetail/adddetail.component';
 import { AddspecialityComponent } from './doctors/addspeciality/addspeciality.component';
 import { AvailabilitycheckComponent } from './doctors/availabilitycheck/availabilitycheck.component';
 import { DoctorsDashboardComponent } from './doctors/doctors-dashboard/doctors-dashboard.component';
+import { PatientprofileComponent } from './patients/patientprofile/patientprofile.component';
 
 @NgModule({
   imports: [
@@ -101,6 +102,7 @@ import { DoctorsDashboardComponent } from './doctors/doctors-dashboard/doctors-d
     AddspecialityComponent,
     AvailabilitycheckComponent,
     DoctorsDashboardComponent,
+    PatientprofileComponent,
 
   ],
   providers: [

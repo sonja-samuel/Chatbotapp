@@ -12,7 +12,7 @@ import { AddDetailsComponent } from './add-details/add-details.component';
 @NgModule({
   declarations: [
     // PatientsDashboardComponent,
-    PatientprofileComponent,
+    // PatientprofileComponent,
     // AddappointmentComponent,
     // AddDetailsComponent
   ],

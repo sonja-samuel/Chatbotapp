@@ -17,7 +17,8 @@ export class DocprofileComponent implements OnInit {
   }
 
   getUserDetails():void{
-    this.doctorService.getUserDetails().subscribe(
+    const id = window.sessionStorage.getItem('auth-id');
+    this.doctorService.getUserDetails(id).subscribe(
       (value:any) => {
         this.userDetails = value;
       }
