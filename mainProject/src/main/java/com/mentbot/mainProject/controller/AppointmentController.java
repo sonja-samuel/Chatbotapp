@@ -26,9 +26,12 @@ public class AppointmentController {
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam int patientId, @RequestParam LocalTime startTime, @RequestParam LocalTime endTime) {
+    public ResponseEntity<?> addAppointment(@RequestParam String appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam int patientId, @RequestParam String startTime, @RequestParam String endTime) {
 
-        appointmentService.addAppointment(appointmentDate, specId, doctorId, patientId, startTime, endTime);
+        LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalTime startTimeLocalTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime endTimeLocalTime = LocalTime.parse(endTime, DateTimeFormatter.ofPattern("HH:mm"));
+        appointmentService.addAppointment(apptDate, specId, doctorId, patientId, startTimeLocalTime, endTimeLocalTime);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

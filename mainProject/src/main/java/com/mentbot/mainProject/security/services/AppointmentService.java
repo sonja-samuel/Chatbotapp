@@ -1,5 +1,6 @@
 package com.mentbot.mainProject.security.services;
 
+import com.mentbot.mainProject.dto.AppointmentDetailDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 
@@ -14,4 +15,6 @@ public interface AppointmentService {
     List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date);
 
     List<DoctorDto> getDoctors(int specialityId);
+
+    List<AppointmentDetailDto> getAppointmentsForPatient(int patientId);
 }
