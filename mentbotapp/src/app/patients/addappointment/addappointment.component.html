@@ -37,8 +37,8 @@
             <div class="form-group row" *ngIf="showAvailableSlots">
               <label class="col-md-3 col-form-label" for="select1">Select Available Slot:</label>
               <div class="col-md-9">
-                <select id="select1" placeholder="Please select the available slot" formControlName="slots" name="select1" class="form-control">
-                  <option *ngFor="let item of availableSlots">{{item}}</option>
+                <select id="select1" placeholder="Please select the available slot" (change)="getTime()" formControlName="slots" name="select1" class="form-control">
+                  <option value="{{item.startTime}} - {{item.endTime}}" *ngFor="let item of availableSlots">{{item.startTime}} - {{item.endTime}}</option>
                 </select>
               </div>
             </div>

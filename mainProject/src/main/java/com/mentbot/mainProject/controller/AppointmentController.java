@@ -37,7 +37,7 @@ public class AppointmentController {
 
     @GetMapping("/getAvailableSlots")
     public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
-        return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        return appointmentService.getAvailableSlots(doctorId, LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     }
 
     @GetMapping("/getDoctors")

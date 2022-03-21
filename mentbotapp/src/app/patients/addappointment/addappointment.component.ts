@@ -58,13 +58,17 @@ export class AddappointmentComponent implements OnInit {
     );
   }
 
+  getTime():void{
+    //
+  }
+
   addAppointment():void{
     const patient_id = window.sessionStorage.getItem('auth-id');
     const dateOfAppointment = this.addAppointmentForm.get(['dateOfAppointment'])!.value;
     const speciality = this.addAppointmentForm.get(['speciality'])!.value;
     const doctorName = this.addAppointmentForm.get(['doctorName'])!.value;
     const slots = this.addAppointmentForm.get(['slots'])!.value;
-    this.patientService.addAppointment(dateOfAppointment,this.specId,this.docId,patient_id,slots)
+    this.patientService.addAppointment(dateOfAppointment,this.specId,this.docId,patient_id,slots).subscribe()
   }
 
 }

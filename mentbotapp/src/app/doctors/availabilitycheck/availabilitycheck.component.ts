@@ -27,6 +27,7 @@ export class AvailabilitycheckComponent implements OnInit {
   ngOnInit(): void {}
 
   addSchedule():void{
+    const id = window.sessionStorage.getItem('auth-id');
     const daysAvailable = this.addScheduleForm.get(['daysAvailable'])!.value;
     this.daysAvailable = JSON.stringify(daysAvailable);
     this.daysAvailable =  this.daysAvailable.replaceAll('"','');
@@ -34,6 +35,6 @@ export class AvailabilitycheckComponent implements OnInit {
     this.daysAvailable=this.daysAvailable.replaceAll(']', '')
     const startTime = this.addScheduleForm.get(['startTime'])!.value;
     const endTime = this.addScheduleForm.get(['endTime'])!.value;
-    this.doctorService.addSchedule(this.daysAvailable,startTime,endTime)
+    this.doctorService.addSchedule(id,this.daysAvailable,startTime,endTime).subscribe();
   }
 }

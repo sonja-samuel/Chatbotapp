@@ -25,8 +25,8 @@ export class PatientsService {
     return this.http.get(`${GET_APPOINTMENT_STATUS}?patientId=${id}`);
   }
 
-  addAppointment(dateOfAppointment, specId, docId, patient_id, slots):Observable<any>{
-    return this.http.post(ADD_APPOINTMENT, { dateOfAppointment, specId, docId, patient_id, slots});
+  addAppointment(appointmentDate, specId, doctorId, patientId, slots):Observable<any>{
+    return this.http.post(ADD_APPOINTMENT, { appointmentDate, specId, doctorId, patientId, slots});
   }
 
   addPatientDetails(id,bloodgroup , gender):Observable<any>{

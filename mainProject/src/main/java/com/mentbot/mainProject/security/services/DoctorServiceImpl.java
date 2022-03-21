@@ -46,7 +46,7 @@ public class DoctorServiceImpl implements DoctorService {
     public void addDetails(DoctorDto doctordto, int userId) {
 
 //		LocalDate practicingDate = LocalDate.parse(doctordto.getPracticing_date(), DateTimeFormatter.ofPattern("dd-mm-yyyy"));
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate practicingDate = LocalDate.parse(doctordto.getPracticing_date(), formatter);
 
         Set<Long> specializationIds = doctordto.getSpecializationIds().stream()
