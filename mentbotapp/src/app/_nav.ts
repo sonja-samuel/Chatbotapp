@@ -2,11 +2,11 @@ import { INavData } from '@coreui/angular';
 
 export const adminNavItems: INavData[] = [
 
-  {
-    name: 'Admin Dashboard',
-    url: '/admin',
-    icon: 'icon-puzzle',
-},
+//   {
+//     name: 'Admin Dashboard',
+//     url: '/admin',
+//     icon: 'icon-puzzle',
+// },
     
 {
         name: 'User Manage',

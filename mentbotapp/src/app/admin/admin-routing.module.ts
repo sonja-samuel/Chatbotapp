@@ -7,13 +7,13 @@ import { UsermanageComponent } from './usermanage/usermanage.component';
 @NgModule({
   imports: [
     RouterModule.forChild([
-      {
-        path: '',
-        component: AdminDashboardComponent,
-        data: {
-          title: "Dashboard",
-        },
-      },
+    //   {
+    //     path: '',
+    //     component: AdminDashboardComponent,
+    //     data: {
+    //       title: "Dashboard",
+    //     },
+    //   },
       {
         path: 'usermanage',
         component: UsermanageComponent,

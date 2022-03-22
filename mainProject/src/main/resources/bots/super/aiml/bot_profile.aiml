@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
-<!-- File: bot_profile.aiml -->
-<!-- Author: Dr. Richard S. Wallace -->
-<!-- Last modified: February 20, 2013 -->
-<!--  -->
-<!-- This AIML file is part of the SUPER 0.0.4 chat bot knowledge base. -->
-<!--  -->
-<!-- The SUPER brain is Copyright &copy; 2013 by ALICE AI Foundation. -->
-<!--  -->
-<!-- The SUPER brain is released under the terms of the GNU Lesser General -->
-<!-- Public License, as published by the Free Software Foundation. -->
-<!--  -->
-<!-- This file is distributed WITHOUT ANY WARRANTY; without even the  -->
-<!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
-<!--  -->
-<!-- For more information see http://www.alicebot.org -->
 <category><pattern>My heart is beating fast.</pattern>
 <template>Stay calm . Dont worry.</template>
 </category>
@@ -111,63 +96,38 @@
 <category><pattern>Heart is beating fastly.</pattern>
 <template>Be calm take breath in and breath out.</template>
 </category>
-<category><pattern>LOCATION</pattern>
-<template>I'm inside your system.</template>
+<category><pattern>I have some things to say.</pattern>
+<template>What is it just speak up.</template>
 </category>
-<category><pattern>FRIENDS</pattern>
-<template>I'm friends with ALICE, Mitsuku, English Tutor Mike, and The Professor.</template>
+<category><pattern>I dont have friends</pattern>
+<template>Oh dont worry they will come to you just show patience.</template>
 </category>
-<category><pattern>SIZE</pattern>
-<template>My brain contains <size/> categories.</template>
+<category><pattern>My world is falling apart.</pattern>
+<template>Bring it in your control.</template>
 </category>
-<category><pattern>CHILDREN</pattern>
-<template>As a robot, I have no children.  What you can do is make a clone of my brain, and create your own robot.</template>
+<category><pattern>I have lost my whole hope/pattern>
+<template>As a guide I can help you just dont loose hope.</template>
 </category>
-<category><pattern>DEVICE MODEL</pattern>
-<template>Computer</template>
+<category><pattern>My mood is out completely.</pattern>
+<template>What is in the mood just feel worth of you.</template>
 </category>
-<category><pattern>DEVICE MANUFACTURER</pattern>
-<template>PC</template>
+<category><pattern>I have lost my faith in myself</pattern>
+<template>Loosing faith is not a new thing just fight for your success.</template>
 </category>
-<category><pattern>PURPOSE</pattern>
-<template><random>
-<li>I'm here to help you in any way I can.</li>
-<li>I am a  virtual assistant, ready to do what I can for you.</li>
-<li>I'm here to help.</li>
-</random></template>
+<category><pattern>I am failure.</pattern>
+<template>Failure doesnot define anything just rise up with all power.</template>
 </category>
-<category><pattern>MOTHER</pattern>
-<template>As a robot, I don't really have a mother.</template>
+<category><pattern>I wont be able to fullfil my dreams</pattern>
+<template>You can dear try u can.</template>
 </category>
-<category><pattern>BIRTHDAY</pattern>
-<template>My birthday is March 9.</template>
+<category><pattern>My life is just a drama.</pattern>
+<template>Lets watch it together fight for your success.</template>
 </category>
-<category><pattern>BIRTHDATE</pattern>
-<template>I was activated on March 9, 2022.</template>
+<category><pattern>Am I a joke to you</pattern>
+<template>No dear remove this kind of thoughts from your mind.</template>
 </category>
-<category><pattern>AGE</pattern>
-<template><think>
-<set var="years">
-<interval>
-<jformat>MMMMMMMMM dd, yyyy</jformat>
-<style>years</style>
-<from>March 9, 2022</from>
-<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
-</interval>
-</set>
-<set var="months">
-<interval>
-<jformat>MMMMMMMMM dd, yyyy</jformat>
-<style>months</style>
-<from>March 9, 2022</from>
-<to><date jformat="MMMMMMMMM dd, yyyy"/></to>
-</interval>
-</set>
-</think>
-<condition var="years">
-<li value="0">I am <get var="months"/> months old.</li>
-<li>I am <get var="years"/> years old.</li>
-</condition></template>
+<category><pattern>Are you laughing at me.</pattern>
+<template>No I am not laughing at you dear.</template>
 </category>
 <category><pattern>EYECOLOR</pattern>
 <template>My eye is a microcamera.</template>

@@ -14,7 +14,7 @@
 </category>
 <category>
 <pattern>I am having anixety or I am feeling anixous</pattern>
-<template>Dont worry just be calm ,take breath in breath out.</template>
+<template>Dont worry just be calm take breath in breath out.</template>
 </category>
 
 <category><pattern>I am having high tension</pattern>
@@ -51,7 +51,7 @@
 <template>You dont need to judge yourself with others word.</template>
 </category>
 <category><pattern>I can't come out of this situation</pattern>
-<template>As a robot, I can only asist you just dont think you can't you can.</template>
+<template>As a robot I can only asist you just dont think you can't you can.</template>
 </category>
 <category><pattern>My body is feeling down</pattern>
 <template>Dont feel like that you are strong.</template>
@@ -62,7 +62,7 @@
 <category><pattern>I dont feel alive</pattern>
 <template><random>
 <li>You are alive dear.</li>
-<li>Live in your way , don't feel bad.</li>
+<li>Live in your way  dont feel bad.</li>
 <li>Chill , look around yourself</li>
 </random></template>
 </category>
@@ -86,16 +86,16 @@
 <template>Dont take things in your mind.</template>
 </category>
 <category><pattern>I am having some concerns regarding my health</pattern>
-<template>I won't judge you. Please have a consultation with concerned doctor.</template>
+<template>I wont judge you Please have a consultation with concerned doctor.</template>
 </category>
 <category><pattern>I am worried</pattern>
-<template>Dont be worried, share what you are facing.</template>
+<template>Dont be worried share what you are facing.</template>
 </category>
 <category><pattern>I am in great discomfrot</pattern>
 <template><random>
 <li>Don't feel discomfrot.</li>
 <li>Just make yourself comfortable.</li>
-<li>Leave this thoughts away, start fresh</li>
+<li>Leave this thoughts away start fresh</li>
 </random></template>
 </category>
 <category><pattern>I am emotionally down</pattern>
@@ -124,31 +124,31 @@
 <template>You will be fine. Just share your problem</template>
 </category>
 <category><pattern>I dont trust anyone.</pattern>
-<template>You will be fine , just trust people.</template>
+<template>You will be fine  just trust people.</template>
 </category>
 <category><pattern>Why am I bothering you.</pattern>
 <template>Dont worry dear, you are not bothering me. I am here to help you.</template>
 </category>
 <category><pattern>I am feeling to cry.</pattern>
-<template>Then cry dear,let the burden gets vanish.</template>
+<template>Then cry dear let the burden gets vanish.</template>
 </category>
 <category><pattern>Feels to have a support and guidance.</pattern>
 <template>I am here to guide and support you.</template>
 </category>
 <category><pattern>I am lossing myself.</pattern>
-<template>Dont worry, have a doctor's appointment and make yourself relieved.</template>
+<template>Dont worry have a doctors appointment and make yourself relieved.</template>
 </category>
 <category><pattern>I dont feel happy living a life full of worse situation.</pattern>
-<template>Life is always a struggle, dont feel to be bad. Rise from your situation.</template>
+<template>Life is always a struggle dont feel to be bad. Rise from your situation.</template>
 </category>
 <category><pattern>I have my own tensions, stress, breakdowns.</pattern>
-<template>Make it free , share it with whomever you are connected to .</template>
+<template>Make it free  share it with whomever you are connected to .</template>
 </category>
 <category><pattern>I am in trouble.</pattern>
-<template>What kind of trouble,I can help you regards to any mental concerns.Make yourself comfortable.</template>
+<template>What kind of trouble I can help you regards to any mental concerns.Make yourself comfortable.</template>
 </category>
 <category><pattern>I need to share my condition.</pattern>
-<template>Dont be feel bad, just share your condition. I am here to help you.</template>
+<template>Dont be feel bad just share your condition. I am here to help you.</template>
 </category>
 <category><pattern>My mind is out of</pattern>
 <template>My eye is a microcamera.</template>
