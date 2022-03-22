@@ -23,10 +23,6 @@ public class DocSpecialitiesDto {
 		this.specId = docspec.getSpecialization().getId();
 	}
 
-
-	
-
-
 	public Long getId() {
 		return id;
 	}

@@ -3,13 +3,18 @@ package com.mentbot.mainProject.models;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -29,6 +34,24 @@ public class Doctor {
 	@OneToOne
 	private User user;
 	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="doctor_specialities",
+	joinColumns=@JoinColumn(name="doctor_id"),
+	inverseJoinColumns=@JoinColumn(name="spec_id"))
+	Set<Specialization> specialization = new HashSet<>();
+
+
+	
+	public Set<Specialization> getSpecialization() {
+		return specialization;
+	}
+
+
+	public void setSpecialization(Set<Specialization> specialization) {
+		this.specialization = specialization;
+	}
+
+
 	@OneToMany
 	private Set<DocSpecialities> docspecialities;
 
