@@ -15,12 +15,26 @@ public class DoctorDto {
 
 private Long doctor_id;
 	
-	private String prof_statement;
-	private LocalDate practicing_date;
-	private UserDto user;
-	private Set<DocSpecialities> docspecialization;
+private String prof_statement;
+private String practicing_date;
+private UserDto user;
+private Set<Integer> specializationIds;
+
     
 
+
+	
+	
+	
+
+	public DoctorDto(Doctor doctor) {
+	
+		this.doctor_id =doctor.getDoctor_id();
+		this.prof_statement =doctor.getProf_statement();
+//		this.practicing_date = doctor.getPracticing_date();
+     	this.user = new UserDto(doctor.getUser());
+//        this.docspecialization=doctor.getDocspecialities();
+	}
 
 	public Long getDoctor_id() {
 		return doctor_id;
@@ -29,35 +43,6 @@ private Long doctor_id;
 	public void setDoctor_id(Long doctor_id) {
 		this.doctor_id = doctor_id;
 	}
-
-	
-	
-
-	public DoctorDto(Doctor doctor) {
-	
-		this.doctor_id =doctor.getDoctor_id();
-		this.prof_statement =doctor.getProf_statement();
-		this.practicing_date = doctor.getPracticing_date();
-     	this.user = new UserDto(doctor.getUser());
-        this.docspecialization=doctor.getDocspecialities();
-	}
-
-	public Set<DocSpecialities> getDocspecialization() {
-		return docspecialization;
-	}
-
-	public void setDocspecialization(Set<DocSpecialities> docspecialization) {
-		this.docspecialization = docspecialization;
-	}
-
-	public long getId() {
-		return doctor_id;
-	}
-
-	public void setId(long id) {
-		this.doctor_id = doctor_id;
-	}
-
 	public String getProf_statement() {
 		return prof_statement;
 	}
@@ -66,13 +51,11 @@ private Long doctor_id;
 		this.prof_statement = prof_statement;
 	}
 
-	
 
-	public LocalDate getPracticing_date() {
+	public String getPracticing_date() {
 		return practicing_date;
 	}
-
-	public void setPracticing_date(LocalDate practicing_date) {
+	public void setPracticing_date(String practicing_date) {
 		this.practicing_date = practicing_date;
 	}
 
@@ -83,7 +66,15 @@ private Long doctor_id;
 	public void setUser(UserDto user) {
 		this.user = user;
 	}
+	public Set<Integer> getSpecializationIds() {
+		return specializationIds;
+	}
 
+	public void setSpecializationIds(Set<Integer> specializationIds) {
+		this.specializationIds = specializationIds;
+	}
+
+	
 	
 
 	
