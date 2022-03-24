@@ -34,12 +34,12 @@ public class AppointmentServiceImpl implements AppointmentService {
         this.scheduleRepo = scheduleRepo;
     }
 
-
-    @Override
-    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime) {
-
-       Appointment appointment=new Appointment();
-    }
+//
+//    @Override
+//    public void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime) {
+//
+//       Appointment appointment=new Appointment();
+//    }
 
     @Override
     public List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date) {

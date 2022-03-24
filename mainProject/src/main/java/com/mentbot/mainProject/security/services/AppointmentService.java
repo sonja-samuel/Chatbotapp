@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface AppointmentService {
 
-    void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime);
+//    void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,int startTime,int endTime);
 
     List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date);
 }

@@ -24,12 +24,12 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam int startTime,@RequestParam int endTime) {
-
-        appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+//    @PostMapping("/addAppointment")
+//    public ResponseEntity<?> addAppointment(@RequestParam LocalDate appointmentDate,@RequestParam int specId,@RequestParam int doctorId, @RequestParam int patientId,@RequestParam int startTime,@RequestParam int endTime) {
+//
+//        appointmentService.addAppointment(appointmentDate,specId,doctorId,patientId, startTime,endTime);
+//        return new ResponseEntity<>(HttpStatus.OK);
+//    }
 
     @GetMapping("/getAvailableSlots")
     public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
