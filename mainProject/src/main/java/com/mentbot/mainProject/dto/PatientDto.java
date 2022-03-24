@@ -6,56 +6,53 @@ import com.mentbot.mainProject.models.Patient;
 import com.mentbot.mainProject.models.User;
 
 public class PatientDto {
-	
-    private long patient_id;
-    private UserDto user;
-    private String gender;
-	private String bloodgroup;
-	
-	
-	
+
+	private long patientId;
+	private UserDto user;
+	private String gender;
+	private String bloodGroup;
+
 	public PatientDto() {
-		
+
 	}
 
 	public PatientDto(Patient patient) {
-		
-		this.patient_id = patient.getPatient_id();
-		this.gender=patient.getGender();
-		this.bloodgroup=patient.getBloodgroup();
+
+		this.patientId = patient.getPatient_id();
+		this.gender = patient.getGender();
+		this.bloodGroup = patient.getBloodgroup();
 	}
-	
-	public long getPatient_id() {
-		return patient_id;
+
+	public long getPatientId() {
+		return patientId;
 	}
-	public void setPatient_id(long patient_id) {
-		this.patient_id = patient_id;
+
+	public void setPatientId(long patientId) {
+		this.patientId = patientId;
 	}
+
+	public String getBloodGroup() {
+		return bloodGroup;
+	}
+
+	public void setBloodGroup(String bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getBloodgroup() {
-		return bloodgroup;
-	}
-	public void setBloodgroup(String bloodgroup) {
-		this.bloodgroup = bloodgroup;
-	}
-	
-	public long getId() {
-		return patient_id;
-	}
-	public void setId(long patient_id) {
-		this.patient_id = patient_id;
-	}
+
 	public UserDto getUser() {
 		return user;
 	}
+
 	public void setUser(UserDto user) {
 		this.user = user;
 	}
-	
 
 }

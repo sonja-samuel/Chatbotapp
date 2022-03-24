@@ -1,23 +1,23 @@
 package com.mentbot.mainProject.dto;
 
 public class DoctorNameDto {
-    private String doctorName;
+	private String doctorName;
 
-    private long doctorId;
+	private long doctorId;
 
-    public String getDoctorName() {
-        return doctorName;
-    }
+	public String getDoctorName() {
+		return doctorName;
+	}
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
-    }
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
 
-    public long getDoctorId() {
-        return doctorId;
-    }
+	public long getDoctorId() {
+		return doctorId;
+	}
 
-    public void setDoctorId(long doctorId) {
-        this.doctorId = doctorId;
-    }
+	public void setDoctorId(long doctorId) {
+		this.doctorId = doctorId;
+	}
 }

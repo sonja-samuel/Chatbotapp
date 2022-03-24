@@ -13,19 +13,21 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 @Component
 public class WebsocketEventListener {
 
-    @Autowired
-    private SimpMessageSendingOperations sendingOperations;
+	private SimpMessageSendingOperations sendingOperations;
 
-    @EventListener
-    public void handleWebsocketConnection(SessionConnectedEvent connectedEvent){
-        //Do something here :-)
+	public WebsocketEventListener(SimpMessageSendingOperations sendingOperations) {
+		this.sendingOperations = sendingOperations;
+	}
 
-    }
+	@EventListener
+	public void handleWebsocketConnection(SessionConnectedEvent connectedEvent) {
 
-    @EventListener
-    public void handleWebsocketDisconnect(SessionDisconnectEvent disconnectEvent){
-        StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(disconnectEvent.getMessage());
-        String username = (String) headerAccessor.getSessionAttributes().get("username");
-        //Do something here too :-)
-    }
+	}
+
+	@EventListener
+	public void handleWebsocketDisconnect(SessionDisconnectEvent disconnectEvent) {
+		StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(disconnectEvent.getMessage());
+		String username = (String) headerAccessor.getSessionAttributes().get("username");
+
+	}
 }

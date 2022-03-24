@@ -7,8 +7,8 @@ import com.mentbot.mainProject.models.User;
 
 public class UserDto {
 
-    private Long id;
-    private String username;
+	private Long id;
+	private String username;
 	private String email;
 	private String password;
 	private String firstname;
@@ -45,7 +45,6 @@ public class UserDto {
 	}
 
 	private Integer pincode;
-	
 
 	public UserDto(User user) {
 		this.id = user.getId();
@@ -57,9 +56,9 @@ public class UserDto {
 		this.phonenum = user.getPhonenum();
 		this.addressline = user.getAddressline();
 		this.city = user.getCity();
-		this.state=user.getState();
-		this.country=user.getCountry();
-		this.roles=user.getRoles();
+		this.state = user.getState();
+		this.country = user.getCountry();
+		this.roles = user.getRoles();
 		this.pincode = user.getPincode();
 	}
 
@@ -143,6 +142,4 @@ public class UserDto {
 		this.pincode = pincode;
 	}
 
-	
-	
 }

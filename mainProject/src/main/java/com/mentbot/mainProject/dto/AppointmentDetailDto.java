@@ -7,92 +7,87 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class AppointmentDetailDto {
-    private long appointmentId;
+	private long appointmentId;
 
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime startTime;
+	@JsonFormat(pattern = "HH:mm")
+	private LocalTime startTime;
 
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime endTime;
+	@JsonFormat(pattern = "HH:mm")
+	private LocalTime endTime;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate appointmentDate;
+	@JsonFormat(pattern = "dd-MM-yyyy")
+	private LocalDate appointmentDate;
 
-    private String speciality;
+	private String speciality;
 
-    private String doctorName;
+	private String doctorName;
 
-    private AppointmentStatus status;
+	private AppointmentStatus status;
 
-    public AppointmentDetailDto(long appointmentId,
-                                LocalTime startTime,
-                                LocalTime endTime,
-                                LocalDate appointmentDate,
-                                String speciality,
-                                String doctorName,
-                                AppointmentStatus status) {
-        this.appointmentId = appointmentId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.appointmentDate = appointmentDate;
-        this.speciality = speciality;
-        this.doctorName = doctorName;
-        this.status = status;
-    }
+	public AppointmentDetailDto(long appointmentId, LocalTime startTime, LocalTime endTime, LocalDate appointmentDate,
+			String speciality, String doctorName, AppointmentStatus status) {
+		this.appointmentId = appointmentId;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.appointmentDate = appointmentDate;
+		this.speciality = speciality;
+		this.doctorName = doctorName;
+		this.status = status;
+	}
 
-    public long getAppointmentId() {
-        return appointmentId;
-    }
+	public long getAppointmentId() {
+		return appointmentId;
+	}
 
-    public void setAppointmentId(long appointmentId) {
-        this.appointmentId = appointmentId;
-    }
+	public void setAppointmentId(long appointmentId) {
+		this.appointmentId = appointmentId;
+	}
 
-    public LocalTime getStartTime() {
-        return startTime;
-    }
+	public LocalTime getStartTime() {
+		return startTime;
+	}
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
-    }
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
+	}
 
-    public LocalTime getEndTime() {
-        return endTime;
-    }
+	public LocalTime getEndTime() {
+		return endTime;
+	}
 
-    public void setEndTime(LocalTime endTime) {
-        this.endTime = endTime;
-    }
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
+	}
 
-    public LocalDate getAppointmentDate() {
-        return appointmentDate;
-    }
+	public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
 
-    public void setAppointmentDate(LocalDate appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
 
-    public String getSpeciality() {
-        return speciality;
-    }
+	public String getSpeciality() {
+		return speciality;
+	}
 
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
-    }
+	public void setSpeciality(String speciality) {
+		this.speciality = speciality;
+	}
 
-    public String getDoctorName() {
-        return doctorName;
-    }
+	public String getDoctorName() {
+		return doctorName;
+	}
 
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
-    }
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
 
-    public AppointmentStatus getStatus() {
-        return status;
-    }
+	public AppointmentStatus getStatus() {
+		return status;
+	}
 
-    public void setStatus(AppointmentStatus status) {
-        this.status = status;
-    }
+	public void setStatus(AppointmentStatus status) {
+		this.status = status;
+	}
 }

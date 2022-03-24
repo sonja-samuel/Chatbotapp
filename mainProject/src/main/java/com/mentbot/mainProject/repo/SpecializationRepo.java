@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.mentbot.mainProject.models.Specialization;
 
 @Repository
-public interface SpecializationRepo extends JpaRepository<Specialization,Long> {
+public interface SpecializationRepo extends JpaRepository<Specialization, Long> {
 
 }

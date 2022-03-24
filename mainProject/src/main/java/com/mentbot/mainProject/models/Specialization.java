@@ -11,22 +11,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name ="specialization")
+@Table(name = "specialization")
 public class Specialization {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long spec_id;
-	
+
 	private String spec_name;
-	
-//	@OneToMany
-//	private Set<DocSpecialities> docspecialities;
-	
-	 @ManyToMany(mappedBy = "specialization")
-	 private Set<Doctor> doctors = new HashSet<>();
+
+	@ManyToMany(mappedBy = "specialization")
+	private Set<Doctor> doctors = new HashSet<>();
 
 	public Long getSpec_id() {
 		return spec_id;
@@ -51,8 +47,5 @@ public class Specialization {
 	public void setDoctors(Set<Doctor> doctors) {
 		this.doctors = doctors;
 	}
-	    
-	
 
-	
 }

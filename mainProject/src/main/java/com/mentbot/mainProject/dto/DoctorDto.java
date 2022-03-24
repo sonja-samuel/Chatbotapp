@@ -7,15 +7,20 @@ import com.mentbot.mainProject.models.Doctor;
 
 public class DoctorDto {
 
-    private Long doctor_id;
-  	
-	private String prof_statement;
-	private String practicing_date;
+	private Long doctor_id;
+	private String professionalStatement;
+	private String practicingDate;
 	private UserDto user;
 	private Set<Integer> specializationIds;
-    
 
-	
+	public DoctorDto(Doctor doctor) {
+
+		this.doctor_id = doctor.getDoctor_id();
+		this.professionalStatement = doctor.getProf_statement();
+		this.practicingDate = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("ddMMyyyy"));
+		this.user = new UserDto(doctor.getUser());
+
+	}
 
 	public DoctorDto() {
 	}
@@ -28,19 +33,6 @@ public class DoctorDto {
 		this.doctor_id = doctor_id;
 	}
 
-	
-	
-
-	public DoctorDto(Doctor doctor) {
-	
-		this.doctor_id =doctor.getDoctor_id();
-		this.prof_statement =doctor.getProf_statement();
-		this.practicing_date = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("ddMMyyyy"));
-     	this.user = new UserDto(doctor.getUser());
-     	
-	}
-
-	
 	public long getId() {
 		return doctor_id;
 	}
@@ -49,21 +41,20 @@ public class DoctorDto {
 		this.doctor_id = doctor_id;
 	}
 
-	public String getProf_statement() {
-		return prof_statement;
+	public String getProfessionalStatement() {
+		return professionalStatement;
 	}
 
-	public void setProf_statement(String prof_statement) {
-		this.prof_statement = prof_statement;
+	public void setProfessionalStatement(String professionalStatement) {
+		this.professionalStatement = professionalStatement;
 	}
 
-	
-	public String getPracticing_date() {
-		return practicing_date;
+	public String getPracticingDate() {
+		return practicingDate;
 	}
 
-	public void setPracticing_date(String practicing_date) {
-		this.practicing_date = practicing_date;
+	public void setPracticingDate(String practicingDate) {
+		this.practicingDate = practicingDate;
 	}
 
 	public UserDto getUser() {
@@ -82,7 +73,4 @@ public class DoctorDto {
 		this.specializationIds = specializationIds;
 	}
 
-	
-
-	
 }

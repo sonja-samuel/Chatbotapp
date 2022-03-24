@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -21,78 +22,64 @@ import java.util.List;
 @RequestMapping("/doctors")
 public class DoctorController {
 
-    private DoctorService doctorservice;
+	private DoctorService doctorService;
 
-    private ScheduleService scheduleservice;
+	private ScheduleService scheduleService;
 
-    private UserService userService;
+	private UserService userService;
 
-    public DoctorController(DoctorService doctorservice,
-                            ScheduleService scheduleservice,
-                            UserService userService) {
-        this.doctorservice = doctorservice;
-        this.scheduleservice = scheduleservice;
-        this.userService = userService;
-    }
+	public DoctorController(DoctorService doctorService, ScheduleService scheduleService, UserService userService) {
+		this.doctorService = doctorService;
+		this.scheduleService = scheduleService;
+		this.userService = userService;
+	}
 
-    @PostMapping("/addDetails")
-    public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto, @RequestParam int userId) {
+	@PostMapping("/addDetails")
+	public ResponseEntity<?> addDetailsOfDoctor(@RequestBody DoctorDto doctordto) {
+		User user = userService.getUser();
+		if (user == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		doctorService.addDetails(doctordto, user.getId().intValue());
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
-        doctorservice.addDetails(doctordto, userId);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+	@PostMapping("/addSchedule")
+	public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto) {
 
-    //
-//	@GetMapping("/getAvailableSlots")
-//	public ResponseEntity<List<ScheduleDto>> getAvaialableSlots(){
-//		
-//			
-//		return new ResponseEntity<>(HttpStatus.OK);
-//	}
-//	@PostMapping("/addSpecialities")
-//	public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
-//	
-//    doctorservice.addSpecialities(docSpecDto);
-//	return new ResponseEntity<>(HttpStatus.OK);
-//
-//	}
+		User user = userService.getUser();
+		if (user == null) {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 
-    @PostMapping("/addSchedule")
-    public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto) {
+		Doctor doctor = doctorService.getDoctorByUser(user);
+		if (doctor == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		scheduleService.addSchedules(scheduleDto, doctor);
+		return new ResponseEntity<>(HttpStatus.OK);
 
-        User user = userService.getUser();
-        if (user == null) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
+	}
 
-        Doctor doctor = doctorservice.getDoctorByUser(user);
-        if(doctor == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        scheduleservice.addSchedules(scheduleDto, doctor);
-        return new ResponseEntity<>(HttpStatus.OK);
+	@GetMapping("/getAppointments")
+	public List<AppointmentDto> getAppointments() {
 
-    }
+		User user = userService.getUser();
+		if (user == null) {
+			return new ArrayList();
+		}
 
+		Doctor doctor = doctorService.getDoctorByUser(user);
+		if (doctor == null) {
+			return new ArrayList();
+		}
+		return doctorService.getAppointmentsByDoctorId(doctor.getDoctor_id().intValue());
+	}
 
-    @GetMapping("/getAppointments")
-    public List<AppointmentDto> getAppointments(@RequestParam int doctorId) {
+	@PostMapping("/confirmAppointment")
+	public ResponseEntity<?> confirmAppointment(@RequestParam int appointmentId, String status) {
 
-        return doctorservice.getAppointmentsByDoctorId(doctorId);
-    }
-
-    @PostMapping("/confirmAppointment")
-    public ResponseEntity<?> confirmAppointment(@RequestParam int appointmentId, String status) {
-
-        doctorservice.confirmAppointment(appointmentId, status);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-//	 @PostMapping("/addSpecialities")
-//		public ResponseEntity<?> addSpecialityForDoctor(@RequestBody DocSpecialitiesDto docSpecDto){
-//		
-//	    doctorservice.addSpecialities(docSpecDto);
-//		return new ResponseEntity<>(HttpStatus.OK);
-//
-//		}
+		doctorService.confirmAppointment(appointmentId, status);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }

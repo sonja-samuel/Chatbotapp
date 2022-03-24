@@ -2,7 +2,6 @@ package com.mentbot.mainProject.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,25 +20,26 @@ import com.mentbot.mainProject.security.services.AdminService;
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 @RequestMapping("/admin/v1")
 public class AdminController {
-	
-	@Autowired
-	AdminService adminservice;
-	
-	@GetMapping("/getusers")
-	public ResponseEntity<List<UserDto>> getAllUsersDetails(){
-		
-		List<UserDto> users=adminservice.getAllUsers();
-		return new ResponseEntity<>(users,HttpStatus.OK);
-		
+
+	private AdminService adminService;
+
+	public AdminController(AdminService adminService) {
+		this.adminService = adminService;
 	}
-	
+
+	@GetMapping("/getusers")
+	public ResponseEntity<List<UserDto>> getAllUsersDetails() {
+
+		List<UserDto> users = adminService.getAllUsers();
+		return new ResponseEntity<>(users, HttpStatus.OK);
+
+	}
+
 	@PutMapping("/updateuser")
-	public ResponseEntity<?> updateEachUser(UserDto userdto){
-		
-		adminservice.updateUser(userdto);
+	public ResponseEntity<?> updateEachUser(UserDto userdto) {
+
+		adminService.updateUser(userdto);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	
 
 }

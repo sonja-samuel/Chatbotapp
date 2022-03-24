@@ -9,8 +9,8 @@ import com.mentbot.mainProject.models.ERole;
 import com.mentbot.mainProject.models.Role;
 
 @Repository
-public interface RoleRepo extends JpaRepository<Role,Long>{
-	
+public interface RoleRepo extends JpaRepository<Role, Long> {
+
 	Optional<Role> findByName(ERole name);
 
 }

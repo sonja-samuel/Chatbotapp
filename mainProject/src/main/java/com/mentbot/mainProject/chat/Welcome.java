@@ -11,10 +11,8 @@ public class Welcome {
 	}
 
 	public Welcome(String content) {
-		
+
 		this.content = content;
 	}
-
-	
 
 }

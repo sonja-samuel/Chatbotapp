@@ -9,35 +9,33 @@ import java.time.LocalTime;
 @Table(name = "appointment")
 public class Appointment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long appointment_id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long appointment_id;
 
-    private LocalTime starttime;
-    private LocalTime endtime;
+	private LocalTime starttime;
+	private LocalTime endtime;
 
-    @Column(name = "appointment_date")
-    private LocalDate appointmentDate;
+	@Column(name = "appointment_date")
+	private LocalDate appointmentDate;
 
-    @Enumerated(EnumType.STRING)
-    @Column(length = 20)
-    private AppointmentStatus status;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private AppointmentStatus status;
 
-    
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "doctor_id")
+	private Doctor doctor;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "patient_id")
+	private Patient patient;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+	private String comments;
 
-    private String comments;
-    
-    private Long specId;
+	private Long specId;
 
-    public Long getSpecId() {
+	public Long getSpecId() {
 		return specId;
 	}
 
@@ -46,68 +44,67 @@ public class Appointment {
 	}
 
 	public Doctor getDoctor() {
-        return doctor;
-    }
+		return doctor;
+	}
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
 
-    public Patient getPatient() {
-        return patient;
-    }
+	public Patient getPatient() {
+		return patient;
+	}
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
 
-    public Long getAppointment_id() {
-        return appointment_id;
-    }
+	public Long getAppointment_id() {
+		return appointment_id;
+	}
 
-    public void setAppointment_id(Long appointment_id) {
-        this.appointment_id = appointment_id;
-    }
+	public void setAppointment_id(Long appointment_id) {
+		this.appointment_id = appointment_id;
+	}
 
-    public LocalTime getStarttime() {
-        return starttime;
-    }
+	public LocalTime getStarttime() {
+		return starttime;
+	}
 
-    public void setStarttime(LocalTime starttime) {
-        this.starttime = starttime;
-    }
+	public void setStarttime(LocalTime starttime) {
+		this.starttime = starttime;
+	}
 
-    public LocalTime getEndtime() {
-        return endtime;
-    }
+	public LocalTime getEndtime() {
+		return endtime;
+	}
 
-    public void setEndtime(LocalTime endtime) {
-        this.endtime = endtime;
-    }
+	public void setEndtime(LocalTime endtime) {
+		this.endtime = endtime;
+	}
 
-    public LocalDate getAppointmentDate() {
-        return appointmentDate;
-    }
+	public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
 
-    public void setAppointmentDate(LocalDate appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
 
-    public AppointmentStatus getStatus() {
-        return status;
-    }
+	public AppointmentStatus getStatus() {
+		return status;
+	}
 
-    public void setStatus(AppointmentStatus status) {
-        this.status = status;
-    }
+	public void setStatus(AppointmentStatus status) {
+		this.status = status;
+	}
 
-  
-    public String getComments() {
-        return comments;
-    }
+	public String getComments() {
+		return comments;
+	}
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
 
 }

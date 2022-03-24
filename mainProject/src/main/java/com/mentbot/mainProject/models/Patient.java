@@ -11,21 +11,20 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Patient_table")
+@Table(name = "Patient_table")
 public class Patient {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long patient_id;
-	
+
 	private String gender;
 	private String bloodgroup;
 	@OneToOne
 	private User user;
-	
+
 	@OneToMany
 	private List<Appointment> appointments;
 
-	
 	public String getGender() {
 		return gender;
 	}
@@ -41,8 +40,6 @@ public class Patient {
 	public void setBloodgroup(String bloodgroup) {
 		this.bloodgroup = bloodgroup;
 	}
-
-	
 
 	public long getPatient_id() {
 		return patient_id;
@@ -60,8 +57,6 @@ public class Patient {
 		this.user = user;
 	}
 
-	
-
 	public List<Appointment> getAppointments() {
 		return appointments;
 	}
@@ -69,7 +64,5 @@ public class Patient {
 	public void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
-	
-
 
 }

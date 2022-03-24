@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     @Override
-    public UserDto getUserDetails(int id) {
-        User user = userRepo.getById(Long.valueOf(id));
+    public UserDto getUserDetails(int userId) {
+        User user = userRepo.getById(Long.valueOf(userId));
         UserDto userDto = new UserDto(user);
 
         return userDto;

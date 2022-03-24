@@ -1,5 +1,7 @@
 package com.mentbot.mainProject.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mentbot.mainProject.dto.UserDto;
+import com.mentbot.mainProject.models.User;
 import com.mentbot.mainProject.security.services.UserService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -17,19 +20,22 @@ import com.mentbot.mainProject.security.services.UserService;
 @PreAuthorize("hasRole('ROLE_PATIENT') || hasRole('ROLE_DOCTOR')")
 @RequestMapping("/common")
 public class UserController {
-	
+
 	private UserService userService;
 
 	public UserController(UserService userService) {
-	
+
 		this.userService = userService;
 	}
-	
+
 	@GetMapping("/getUserDetails")
-	public UserDto getUserDetails(@RequestParam int id ){
-		
-		return userService.getUserDetails(id);
+	public UserDto getUserDetails() {
+		User user = userService.getUser();
+		if (user == null) {
+			return null;
+		}
+
+		return userService.getUserDetails(user.getId().intValue());
 	}
-	   
 
 }

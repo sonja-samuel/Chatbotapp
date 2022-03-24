@@ -9,8 +9,8 @@ import com.mentbot.mainProject.models.Patient;
 import java.util.Optional;
 
 @Repository
-public interface PatientRepo extends JpaRepository<Patient,Long> {
+public interface PatientRepo extends JpaRepository<Patient, Long> {
 
-    Optional<Patient> findByUser(User user);
+	Optional<Patient> findByUser(User user);
 
 }

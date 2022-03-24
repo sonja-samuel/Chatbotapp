@@ -20,50 +20,51 @@ import com.mentbot.mainProject.security.services.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true 
-//jsr250Enabled = true
+@EnableGlobalMethodSecurity(prePostEnabled = true
+
 )
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	@Autowired
-	UserDetailsServiceImpl userDetailsService;
-	
-	@Autowired
+
+	private UserDetailsServiceImpl userDetailsService;
+
 	private AuthEntryPointJwt unauthorizedHandler;
-	
+
+	public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
+		this.userDetailsService = userDetailsService;
+		this.unauthorizedHandler = unauthorizedHandler;
+	}
+
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
 		return new AuthTokenFilter();
 	}
-	
+
 	@Override
-	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder)throws Exception{
+	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(encoder());
 	}
-	
+
 	@Override
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
-	    return super.authenticationManagerBean();
+		return super.authenticationManagerBean();
 	}
-	
+
 	@Bean
 	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
-	protected void configure(HttpSecurity http)throws Exception{
-		http
-		.cors().and().csrf().disable()
-		.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-		
-		.authorizeRequests().antMatchers("/api/auth/**").permitAll()
-		 .antMatchers("/chatsocket/**","/app/talktochatbot/**").permitAll()
-		 
-		.anyRequest().authenticated();
-		
+	protected void configure(HttpSecurity http) throws Exception {
+		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+
+				.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+				.antMatchers("/chatsocket/**", "/app/talktochatbot/**").permitAll()
+
+				.anyRequest().authenticated();
+
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 

@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ScheduleRepo extends JpaRepository<Schedule,Long>{
-	
-//		Optional<Schedule> findAllById(Long doctorId);
+public interface ScheduleRepo extends JpaRepository<Schedule, Long> {
 
-    Optional<Schedule> findByDoctor(Doctor doctor);
+	Optional<Schedule> findByDoctor(Doctor doctor);
 }

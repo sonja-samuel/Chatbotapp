@@ -7,110 +7,108 @@ import java.time.LocalTime;
 
 public class AppointmentDto {
 
-    private Long appointmentId;
-    private LocalTime start_time;
-    private LocalTime end_time;
-    private Long doctorId;
-    private Long patientId;
-    private String status;
-    private String comments;
-    private LocalDate appointmentDate;
-    private Long specId;
-
+	private Long appointmentId;
+	private LocalTime startTime;
+	private LocalTime endTime;
+	private Long doctorId;
+	private Long patientId;
+	private String status;
+	private String comments;
+	private LocalDate appointmentDate;
+	private Long specialityId;
     private String patientName;
 
-    public Long getSpecId() {
-        return specId;
-    }
+	public AppointmentDto(Appointment appointment) {
 
-    public void setSpecId(Long specId) {
-        this.specId = specId;
-    }
+		this.appointmentId = appointment.getAppointment_id();
+		this.startTime = appointment.getStarttime();
+		this.endTime = appointment.getEndtime();
+		this.appointmentDate = appointment.getAppointmentDate();
+		this.doctorId = appointment.getDoctor().getDoctor_id();
+		this.patientId = appointment.getPatient().getPatient_id();
+		this.status = appointment.getStatus().name();
+		this.comments = appointment.getComments();
+		this.specialityId = appointment.getSpecId();
+	}
 
-    public LocalDate getAppointmentDate() {
-        return appointmentDate;
-    }
+	public LocalDate getAppointmentDate() {
+		return appointmentDate;
+	}
 
-    public void setAppointmentDate(LocalDate appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
+	public void setAppointmentDate(LocalDate appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
 
-    public AppointmentDto(Appointment appointment) {
-        super();
-        this.appointmentId = appointment.getAppointment_id();
-        this.start_time = appointment.getStarttime();
-        this.end_time = appointment.getEndtime();
-        this.appointmentDate = appointment.getAppointmentDate();
-        this.doctorId = appointment.getDoctor().getDoctor_id();
-        this.patientId = appointment.getPatient().getPatient_id();
-        this.status = appointment.getStatus().name();
-        this.comments = appointment.getComments();
-        this.specId = appointment.getSpecId();
-    }
+	public Long getAppointmentId() {
+		return appointmentId;
+	}
 
-    public Long getAppointmentId() {
-        return appointmentId;
-    }
+	public void setAppointmentId(Long appointmentId) {
+		this.appointmentId = appointmentId;
+	}
 
-    public void setAppointmentId(Long appointmentId) {
-        this.appointmentId = appointmentId;
-    }
+	public LocalTime getStartTime() {
+		return startTime;
+	}
 
-    public LocalTime getStart_time() {
-        return start_time;
-    }
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
+	}
 
-    public void setStart_time(LocalTime start_time) {
-        this.start_time = start_time;
-    }
+	public LocalTime getEndTime() {
+		return endTime;
+	}
 
-    public LocalTime getEnd_time() {
-        return end_time;
-    }
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
+	}
 
-    public void setEnd_time(LocalTime end_time) {
-        this.end_time = end_time;
-    }
+	public Long getSpecialityId() {
+		return specialityId;
+	}
 
-    public Long getDoctorId() {
-        return doctorId;
-    }
+	public void setSpecialityId(Long specialityId) {
+		this.specialityId = specialityId;
+	}
 
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
-    }
+	public Long getDoctorId() {
+		return doctorId;
+	}
 
-    public Long getPatientId() {
-        return patientId;
-    }
+	public void setDoctorId(Long doctorId) {
+		this.doctorId = doctorId;
+	}
 
-    public void setPatientId(Long patientId) {
-        this.patientId = patientId;
-    }
+	public Long getPatientId() {
+		return patientId;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public void setPatientId(Long patientId) {
+		this.patientId = patientId;
+	}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public String getComments() {
-        return comments;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
+	public String getComments() {
+		return comments;
+	}
 
-    public String getPatientName() {
-        return patientName;
-    }
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
+	public String getPatientName() {
+		return patientName;
+	}
 
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
 
 }
