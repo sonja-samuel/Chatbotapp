@@ -2,7 +2,11 @@ package com.mentbot.mainProject.controller;
 
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.dto.DoctorNameDto;
+import com.mentbot.mainProject.models.Patient;
+import com.mentbot.mainProject.models.User;
 import com.mentbot.mainProject.security.services.AppointmentService;
+import com.mentbot.mainProject.security.services.PatientService;
+import com.mentbot.mainProject.security.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,17 +25,34 @@ public class AppointmentController {
 
     private AppointmentService appointmentService;
 
-    public AppointmentController(AppointmentService appointmentService) {
+    private UserService userService;
+
+    private PatientService patientService;
+
+    public AppointmentController(AppointmentService appointmentService,
+                                 UserService userService,
+                                 PatientService patientService) {
         this.appointmentService = appointmentService;
+        this.userService = userService;
+        this.patientService = patientService;
     }
 
     @PostMapping("/addAppointment")
-    public ResponseEntity<?> addAppointment(@RequestParam String appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam int patientId, @RequestParam String startTime, @RequestParam String endTime) {
+    public ResponseEntity<?> addAppointment(@RequestParam String appointmentDate, @RequestParam int specId, @RequestParam int doctorId, @RequestParam String startTime, @RequestParam String endTime) {
+        User user = userService.getUser();
+        if(user == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        Patient patient = patientService.getPatientByUser(user);
+        if (patient == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
         LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         LocalTime startTimeLocalTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
         LocalTime endTimeLocalTime = LocalTime.parse(endTime, DateTimeFormatter.ofPattern("HH:mm"));
-        appointmentService.addAppointment(apptDate, specId, doctorId, patientId, startTimeLocalTime, endTimeLocalTime);
+        appointmentService.addAppointment(apptDate, specId, doctorId, (int) patient.getPatient_id(), startTimeLocalTime, endTimeLocalTime);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

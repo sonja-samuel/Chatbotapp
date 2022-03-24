@@ -1,24 +1,19 @@
 package com.mentbot.mainProject.controller;
 
-import java.util.List;
-
-import com.mentbot.mainProject.security.services.AppointmentService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.mentbot.mainProject.dto.AppointmentDto;
 import com.mentbot.mainProject.dto.DoctorDto;
 import com.mentbot.mainProject.dto.ScheduleDto;
+import com.mentbot.mainProject.models.Doctor;
+import com.mentbot.mainProject.models.User;
 import com.mentbot.mainProject.security.services.DoctorService;
 import com.mentbot.mainProject.security.services.ScheduleService;
+import com.mentbot.mainProject.security.services.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -30,12 +25,14 @@ public class DoctorController {
 
     private ScheduleService scheduleservice;
 
-    private AppointmentService appointmentService;
+    private UserService userService;
 
-    public DoctorController(DoctorService doctorservice, ScheduleService scheduleservice, AppointmentService appointmentService) {
+    public DoctorController(DoctorService doctorservice,
+                            ScheduleService scheduleservice,
+                            UserService userService) {
         this.doctorservice = doctorservice;
         this.scheduleservice = scheduleservice;
-        this.appointmentService = appointmentService;
+        this.userService = userService;
     }
 
     @PostMapping("/addDetails")
@@ -63,7 +60,16 @@ public class DoctorController {
     @PostMapping("/addSchedule")
     public ResponseEntity<?> addScheduleForDoctor(@RequestBody ScheduleDto scheduleDto) {
 
-        scheduleservice.addSchedules(scheduleDto);
+        User user = userService.getUser();
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
+        Doctor doctor = doctorservice.getDoctorByUser(user);
+        if(doctor == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        scheduleservice.addSchedules(scheduleDto, doctor);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }

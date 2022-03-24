@@ -26,7 +26,7 @@ public class ScheduleDetailsServiceImpl implements ScheduleService {
 
 
     @Override
-    public void addSchedules(ScheduleDto scheduleDto) {
+    public void addSchedules(ScheduleDto scheduleDto, Doctor doctor) {
         Schedule schedule = new Schedule();
       
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("H:mm");
@@ -34,7 +34,6 @@ public class ScheduleDetailsServiceImpl implements ScheduleService {
         LocalTime endTime = LocalTime.parse(scheduleDto.getEndTime(), dtf);
 //        Doctor doctor=doctorrepo.getById(Long.valueOf(doctorId));
 //        Doctor doctor = doctorrepo.getById(scheduleDto.getDoctor().getDoctor_id());
-        Doctor doctor=doctorrepo.getById(Long.valueOf(scheduleDto.getDoctorId()));
         schedule.setDoctor(doctor);
         schedule.setStartTime(startTime);
         schedule.setEndTime(endTime);

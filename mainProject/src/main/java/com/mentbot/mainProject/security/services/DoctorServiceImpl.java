@@ -111,4 +111,10 @@ public class DoctorServiceImpl implements DoctorService {
         appointment.setStatus(AppointmentStatus.valueOf(status));
         appointmentrepo.save(appointment);
     }
+
+    @Override
+    public Doctor getDoctorByUser(User user) {
+        Optional<Doctor> doctor = doctorrepo.findByUser(user);
+        return doctor.orElse(null);
+    }
 }
