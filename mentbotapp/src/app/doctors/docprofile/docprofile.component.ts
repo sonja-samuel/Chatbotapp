@@ -21,7 +21,8 @@ export class DocprofileComponent implements OnInit {
     this.doctorService.getUserDetails().subscribe(
       (value:any) => {
         this.userDetails = value;
-      }
+      },
+     
     )
   }
 
