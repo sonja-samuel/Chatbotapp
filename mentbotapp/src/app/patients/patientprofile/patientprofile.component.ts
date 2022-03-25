@@ -16,8 +16,7 @@ export class PatientprofileComponent implements OnInit {
   }
 
   getUserDetails():void{
-    const id = window.sessionStorage.getItem('auth-id');
-    this.patientService.getUserDetails(id).subscribe(
+    this.patientService.getUserDetails().subscribe(
       (value:any) => {
         this.userDetails = value;
       }

@@ -17,9 +17,9 @@
             <label class="col-md-3 col-form-label" for="select1">Select Speciality</label>
             <div class="col-md-9">
               <select id="select1" placeholder="Please select the speciality" (change)="getDoctorDetails(item.value)" formControlName="speciality" name="select1" class="form-control">
-                <option #item [value]="1">Anxiety</option>
-                <option #item [value]="2">Depression</option>
-                <option #item [value]="3">Stress</option>
+                <option #item value="1">Anxiety</option>
+                <option #item value="2">Depression</option>
+                <option #item value="3">Stress</option>
               </select>
             </div>
           </div>
@@ -38,7 +38,7 @@
               <label class="col-md-3 col-form-label" for="select1">Select Available Slot:</label>
               <div class="col-md-9">
                 <select id="select1" placeholder="Please select the available slot" (change)="getTime()" formControlName="slots" name="select1" class="form-control">
-                  <option value="{{item.startTime}} - {{item.endTime}}" *ngFor="let item of availableSlots">{{item.startTime}} - {{item.endTime}}</option>
+                  <option value="{{item.startTime}},{{item.endTime}}" *ngFor="let item of availableSlots">{{item.startTime}} - {{item.endTime}}</option>
                 </select>
               </div>
             </div>

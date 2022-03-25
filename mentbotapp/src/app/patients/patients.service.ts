@@ -22,19 +22,19 @@ export class PatientsService {
   }
 
   getAppointmentStatus(id):Observable<any>{
-    return this.http.get(`${GET_APPOINTMENT_STATUS}?patientId=${id}`);
+    return this.http.get(GET_APPOINTMENT_STATUS);
   }
 
-  addAppointment(appointmentDate, specId, doctorId, patientId, slots):Observable<any>{
-    return this.http.post(ADD_APPOINTMENT, { appointmentDate, specId, doctorId, patientId, slots});
+  addAppointment(appointmentDate:string, specId, doctorId, startTime, endTime):Observable<any>{
+    return this.http.post(ADD_APPOINTMENT, { appointmentDate, specId, doctorId, startTime, endTime});
   }
 
-  addPatientDetails(id,bloodgroup , gender):Observable<any>{
-    return this.http.post(`${ADD_DETAILS}?userId=${id}`, { bloodgroup, gender });
+  addPatientDetails(bloodgroup , gender):Observable<any>{
+    return this.http.post(ADD_DETAILS, { bloodgroup, gender });
   }
 
-  getUserDetails(id):Observable<any>{
-    return this.http.get(`${GET_USER_DETAILS}?id=${id}`);
+  getUserDetails():Observable<any>{
+    return this.http.get(GET_USER_DETAILS);
   }
 
   getDoctorName(id):any{

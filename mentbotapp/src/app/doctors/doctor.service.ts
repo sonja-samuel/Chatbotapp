@@ -29,8 +29,8 @@ export class DoctorService {
     return this.http.post(ADD_SCHEDULE, {doctorId,availableDays,startTime,endTime});
   }
 
-  addDetails(id,practicing_date,prof_statement,specializationIds):Observable<any>{
-    return this.http.post(`${ADD_DETAILS}?userId=${id}`, { practicing_date, prof_statement,specializationIds });
+  addDetails(id,practicingDate,professionalStatement,specializationIds):Observable<any>{
+    return this.http.post(`${ADD_DETAILS}?userId=${id}`, { practicingDate, professionalStatement,specializationIds });
   }
 
   getAppointmentDetails(id):Observable<any>{

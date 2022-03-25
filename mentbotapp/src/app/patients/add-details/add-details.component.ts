@@ -24,10 +24,10 @@ export class AddDetailsComponent implements OnInit {
   }
 
   addDetails(): void {
-    const id = window.sessionStorage.getItem('auth-id');
+    
     const bloodgroup = this.addDetailsForm.get(['bloodgroup'])!.value;
     const gender = this.addDetailsForm.get(['gender'])!.value;
-    this.patientService.addPatientDetails(id,bloodgroup,gender).subscribe(
+    this.patientService.addPatientDetails(bloodgroup,gender).subscribe(
         () => {
             this.toastService.openSweetAlertToast('Success','Details Added Succesfully');
         },
