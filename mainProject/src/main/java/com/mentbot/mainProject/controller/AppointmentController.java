@@ -49,7 +49,7 @@ public class AppointmentController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 
-		LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+		LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		LocalTime startTimeLocalTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
 		LocalTime endTimeLocalTime = LocalTime.parse(endTime, DateTimeFormatter.ofPattern("HH:mm"));
 		appointmentService.addAppointment(apptDate, specId, doctorId, (int) patient.getPatient_id(), startTimeLocalTime,
