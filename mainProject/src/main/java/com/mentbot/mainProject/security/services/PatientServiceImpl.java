@@ -13,30 +13,28 @@ import java.util.Optional;
 @Service
 public class PatientServiceImpl implements PatientService {
 
-    private PatientRepo patientRepo;
+	private PatientRepo patientRepo;
+	private UserRepo userRepo;
 
-    private UserRepo userRepo;
+	public PatientServiceImpl(PatientRepo patientRepo, UserRepo userRepo) {
+		this.patientRepo = patientRepo;
+		this.userRepo = userRepo;
+	}
 
-    public PatientServiceImpl(PatientRepo patientRepo, UserRepo userRepo) {
-        this.patientRepo = patientRepo;
-        this.userRepo = userRepo;
-    }
+	@Override
+	public void addDetailsForPatient(PatientDto patientDto, int userId) {
+		Patient patient = new Patient();
+		User user = userRepo.getById(Long.valueOf(userId));
+		patient.setUser(user);
+		patient.setGender(patientDto.getGender());
+		patient.setBloodgroup(patientDto.getBloodGroup());
+		patientRepo.save(patient);
 
-    @Override
-    public void addDetailsForPatient(PatientDto patientDto, int userId) {
-        Patient patient = new Patient();
-        User user = userRepo.getById(Long.valueOf(userId));
-        patient.setUser(user);
-        patient.setGender(patientDto.getGender());
-        patient.setBloodgroup(patientDto.getBloodgroup());
+	}
 
-        patientRepo.save(patient);
-
-    }
-
-    @Override
-    public Patient getPatientByUser(User user) {
-        Optional<Patient> patient = patientRepo.findByUser(user);
-        return patient.orElse(null);
-    }
+	@Override
+	public Patient getPatientByUser(User user) {
+		Optional<Patient> patient = patientRepo.findByUser(user);
+		return patient.orElse(null);
+	}
 }

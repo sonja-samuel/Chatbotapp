@@ -9,13 +9,12 @@ import java.util.List;
 
 public interface DoctorService {
 
-    void addDetails(DoctorDto doctordto, int userId);
-//	public void addSpecialities(DocSpecialitiesDto docspecdto);
+	void addDetails(DoctorDto doctordto, int userId);
 
-    List<AppointmentDto> getAppointmentsByDoctorId(int doctorId);
+	List<AppointmentDto> getAppointmentsByDoctorId(int doctorId);
 
-    void confirmAppointment(int appointmentId, String status);
+	void confirmAppointment(int appointmentId, String status);
 
-    Doctor getDoctorByUser(User user);
+	Doctor getDoctorByUser(User user);
 
 }

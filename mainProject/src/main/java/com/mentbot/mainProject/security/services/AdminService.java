@@ -9,20 +9,12 @@ import com.mentbot.mainProject.models.Doctor;
 import com.mentbot.mainProject.models.Patient;
 import com.mentbot.mainProject.models.User;
 
-
 public interface AdminService {
-	
-	
+
 	public List<UserDto> getAllUsers();
 
 	public void updateUser(UserDto userdto);
 
 	public void deleteUser(Long id);
-
-	
-	
-	
-	
-	
 
 }

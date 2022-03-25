@@ -6,8 +6,8 @@ import com.mentbot.mainProject.models.User;
 
 public interface PatientService {
 
-    void addDetailsForPatient(PatientDto patientDto, int userId);
+	void addDetailsForPatient(PatientDto patientDto, int userId);
 
-    Patient getPatientByUser(User user);
+	Patient getPatientByUser(User user);
 
 }

@@ -10,11 +10,12 @@ import java.util.List;
 
 public interface AppointmentService {
 
-    void addAppointment(LocalDate appointmentDate,int specId,int doctorId, int patientId,LocalTime startTime,LocalTime endTime);
+	void addAppointment(LocalDate appointmentDate, int specId, int doctorId, int patientId, LocalTime startTime,
+			LocalTime endTime);
 
-    List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date);
+	List<AvailableSlotsDto> getAvailableSlots(int doctorId, LocalDate date);
 
-    List<DoctorNameDto> getDoctors(int specialityId);
+	List<DoctorNameDto> getDoctors(int specialityId);
 
-    List<AppointmentDetailDto> getAppointmentsForPatient(int patientId);
+	List<AppointmentDetailDto> getAppointmentsForPatient(int patientId);
 }

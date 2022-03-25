@@ -15,10 +15,15 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+   
     private UserRepo userRepo;
+    
 
-    @Override
+    public UserServiceImpl(UserRepo userRepo) {
+		this.userRepo = userRepo;
+	}
+
+	@Override
     public UserDto getUserDetails(int userId) {
         User user = userRepo.getById(Long.valueOf(userId));
         UserDto userDto = new UserDto(user);

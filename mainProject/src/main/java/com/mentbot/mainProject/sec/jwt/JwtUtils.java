@@ -1,6 +1,5 @@
 package com.mentbot.mainProject.sec.jwt;
 
-
 import java.util.Date;
 import java.util.stream.Collectors;
 
@@ -28,17 +27,12 @@ public class JwtUtils {
 	public String generateJwtToken(Authentication authentication) {
 
 		UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
-		  String authorities = authentication.getAuthorities().stream()
-	                .map(GrantedAuthority::getAuthority)
-	                .collect(Collectors.joining(","));
-		  
-		return Jwts.builder()
-				.setSubject((userPrincipal.getUsername()))
-                .claim("roles", authorities)
-				.setIssuedAt(new Date())
-				.setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-				.signWith(SignatureAlgorithm.HS256,jwtSecret)
-				.compact();
+		String authorities = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority)
+				.collect(Collectors.joining(","));
+
+		return Jwts.builder().setSubject((userPrincipal.getUsername())).claim("roles", authorities)
+				.setIssuedAt(new Date()).setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+				.signWith(SignatureAlgorithm.HS256, jwtSecret).compact();
 	}
 
 	public String getUserNameFromJwtToken(String token) {

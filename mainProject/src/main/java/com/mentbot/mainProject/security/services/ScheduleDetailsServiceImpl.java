@@ -15,44 +15,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduleDetailsServiceImpl implements ScheduleService {
 
-    private ScheduleRepo scheduleRepo;
+	private ScheduleRepo scheduleRepo;
+	private DoctorRepo doctorRepo;
 
-    private DoctorRepo doctorrepo;
+	public ScheduleDetailsServiceImpl(ScheduleRepo scheduleRepo, DoctorRepo doctorRepo) {
+		this.scheduleRepo = scheduleRepo;
+		this.doctorRepo = doctorRepo;
+	}
 
-    public ScheduleDetailsServiceImpl(ScheduleRepo scheduleRepo, DoctorRepo doctorrepo) {
-        this.scheduleRepo = scheduleRepo;
-        this.doctorrepo = doctorrepo;
-    }
+	@Override
+	public void addSchedules(ScheduleDto scheduleDto, Doctor doctor) {
+		Schedule schedule = new Schedule();
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("H:mm");
+		LocalTime startTime = LocalTime.parse(scheduleDto.getStartTime(), dateTimeFormatter);
+		LocalTime endTime = LocalTime.parse(scheduleDto.getEndTime(), dateTimeFormatter);
+		schedule.setDoctor(doctor);
+		schedule.setStartTime(startTime);
+		schedule.setEndTime(endTime);
+		schedule.setAvailableDays(scheduleDto.getAvailableDays());
+		scheduleRepo.save(schedule);
 
-
-    @Override
-    public void addSchedules(ScheduleDto scheduleDto, Doctor doctor) {
-        Schedule schedule = new Schedule();
-      
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("H:mm");
-        LocalTime startTime = LocalTime.parse(scheduleDto.getStartTime(), dtf);
-        LocalTime endTime = LocalTime.parse(scheduleDto.getEndTime(), dtf);
-//        Doctor doctor=doctorrepo.getById(Long.valueOf(doctorId));
-//        Doctor doctor = doctorrepo.getById(scheduleDto.getDoctor().getDoctor_id());
-        schedule.setDoctor(doctor);
-        schedule.setStartTime(startTime);
-        schedule.setEndTime(endTime);
-        schedule.setAvailableDays(scheduleDto.getAvailableDays());
-        scheduleRepo.save(schedule);
-
-    }
-
-// @Override
-//	public List<ScheduleDto> getScheduleDetailsByDoctorId(Long doctorId ) {
-//		List<ScheduleDto> scheduleDtos = new ArrayList<>();
-////		scheduleRepo.findAllById(doctorId).forEach(schedules -> {
-////			ScheduleDto sdto = new ScheduleDto(schedules);
-////			scheduleDtos.add(sdto);
-////		});
-//		
-//		return scheduleDtos;
-//	}
-
+	}
 
 }
-

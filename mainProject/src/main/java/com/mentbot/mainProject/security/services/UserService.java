@@ -5,8 +5,8 @@ import com.mentbot.mainProject.models.User;
 
 public interface UserService {
 
-    UserDto getUserDetails(int id);
+	UserDto getUserDetails(int id);
 
-    User getUser();
+	User getUser();
 
 }

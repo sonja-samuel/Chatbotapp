@@ -12,21 +12,22 @@ import com.mentbot.mainProject.models.User;
 import com.mentbot.mainProject.repo.UserRepo;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService{
-	
-	@Autowired
-	UserRepo userrepo;
-	
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+	private UserRepo userRepo;
+
+	public UserDetailsServiceImpl(UserRepo userRepo) {
+		this.userRepo = userRepo;
+	}
 
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-	
-	    User user=userrepo.findByUsername(username)
-	    		.orElseThrow(() -> new UsernameNotFoundException("User not Found with username" + username));
-	    
-	    return UserDetailsImpl.build(user);
+
+		User user = userRepo.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("User not Found with username" + username));
+
+		return UserDetailsImpl.build(user);
 	}
 
 }
-
