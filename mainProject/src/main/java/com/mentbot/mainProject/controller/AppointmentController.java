@@ -1,5 +1,6 @@
 package com.mentbot.mainProject.controller;
 
+import com.mentbot.mainProject.dto.AddAppointmentDto;
 import com.mentbot.mainProject.dto.AvailableSlotsDto;
 import com.mentbot.mainProject.dto.DoctorNameDto;
 import com.mentbot.mainProject.models.Patient;
@@ -23,49 +24,48 @@ import java.util.List;
 @RequestMapping("/appointment")
 public class AppointmentController {
 
-	private AppointmentService appointmentService;
+    private AppointmentService appointmentService;
 
-	private UserService userService;
+    private UserService userService;
 
-	private PatientService patientService;
+    private PatientService patientService;
 
-	public AppointmentController(AppointmentService appointmentService, UserService userService,
-			PatientService patientService) {
-		this.appointmentService = appointmentService;
-		this.userService = userService;
-		this.patientService = patientService;
-	}
+    public AppointmentController(AppointmentService appointmentService, UserService userService,
+                                 PatientService patientService) {
+        this.appointmentService = appointmentService;
+        this.userService = userService;
+        this.patientService = patientService;
+    }
 
-	@PostMapping("/addAppointment")
-	public ResponseEntity<?> addAppointment(@RequestParam String appointmentDate, @RequestParam int specId,
-			@RequestParam int doctorId, @RequestParam String startTime, @RequestParam String endTime) {
-		User user = userService.getUser();
-		if (user == null) {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+    @PostMapping("/addAppointment")
+    public ResponseEntity<?> addAppointment(@RequestBody AddAppointmentDto addAppointmentDto) {
+        User user = userService.getUser();
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
 
-		Patient patient = patientService.getPatientByUser(user);
-		if (patient == null) {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
+        Patient patient = patientService.getPatientByUser(user);
+        if (patient == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
-		LocalDate apptDate = LocalDate.parse(appointmentDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-		LocalTime startTimeLocalTime = LocalTime.parse(startTime, DateTimeFormatter.ofPattern("HH:mm"));
-		LocalTime endTimeLocalTime = LocalTime.parse(endTime, DateTimeFormatter.ofPattern("HH:mm"));
-		appointmentService.addAppointment(apptDate, specId, doctorId, (int) patient.getPatient_id(), startTimeLocalTime,
-				endTimeLocalTime);
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+        LocalDate apptDate = LocalDate.parse(addAppointmentDto.getAppointmentDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalTime startTimeLocalTime = LocalTime.parse(addAppointmentDto.getStartTime(), DateTimeFormatter.ofPattern("HH:mm"));
+        LocalTime endTimeLocalTime = LocalTime.parse(addAppointmentDto.getEndTime(), DateTimeFormatter.ofPattern("HH:mm"));
+        appointmentService.addAppointment(apptDate, addAppointmentDto.getSpecId(), addAppointmentDto.getDoctorId(), (int) patient.getPatient_id(), startTimeLocalTime,
+                endTimeLocalTime);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-	@GetMapping("/getAvailableSlots")
-	public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
-		return appointmentService.getAvailableSlots(doctorId,
-				LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-	}
+    @GetMapping("/getAvailableSlots")
+    public List<AvailableSlotsDto> getAvailableSlots(@RequestParam int doctorId, @RequestParam String date) {
+        return appointmentService.getAvailableSlots(doctorId,
+                LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+    }
 
-	@GetMapping("/getDoctors")
-	public List<DoctorNameDto> getDoctors(@RequestParam int specialityId) {
-		return appointmentService.getDoctors(specialityId);
-	}
+    @GetMapping("/getDoctors")
+    public List<DoctorNameDto> getDoctors(@RequestParam int specialityId) {
+        return appointmentService.getDoctors(specialityId);
+    }
 
 }
