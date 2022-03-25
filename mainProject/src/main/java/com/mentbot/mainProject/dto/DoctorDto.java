@@ -17,7 +17,7 @@ public class DoctorDto {
 
 		this.doctor_id = doctor.getDoctor_id();
 		this.professionalStatement = doctor.getProf_statement();
-		this.practicingDate = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("ddMMyyyy"));
+		this.practicingDate = doctor.getPracticing_date().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		this.user = new UserDto(doctor.getUser());
 
 	}
