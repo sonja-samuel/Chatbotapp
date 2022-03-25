@@ -16,8 +16,8 @@ export class DoctorsDashboardComponent implements OnInit {
   }
 
   getAppointmentDetails():void{
-    const id = window.sessionStorage.getItem('auth-id');
-    this.doctorService.getAppointmentDetails(id).subscribe(
+   
+    this.doctorService.getAppointmentDetails().subscribe(
       (value:any) => {
         this.appointmentDetails = value;
       }
@@ -30,7 +30,7 @@ export class DoctorsDashboardComponent implements OnInit {
   }
 
   cancelAppointment(id):void{
-    const status = 'REJECTED'
+    const status = 'CANCELED'
     this.doctorService.confirmAppointment(status,id);
   }
 

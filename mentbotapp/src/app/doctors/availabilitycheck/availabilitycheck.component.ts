@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { ToastService } from "../../_services/toast.service";
 import { DoctorService } from "../doctor.service";
 
 @Component({
@@ -20,6 +21,7 @@ export class AvailabilitycheckComponent implements OnInit {
   time: Date = new Date();
 
   constructor(
+    private toastService : ToastService,
     private doctorService: DoctorService, 
     private fb: FormBuilder
   ) {}
@@ -27,7 +29,7 @@ export class AvailabilitycheckComponent implements OnInit {
   ngOnInit(): void {}
 
   addSchedule():void{
-    const id = window.sessionStorage.getItem('auth-id');
+   
     const daysAvailable = this.addScheduleForm.get(['daysAvailable'])!.value;
     this.daysAvailable = JSON.stringify(daysAvailable);
     this.daysAvailable =  this.daysAvailable.replaceAll('"','');
@@ -35,6 +37,11 @@ export class AvailabilitycheckComponent implements OnInit {
     this.daysAvailable=this.daysAvailable.replaceAll(']', '')
     const startTime = this.addScheduleForm.get(['startTime'])!.value;
     const endTime = this.addScheduleForm.get(['endTime'])!.value;
-    this.doctorService.addSchedule(id,this.daysAvailable,startTime,endTime).subscribe();
+    this.doctorService.addSchedule(this.daysAvailable,startTime,endTime).subscribe( () => {
+        this.toastService.openSweetAlertToast('Success','Schedule Added Succesfully');
+      },
+      () => {
+        this.toastService.openSweetAlertToast('Error','Something went wrong!');
+      });
   }
 }

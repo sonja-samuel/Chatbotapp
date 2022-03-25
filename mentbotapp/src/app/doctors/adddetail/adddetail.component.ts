@@ -26,11 +26,11 @@ export class AdddetailComponent implements OnInit {
   }
 
   addDetails():void {
-    const id = window.sessionStorage.getItem('auth-id');
+    
     const practingDate = this.addDetailsForm.get(['practingDate'])!.value;
     const professionalStatement = this.addDetailsForm.get(['professionalStatement'])!.value;
     const specializationIds = this.addDetailsForm.get(['specializationIds'])!.value;
-    this.doctorService.addDetails(id,practingDate,professionalStatement,specializationIds).subscribe(
+    this.doctorService.addDetails(practingDate,professionalStatement,specializationIds).subscribe(
       () => {
         this.toastService.openSweetAlertToast('Success','Details Added Succesfully');
       },

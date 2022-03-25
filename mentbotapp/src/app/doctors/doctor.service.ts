@@ -17,24 +17,21 @@ export class DoctorService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  getUserDetails(id):Observable<any>{
-    return this.http.get(`${GET_USER_DETAILS}?id=${id}`);
+  getUserDetails():Observable<any>{
+    return this.http.get(GET_USER_DETAILS);
   }
 
-//   addSpeciality(speciality):Observable<any>{
-//     return this.http.post(ADD_SPECIALITY, {speciality});
-//   }
 
-  addSchedule(doctorId,availableDays,startTime,endTime):Observable<any>{
-    return this.http.post(ADD_SCHEDULE, {doctorId,availableDays,startTime,endTime});
+  addSchedule(availableDays,startTime,endTime):Observable<any>{
+    return this.http.post(ADD_SCHEDULE, {availableDays,startTime,endTime});
   }
 
-  addDetails(id,practicingDate,professionalStatement,specializationIds):Observable<any>{
-    return this.http.post(`${ADD_DETAILS}?userId=${id}`, { practicingDate, professionalStatement,specializationIds });
+  addDetails(practicingDate,professionalStatement,specializationIds):Observable<any>{
+    return this.http.post(ADD_DETAILS, {practicingDate, professionalStatement,specializationIds });
   }
 
-  getAppointmentDetails(id):Observable<any>{
-    return this.http.get(`${GET_APPOINTMENT_DETAILS}?doctorId=${id}`)
+  getAppointmentDetails():Observable<any>{
+    return this.http.get(GET_APPOINTMENT_DETAILS)
   }
 
   confirmAppointment(status,id):Observable<any>{
