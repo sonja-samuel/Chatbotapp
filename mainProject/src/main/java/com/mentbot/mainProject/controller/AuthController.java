@@ -99,7 +99,11 @@ public class AuthController {
             roles.add(patientRole);
         } else {
             for (String roleName : strRoles) {
-                Role role = roleRepo.findByName(ERole.getERole(roleName)).orElseThrow(() -> new RuntimeException("Error: Role is not found"));
+                ERole userRole = ERole.getERole(roleName);
+                if (userRole == null) {
+                    throw new RuntimeException("Error Role " + roleName + " is not found");
+                }
+                Role role = roleRepo.findByName(ERole.getERole(roleName)).orElseThrow(() -> new RuntimeException("Error: Role " + roleName + "is not found"));
                 roles.add(role);
             }
         }
