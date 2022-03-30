@@ -47,6 +47,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointment.setStarttime(startTime);
 		appointment.setEndtime(endTime);
 		appointment.setSpecId((long) specId);
+		appointment.setStatus(AppointmentStatus.BOOKED);
 		appointmentRepo.save(appointment);
 
 	}

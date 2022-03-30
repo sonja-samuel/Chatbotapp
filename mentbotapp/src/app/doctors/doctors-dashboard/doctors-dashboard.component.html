@@ -19,10 +19,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of appointmentDetails">
-                <td>{{item.patientname}}</td>
-                <td>{{item.appointmentdate}}</td>
-                <td>{{item.starttime}}</td>
-                <td>{{item.endtime}}</td>
+                <td>{{item.patientName}}</td>
+                <td>{{item.appointmentDate}}</td>
+                <td>{{item.startTime}}</td>
+                <td>{{item.endTime}}</td>
                 <td>
                   <span>
                     <button type="Accept" (click)="acceptAppointment(item.appointmentId)" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>Accept</button>
