@@ -50,9 +50,9 @@ export class AddappointmentComponent implements OnInit {
       });
   }
 
-  getDoctorDetails(event:number): void {
-    this.specId = event;
-    this.patientService.getDoctorName(event).subscribe((value: any) => {
+  getDoctorDetails(): void {
+    this.specId = this.addAppointmentForm.get(["speciality"])!.value;
+    this.patientService.getDoctorName(this.specId).subscribe((value: any) => {
       this.isSpecialitySelected = true;
       this.doctorNames = value;
     });

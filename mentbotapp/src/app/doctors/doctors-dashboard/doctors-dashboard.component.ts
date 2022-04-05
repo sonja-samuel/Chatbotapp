@@ -26,12 +26,13 @@ export class DoctorsDashboardComponent implements OnInit {
 
   acceptAppointment(id):void{
     const status = 'CONFIRMED'
-    this.doctorService.confirmAppointment(status,id);
+    console.log(status);
+    this.doctorService.confirmAppointment(status,id).subscribe();
   }
 
   cancelAppointment(id):void{
     const status = 'CANCELED'
-    this.doctorService.confirmAppointment(status,id);
+    this.doctorService.confirmAppointment(status,id).subscribe();
   }
 
 }

@@ -40,7 +40,7 @@ export class AuthService {
     state: string,
     country: string,
     pincode: number,
-    role: string
+    role: any
   ) {
     return this.http.post(
       AUTH_API + "signup",

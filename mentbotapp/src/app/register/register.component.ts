@@ -25,6 +25,9 @@ export class RegisterComponent {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = "";
+  roles=[];
+
+
 
   constructor(
       private authService: AuthService, 
@@ -44,7 +47,8 @@ export class RegisterComponent {
     const country = this.form.get(['country'])!.value;
     const pincode = this.form.get(['pincode'])!.value;
     const role = this.form.get(['role'])!.value;
-    this.authService.register(firstname,lastname,username,email,password,phonenum,addressline,city,state,country,pincode,role)
+    this.roles.push(role);
+    this.authService.register(firstname,lastname,username,email,password,phonenum,addressline,city,state,country,pincode,this.roles)
       .subscribe(
         (data) => {
           console.log(data);
